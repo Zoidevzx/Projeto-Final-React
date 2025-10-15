@@ -7,7 +7,7 @@
 }
 
 .button_home{
-  @apply text-xs flex-center flex-rows gap-1 w-27 h-11 rounded-3xl p-1 border-1 border-b-gray-500
+  @apply text-xs flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 border-1 border-b-gray-500
 }
 
 body {
