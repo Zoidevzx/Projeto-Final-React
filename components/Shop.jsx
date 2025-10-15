@@ -5,16 +5,16 @@ import { useRouter } from "next/navigation";
 export default function Shop() {
   return (
     <div className="flex-center">
-      <div className="container grid grid-rows-[3fr_5fr_4fr]">
-        <div className='flex-center flex-col gap-1.2'>
+      <div className="container grid grid-rows-[2fr_13fr]">
+        <div className='flex-center flex-col '>
           <h1 className='m-0 text-2xl'>Shop-Sidebar</h1>
           <p className='m-0 text-#D3D3D3 text-sm'>Home / Shop-Sidebar</p>
         </div>
 
-        <div className="grid grid-flow-col grid-cols-[1fr_8fr] m-0_5 gap-x-10">
+        <div className="grid grid-flow-col grid-cols-[1fr_5fr] m-0_5 gap-x-10 ">
 
-          <div className='grid grid-flow-row grid-rows-auto gap-5'>
-            <div className='flex h-7.25'>
+          <div className='grid grid-flow-row grid-rows-4 grid-rows-[1fr_5fr_5fr_5fr] gap-5 h-50'>
+            <div className='flex '>
               <form>
                 <input type="text" placeholder='Search' className='border-1 border-black p-2 h-10' />
               </form>
@@ -33,7 +33,7 @@ export default function Shop() {
             </div>
 
             <div>
-              <h3 className='text-4 underline '>Tags</h3>
+              <h3 className='text-4 underline'>Tags</h3>
               <p className='text-3'>Casual Wear</p>
               <p className='ext-3'>Street Style</p>
               <p className='text-3'>Oversized Fit</p>
@@ -52,19 +52,60 @@ export default function Shop() {
 
           </div>
 
-          <div className=''>
-            <div className='flex justify-between h-11'>
+          <div className='grid grid-cols-3 grid-rows-5 grid-flow-row grid-rows-[1fr_14fr_14fr_14fr_3fr] grid-cols-auto gap-4 '>
+            <div className='flex justify-between col-span-3'>
               <h2 className='text-zinc-500'>Showing 1-9 of 55 results</h2>
-              <button className='border-1 p-2 border-stone-300'>
+              <button className='border-1 p-2 border-stone-300 hover:cursor-pointer'>
                 Default sorting
               </button>
             </div>
             <div>
-
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
+            </div>
+            <div>
+              <img src="item1_Home.png" alt="imagem 1" />
+              <h1 className='text-lg'>Black Hoodie</h1>
+              <p>$95.00</p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
