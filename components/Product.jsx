@@ -3,23 +3,23 @@ import { Star, Heart } from 'lucide-react';
 export default function Product() {
   return (
     <div className="flex-center">  
-      <div className="container grid grid-rows-[1fr_2fr_4fr_4fr]">
+      <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
         
           <div className="flex-center flex-col">
             <h1 className="text-4xl items-bold">Single-Product</h1>
             <p className="text-sm">home/single-product</p>
           </div>
 
-          <div className="grid grid-flow-col grid-cols-[1fr_3fr_3fr] gap-5">
+          <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
 
-            <div className="grid grid-flow-row grid-rows-auto grid-cols-auto gap-3">
+            <div className="grid grid-flow-row grid-rows-auto grid-cols-auto h-[90%] gap-3">
               <img src="item1_Home.png" alt="" />
               <img src="item2_Home.png" alt="" />
-              <img src="item3_Home.png" alt="" />
+              <img src="item2_Home.png" alt="" />
             </div>
             
             <div className="w-full ">
-              <img src="item1_Home.png" alt="" className='h-full object-cover' />
+              <img src="item1_Home.png" alt="" className='h-[90%] w-full object-cover' />
             </div>
 
             <div className="flex gap-3 flex-col">
@@ -58,7 +58,7 @@ export default function Product() {
             </div>
           </div>
 
-          <div className="flex flex-col ">
+          <div className="flex flex-col gap-2 ">
               <div className="grid grid-flow-col grid-cols-auto border-b-1 border-stone-400">
                 <div></div>
                 <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
@@ -76,24 +76,28 @@ export default function Product() {
                 <div></div>
               </div>
 
-              <div className="text">
+              <div className="flex flex-col gap-2">
 
                 <h1 className='font-bold text-lg'>Product Descripition</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem deserunt cumque tenetur quidem fugiat alias dicta ea vitae quaerat, suscipit quam beatae sit natus quia molestiae praesentium distinctio nesciunt error temporibus voluptate rerum repellat? Cupiditate repellat totam aut quibusdam eligendi assumenda consequatur. Exercitationem, sequi! Eaque laudantium commodi incidunt dicta ipsa?</p>
-                <ul className='list-disc'>
+                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem deserunt cumque tenetur quidem fugiat alias dicta ea vitae quaerat, suscipit quam beatae sit natus quia molestiae praesentium distinctio nesciunt error temporibus voluptate rerum repellat? Cupiditate repellat totam aut quibusdam eligendi assumenda consequatur. Exercitationem, sequi! Eaque laudantium commodi incidunt dicta ipsa?</p>
+                <ul className='list-disc list-inside ml-4 text-3'>
                   <li>Lorem ipsum dolor sit amet.</li>
                   <li>Lorem ipsum dolor sit amet.</li>
                   <li>Lorem ipsum dolor sit amet.</li>
                 </ul>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem nisi blanditiis saepe veritatis possimus facilis distinctio quidem dolor sunt hic iure atque repudiandae velit accusamus doloribus consectetur dignissimos error nesciunt architecto, quis quaerat dolore eligendi numquam? Unde, ea recusandae? Tempore, accusantium? Suscipit rerum eos laboriosam neque iusto voluptatem. At, et.</p>
+                <p className='text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem nisi blanditiis saepe veritatis possimus facilis distinctio quidem dolor sunt hic iure atque repudiandae velit accusamus doloribus consectetur dignissimos error nesciunt architecto, quis quaerat dolore eligendi numquam? Unde, ea recusandae? Tempore, accusantium? Suscipit rerum eos laboriosam neque iusto voluptatem. At, et.</p>
 
               </div>
           </div>
 
-          <div className="get">
-            <h1>Get offers & discounts by subscribing us</h1>
-            <input type="email" placeholder='Enter Your Email Address' />
-            <button className='bg-black text-white'>Subscribe Now</button>
+          <div className="flex-center ">
+            <form action="" className='flex flex-col w-[50%] gap-1'>
+
+              <h1 className='text-4xl font-bold text-center mb-3'>Get offers & discounts by subscribing us</h1>
+              <input className='italic rounded-sm w-full h-12 pl-6 border-1 border-neutral-500' type="email" placeholder='Enter Your Email Address' />
+              <button className='bg-black text-white rounded-sm  w-full h-12'>Subscribe Now</button>
+
+            </form>
           </div>
 
       </div>  
