@@ -14,13 +14,13 @@ export default function Home() {
 
         <div className="flex relative">
 
-          <div className='flex flex-col justify-center z-1 gap-2'>
+          <div className='flex flex-col justify-center z-1 gap-2 '>
             <h1 className='m-[0] font-bold text-4xl'>Classic Cotton T-Shirt</h1>
             <p className='text-[10px] w-[367.27px]'>Expenence ultimate comfart with or premum cotton t-shrts Perfect for everyday wear, they provide a stylish and relaxed fit for ann acasion</p>
             <button onClick={IrparaShop} className='bg-[#9F1D1D] rounded-[40px] w-30 h-[40px] text-white border-none flex-center text-xs'>Shop Now <ChevronRight size={12} /></button>
           </div>
-          <div className='absolute right-[0px]'>
-            <img src="Imagem_Home_Principal.webp" alt="" className='h-110 w-110 object-cover ' />
+          <div className='absolute h-full w-75% right-[0px]'>
+            <img src="Imagem_Home_Principal.webp" alt="" className='h-full w-full  object-cover ' />
           </div>
 
         </div>
