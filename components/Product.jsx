@@ -18,8 +18,8 @@ export default function Product() {
               <img src="item3_Home.png" alt="" />
             </div>
             
-            <div className="w-full object-cover">
-              <img src="item1_Home.png" alt="" />
+            <div className="w-full ">
+              <img src="item1_Home.png" alt="" className='h-full object-cover' />
             </div>
 
             <div className="flex gap-3 flex-col">
@@ -58,15 +58,45 @@ export default function Product() {
             </div>
           </div>
 
-          <div className="desc">
+          <div className="flex flex-col ">
+              <div className="grid grid-flow-col grid-cols-auto border-b-1 border-stone-400">
+                <div></div>
+                <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
+                  <button >Description</button>
+                </div>
+                <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
+                  <button >Additional Information</button>
+                </div>
+                <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
+                  <button>Shopping & Return</button>
+                </div>
+                <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
+                  <button >Reviews</button>
+                </div>
+                <div></div>
+              </div>
 
+              <div className="text">
+
+                <h1 className='font-bold text-lg'>Product Descripition</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem deserunt cumque tenetur quidem fugiat alias dicta ea vitae quaerat, suscipit quam beatae sit natus quia molestiae praesentium distinctio nesciunt error temporibus voluptate rerum repellat? Cupiditate repellat totam aut quibusdam eligendi assumenda consequatur. Exercitationem, sequi! Eaque laudantium commodi incidunt dicta ipsa?</p>
+                <ul className='list-disc'>
+                  <li>Lorem ipsum dolor sit amet.</li>
+                  <li>Lorem ipsum dolor sit amet.</li>
+                  <li>Lorem ipsum dolor sit amet.</li>
+                </ul>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem nisi blanditiis saepe veritatis possimus facilis distinctio quidem dolor sunt hic iure atque repudiandae velit accusamus doloribus consectetur dignissimos error nesciunt architecto, quis quaerat dolore eligendi numquam? Unde, ea recusandae? Tempore, accusantium? Suscipit rerum eos laboriosam neque iusto voluptatem. At, et.</p>
+
+              </div>
           </div>
 
           <div className="get">
-
+            <h1>Get offers & discounts by subscribing us</h1>
+            <input type="email" placeholder='Enter Your Email Address' />
+            <button className='bg-black text-white'>Subscribe Now</button>
           </div>
 
       </div>  
-    </div>
+    </div>  
   );
 }
