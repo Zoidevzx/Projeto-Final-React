@@ -1,5 +1,5 @@
 'use client'
-import { User, Search, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import { useRouter } from "next/navigation";
 
 export default function Shop() {
@@ -13,12 +13,12 @@ export default function Shop() {
 
         <div className="grid grid-flow-col grid-cols-[1fr_5fr] m-0_5 gap-x-10 ">
 
-          <div className='grid grid-flow-row grid-rows-4 grid-rows-[1fr_5fr_5fr_5fr] gap-5 h-50'>
+          <div className='grid grid-flow-row grid-rows-[1fr_5fr_5fr_5fr] gap-5 h-50'>
             <div className='flex '>
               <form>
-                <input type="text" placeholder='Search' className='border-1 border-black p-2 h-10' />
+                <input type="text" placeholder='Search' className='border-1 border-black p-1 h-10' />
               </form>
-              <button className='bg-[#704204] p-2 flex items-center justify-center h-10 w-10'>
+              <button className='bg-[#704204] p-1 flex items-center justify-center h-10 w-10'>
                 <Search size={14} color='white' />
               </button>
             </div>
@@ -52,10 +52,10 @@ export default function Shop() {
 
           </div>
 
-          <div className='grid grid-cols-3 grid-rows-5 grid-flow-row grid-rows-[1fr_14fr_14fr_14fr_3fr] grid-cols-auto gap-4 '>
+          <div className='grid grid-cols-3 grid-flow-row grid-rows-[1fr_14fr_14fr_14fr_2fr] grid-cols-auto gap-4 '>
             <div className='flex justify-between col-span-3'>
               <h2 className='text-zinc-500'>Showing 1-9 of 55 results</h2>
-              <button className='border-1 p-2 border-stone-300 hover:cursor-pointer'>
+              <button className='border-1 p-1 border-stone-300 hover:cursor-pointer'>
                 Default sorting
               </button>
             </div>
@@ -104,6 +104,18 @@ export default function Shop() {
               <h1 className='text-lg'>Black Hoodie</h1>
               <p>$95.00</p>
             </div>
+            <div className='flex items-start justify-center col-span-3'>
+              <div className='grid grid-flow-col grid-cols-7'>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'><ArrowBigLeft /></button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>1</button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>2</button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>3</button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>4 </button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>5</button>
+                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'><ArrowBigRight /></button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
