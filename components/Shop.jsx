@@ -6,9 +6,9 @@ export default function Shop() {
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[2fr_13fr]">
-        <div className='flex-center flex-col '>
-          <h1 className='m-0 text-2xl'>Shop-Sidebar</h1>
-          <p className='m-0 text-#D3D3D3 text-sm'>Home / Shop-Sidebar</p>
+        <div className='flex-center flex-col gap-3'>
+          <h1 className='m-0 text-5xl'>Shop-Sidebar</h1>
+          <p className='m-0 text-gray-300 text-base'>Home / Shop-Sidebar</p>
         </div>
 
         <div className="grid grid-flow-col grid-cols-[1fr_5fr] m-0_5 gap-x-10 ">
@@ -52,10 +52,10 @@ export default function Shop() {
 
           </div>
 
-          <div className='grid grid-cols-3 grid-flow-row grid-rows-[1fr_14fr_14fr_14fr_2fr] grid-cols-auto gap-4 '>
+          <div className='grid grid-cols-3 grid-flow-row grid-rows-[1fr_7fr_7fr_7fr_2fr] grid-cols-auto gap-4 '>
             <div className='flex justify-between col-span-3'>
               <h2 className='text-zinc-500'>Showing 1-9 of 55 results</h2>
-              <button className='border-1 p-1 border-stone-300 hover:cursor-pointer'>
+              <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-12'>
                 Default sorting
               </button>
             </div>
@@ -105,14 +105,14 @@ export default function Shop() {
               <p>$95.00</p>
             </div>
             <div className='flex items-start justify-center col-span-3'>
-              <div className='grid grid-flow-col grid-cols-7'>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'><ArrowBigLeft /></button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>1</button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>2</button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>3</button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>4 </button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'>5</button>
-                <button className='border border-black cursor-pointer hover:bg-[#9f1d1d] hover:text-sky-100 hover:border-black'><ArrowBigRight /></button>
+              <div className='grid grid-flow-col grid-cols-7 h-8 w-48'>
+                <button className='flex justify-center items-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'><ArrowBigLeft strokeWidth={2} size={18} /></button>
+                <button className='border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'>1</button>
+                <button className='border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'>2</button>
+                <button className='border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'>3</button>
+                <button className='border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'>4 </button>
+                <button className='border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'>5</button>
+                <button className='flex justify-center items-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'><ArrowBigRight strokeWidth={2} size={18} /></button>
               </div>
             </div>
 
