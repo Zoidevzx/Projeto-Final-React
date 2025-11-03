@@ -1,0 +1,29 @@
+CREATE TABLE product(
+	ID SERIAL PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	description VARCHAR(255) NOT NULL,
+	price DECIMAl(10,2) NOT NULL,
+	image_url VARCHAR(255) NOT NULL,
+	category VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE stock(
+	ID SERIAL PRIMARY KEY,
+	quantitty INT NOT NULL,
+	ID_product INT NOT NULL,
+	FOREIGN KEY(ID_product) REFERENCES product(ID)
+);
+
+CREATE TABLE cart(
+	ID SERIAL PRIMARY KEY,
+	quantity INT NOT NULL,
+	session_id INT NOT NULL
+);
+
+CREATE TABLE sale(
+	ID SERIAL PRIMARY KEY,
+	ID_product INT NOT NULL,
+	FOREIGN KEY(ID_product) REFERENCES product(ID),
+	ID_stock INT NOT NULL,
+	FOREIGN KEY(ID_stock) REFERENCES stock(ID)
+)
