@@ -64,7 +64,7 @@ export default function Home() {
           <p className='text-center text-xs w-125 '>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti soluta atque obcaecati voluptate repellat odio corrupti facilis hic error possimus, eaque sapiente repudiandae unde, nulla iste quod. Dolor eveniet officia, reiciendis impedit, illum ut commodi quae odit ipsum non facilis.
           </p>
-          <button onClick={IrparaAbout} className='text-xs flex-center felx-col border-1 border-neutral-500 p-2 rounded-2xl'>About Us <ChevronRight size={12} /></button>
+          <button onClick={IrparaAbout} className='text-xs flex-center felx-col border-1 border-neutral-500 p-2 rounded-2xl cursor-pointer'>About Us <ChevronRight size={12} /></button>
           <div className='w-full flex justify-end'>
             <button className='text-white text-xs bg-blue-800 flex-center gap-1 felx-rows rounded-2xl p-2'><ShoppingCart size={12} /> Get it Now</button>
           </div>
