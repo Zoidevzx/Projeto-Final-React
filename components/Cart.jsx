@@ -1,4 +1,6 @@
 'use client'
+import { CircleX } from "lucide-react"
+
 export default function Cart() {
   return (
     <div className="flex-center">
@@ -10,12 +12,69 @@ export default function Cart() {
 
         <div className="grid grid-flow-col grid-cols-[4fr_2fr]">
 
-
-          <div className="grid grid-flow-row grid-rows-[1fr_3fr_3fr]">
-            <div className="grid grid-flow-col">
+          <div className="grid grid-flow-row h-50">
+            <div className="grid grid-cols-3 grid-row h-10">
               <p>Product</p>
               <p>Quantity</p>
               <p>Subtotal</p>
+              <div className="w-200 border-b border-gray-300 mb-2"></div>
+            </div>
+            <div className="grid grif-flow-col grid-cols-[1fr_2fr_1fr_1fr] gap-4">
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+
             </div>
           </div>
 
