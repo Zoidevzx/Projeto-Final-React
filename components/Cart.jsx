@@ -1,5 +1,6 @@
 'use client'
 import { CircleX } from "lucide-react"
+import Link from 'next/link';
 
 export default function Cart() {
   return (
@@ -18,26 +19,7 @@ export default function Cart() {
               <p>Quantity</p>
               <p>Subtotal</p>
             </div>
-            <div className="grid grid-flow-row grid-cols-[1fr_2fr_1fr_1fr] gap-4">
-              <div className="flex-center">
-                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
-                <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
-                  <p>$95.00</p>
-                </div>
-              </div>
-              <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
-                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
-              </div>
-              <div className="flex-center">
-                <p>$200.00</p>
-              </div>
-              <div className="flex-center">
-                <CircleX />
-                <div className="border-b border-gray-300 mb-2"></div>
-              </div>
+            <div className="grid grid-cols-[1fr_2fr_1fr_1fr] gap-4 h-80 overflow-y-auto">
               <div className="flex-center">
                 <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
                 <div>
@@ -56,6 +38,64 @@ export default function Cart() {
               <div className="flex-center">
                 <CircleX />
               </div>
+              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <div className="flex-center">
+                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX />
+              </div>
+              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
             </div>
           </div>
 
@@ -73,16 +113,53 @@ export default function Cart() {
             </div>
             <div className="flex items-center h-50">
               <div className="grid grid-flow-row grid-cols-2 gap-x-5 gap-y-4 w-full">
-                <button className="text-center border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Update Cart</button>
-                <button className="text-center border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Continue Shopping</button>
+                <button className="text-center whitespace-nowrap border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Update Cart</button>
+                <button className="text-center whitespace-nowrap border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Continue Shopping</button>
                 <div className="col-span-2">
                   <button className="w-full text-center border-4 border-indigo-500/100 p-1 cursor-pointer">Proceed to checkout</button>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
+        <div className="flex-center">
+          <div className="flex flex-col">
+            <h1 className="text-4xl font-bold text-center mb-3 text-wrap">Get Offers & discounts by subscribing us</h1>
+            <form className="flex flex-col gap-2" action="">
+              <input className='italic rounded-sm w-full h-12 pl-6 border-1 border-neutral-500' type="email" placeholder='Enter Your Email Address' />
+              <button className='bg-black text-white rounded-sm  w-full h-12'>Subscribe Now</button>
+            </form>
+          </div>
+        </div>
+        <footer className="grid grid-flow-col gap-10">
+          <div className="flex flex-col gap-y-4">
+            <h1 className="text-xl font-bold">Urban</h1>
+            <p className="text-wrap w-80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, facere expedita quibusdam est aspernatur ex error! Debitis autem dicta eveniet dolorum magnam nulla sequi ducimus iste velit. </p>
+            <p className="text-wrap">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <h1 className="text-lg font-bold">Quick Links</h1>
+            <Link href={'/'}>Home</Link>
+            <Link href={'/aboutus'}>About</Link>
+            <p>Services</p>
+            <p>Blogs</p>
+            <p>Contacts</p>
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <h1 className="text-lg font-bold">Social</h1>
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Pinterest</p>
+            <p>Instagram</p>
+            <p>Youtube</p>
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <h1 className="text-lg font-bold">Contact Us</h1>
+            <p className="text-wrap">+ 12(0) 34 56 78 910</p>
+            <p className="text-wrap">jean.carlos@estudante.ifgoiano.edu.br</p>
+            <p>Lorem ipsum dolor sit.</p>
+          </div>
+        </footer>
       </div>
     </div>
   );
