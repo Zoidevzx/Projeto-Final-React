@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function About(){
     return(
         <div className="flex-center">
@@ -19,7 +21,12 @@ export default function About(){
                 </div>
                 <div className="shadow-xl/20 rounded-xl"><img src="Joao_Victor.jfif" alt="" className="w-full aspect-square rounded-xl object-cover transition delay-50 duration-150 hover:scale-102" /></div>
                 
-            
+                <div className="col-span-2 flex-center">
+                    <Link href={'/'} className=" bg-[#9F1D1D] rounded-sm p-3 text-white ">
+                        Home
+                    </Link>
+                </div>
+               
             </div>
         </div>
     )

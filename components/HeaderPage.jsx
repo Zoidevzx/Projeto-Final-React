@@ -30,7 +30,7 @@ export function HeaderPage() {
                         <div>
                             <User size={12} />
                         </div>
-                        <div className='cursor-pointer'>
+                        <div >
                             <Link href={'/cart'}>
                                 <ShoppingCart size={12} />
                             </Link>
