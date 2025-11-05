@@ -15,12 +15,12 @@ export default function Cart() {
 
           <div className="grid grid-flow-row h-50">
             <div className="grid grid-cols-3 h-10 border-b border-gray-300 mb-2">
-              <p>Product</p>
-              <p>Quantity</p>
-              <p>Subtotal</p>
+              <p className="font-medium">Product</p>
+              <p className="font-medium">Quantity</p>
+              <p className="font-medium">Subtotal</p>
             </div>
             <div className="grid grid-cols-[1fr_2fr_1fr_1fr] gap-4 h-80 overflow-y-auto">
-              <div className="flex-center">
+              <div className="flex-center gap-x-5">
                 <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
@@ -28,56 +28,56 @@ export default function Cart() {
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
                 <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
               </div>
               <div className="flex-center">
-                <CircleX />
+                <CircleX className="cursor-pointer"/>
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center">
-                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+              <div className="flex-center gap-x-5">
+                <img src="item1_Home.png" alt="imagem 1" className="max-xl: w-30 h-30 object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
                 <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
               </div>
               <div className="flex-center">
-                <CircleX />
+                <CircleX className="cursor-pointer" />
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center">
-                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+              <div className="flex-center gap-x-5">
+                <img src="item1_Home.png" alt="imagem 1" className="max-xl: w-30 h-30 object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
                 <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
               </div>
               <div className="flex-center">
-                <CircleX />
+                <CircleX className="cursor-pointer" />
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center">
+              <div className="flex-center gap-x-5">
                 <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
@@ -85,15 +85,15 @@ export default function Cart() {
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
                 <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
               </div>
               <div className="flex-center">
-                <CircleX />
+                <CircleX className="cursor-pointer" />
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
             </div>
@@ -113,10 +113,10 @@ export default function Cart() {
             </div>
             <div className="flex items-center h-50">
               <div className="grid grid-flow-row grid-cols-2 gap-x-5 gap-y-4 w-full">
-                <button className="text-center whitespace-nowrap border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Update Cart</button>
-                <button className="text-center whitespace-nowrap border-4 border-indigo-500/100 p-1 cursor-pointer h-11">Continue Shopping</button>
+                <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Update Cart</button>
+                <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Continue Shopping</button>
                 <div className="col-span-2">
-                  <button className="w-full text-center border-4 border-indigo-500/100 p-1 cursor-pointer">Proceed to checkout</button>
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200">Proceed to checkout</button>
                 </div>
               </div>
             </div>
