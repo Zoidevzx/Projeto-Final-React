@@ -27,33 +27,40 @@ export default function Home() {
         <div className="grid grid-flow-col grid-cols-auto gap-3 ">
 
           <div className="relative ">
-            <img src="item1_Home.png" alt="" className='w-full h-full object-cover' />
-            <div className='absolute z-10 gap-3 inset-x-0 flex-center flex-col justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
-              <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>Modern Collection</h1>
-              <Link href={'/shop'} className='button_home ' >
-                Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
-              </Link> 
-            </div>
+            <Link href={'/shop'}>
+            
+              <img src="item1_Home.png" alt="" className='w-full h-full object-cover ' />
+              <div className='absolute z-10 gap-3 inset-x-0 flex-center flex-col justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
+                <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>Modern Collection</h1>
+                <button className="button_home cursor-pointer">
+                  Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
+                </button> 
+              </div>
+            </Link>
           </div>
 
           <div className="relative">
-            <img src="item2_Home.png" alt="" className='w-full h-full object-cover' />
-            <div className='absolute z-10 gap-3 inset-x-0 flex-col flex-center justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
-              <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>New Collection</h1>
-              <Link href={'/shop'} className='button_home' >
-                Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
-              </Link>
-            </div>
+            <Link href={'/shop'}>
+              <img src="item2_Home.png" alt="" className='w-full h-full object-cover' />
+              <div className='absolute z-10 gap-3 inset-x-0 flex-col flex-center justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
+                <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>New Collection</h1>
+                <button className="button_home cursor-pointer">
+                    Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
+                </button> 
+              </div>
+            </Link>
           </div>
 
           <div className="relative">
-            <img src="item1_Home.png" alt="" className='w-full h-full object-cover' />
-            <div className='absolute z-10 inset-x-0 gap-3 flex-center flex-col justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
-              <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>Classic Collection</h1>
-              <Link href={'/shop'} className='button_home' >
-                Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
-              </Link>
-            </div>
+            <Link href={'/shop'}>
+              <img src="item1_Home.png" alt="" className='w-full h-full object-cover' />
+              <div className='absolute z-10 inset-x-0 gap-3 flex-center flex-col justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
+                <h1 className='text-2xl xl:text-5xl max-sm:text-lg'>Classic Collection</h1>
+                <button className="button_home cursor-pointer">
+                      Shop now <ChevronRight size={12} className='xl:size-4 max-sm:size-2 '/>
+                </button> 
+              </div>
+            </Link>
           </div>
 
 

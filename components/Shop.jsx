@@ -57,63 +57,63 @@ export default function Shop() {
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1" />
+                <img src="item2_Home.png" alt="imagem 1" />
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>
             </div>
             <div>
               <Link href={'/product'}>
-                <img src="item1_Home.png" alt="imagem 1"/>
+                <img src="item2_Home.png" alt="imagem 1"/>
                 <h1 className='text-lg'>Black Hoodie</h1>
                 <p>$95.00</p>
               </Link>

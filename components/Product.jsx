@@ -1,6 +1,14 @@
-import { Star, Heart } from 'lucide-react';
+'use client'
+import { Heart } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Product() {
+  const [hover, setIsHover] = useState(false)
+  const [hover2, setIsHover2] = useState(false)
+  const [hover3, setIsHover3] = useState(false)
+  const [hover4, setIsHover4] = useState(false)
+  const [hover5, setIsHover5] = useState(false)
+
   return (
     <div className="flex-center">  
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
@@ -25,12 +33,13 @@ export default function Product() {
             <div className="flex gap-3 flex-col">
 
               <h1 className='text-2xl font-bold'>Graphic T-Shirt</h1>
-              <div className="flex text-sm text-yellow-300 ">
-                <Star />
-                <Star />
-                <Star />
-                <Star />
-                <Star />
+              <div className="flex text-sm text-yellow-300  ">
+                <img src={hover  ? "starprenchida.svg" : "star.svg"} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} alt="" />
+                <img src={hover2 || hover ? "starprenchida.svg" : "star.svg"} className  onMouseEnter={() => setIsHover2(true)} onMouseLeave={() => setIsHover2(false)} alt="" />
+                <img src={hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover3(true)} onMouseLeave={() => setIsHover3(false)} alt="" />
+                <img src={hover4 || hover3 || hover2 || hover? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover4(true)} onMouseLeave={() => setIsHover4(false)} alt="" />
+                <img src={hover5 || hover4 || hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover5(true)} onMouseLeave={() => setIsHover5(false)} alt="" />
+                
               </div>
               <p className='text-xl'>$540.00 <span className='line-through text-xs align-bottomç'>$64.00</span></p>
               <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus voluptatibus sequi quasi reiciendis dolorem ducimus. Quisquam, quibusdam? Accusantium nemo ut blanditiis officia, tenetur velit unde nobis. Sapiente hic, animi sit tempore eos pariatur dolorum blanditiis dicta cum quam adipisci iste!</p>
