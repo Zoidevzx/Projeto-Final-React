@@ -9,7 +9,7 @@ export default function Shop({title, subtitle}, {cat}) {
   useEffect(() => {
     async function loadProdutos() {
         try {
-            const res = await fetch(`http://localhost:8000/products/${cat}`)
+            const res = await fetch(`http://localhost:8000/products/${cat}`, cat)
             const data = await res.json()
             setProdutos(data)
         } catch (err) {
