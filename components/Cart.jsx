@@ -1,8 +1,21 @@
 'use client'
 import { CircleX } from "lucide-react"
 import Link from 'next/link';
+import { useState } from "react";
 
-export default function Cart({title, subtitle}) {
+export default function Cart({ title, subtitle }) {
+  const [quantity, setQuantity] = useState(0)
+
+  function AddQuantity() {
+    if (quantity >= 0)
+      setQuantity(quantity + 1)
+  }
+
+  function RemoveQuantity() {
+    if (quantity != 0)
+      setQuantity(quantity - 1)
+  }
+
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[4fr_8fr_6fr_4fr]  gap-10">
@@ -20,36 +33,17 @@ export default function Cart({title, subtitle}) {
               <p className="font-medium">Subtotal</p>
             </div>
             <div className="grid grid-cols-[1fr_2fr_1fr_1fr] gap-4 h-80 overflow-y-auto">
-              <div className="flex-center gap-x-5">
-                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+              <div className="flex-center gap-x-5 h-30">
+                <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
-                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
-              </div>
-              <div className="flex-center">
-                <p>$200.00</p>
-              </div>
-              <div className="flex-center">
-                <CircleX className="cursor-pointer"/>
-              </div>
-              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center gap-x-5">
-                <img src="item1_Home.png" alt="imagem 1" className="max-xl: w-30 h-30 object-cover" />
-                <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
-                  <p>$95.00</p>
-                </div>
-              </div>
-              <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
-                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={RemoveQuantity}>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={AddQuantity} >+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
@@ -58,17 +52,18 @@ export default function Cart({title, subtitle}) {
                 <CircleX className="cursor-pointer" />
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center gap-x-5">
-                <img src="item1_Home.png" alt="imagem 1" className="max-xl: w-30 h-30 object-cover" />
+
+              <div className="flex-center gap-x-5 h-30">
+                <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
-                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={RemoveQuantity}>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={AddQuantity} >+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
@@ -77,17 +72,38 @@ export default function Cart({title, subtitle}) {
                 <CircleX className="cursor-pointer" />
               </div>
               <div className="col-span-4 border-b border-gray-300 mb-2"></div>
-              <div className="flex-center gap-x-5">
-                <img src="item1_Home.png" alt="imagem 1" className="w-30 h-30 object-cover" />
+
+              <div className="flex-center gap-x-5 h-30">
+                <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
                   <h1 className='text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
               <div className="flex-center">
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>-</button>
-                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer'>+</button>
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={RemoveQuantity}>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={AddQuantity} >+</button>
+              </div>
+              <div className="flex-center">
+                <p>$200.00</p>
+              </div>
+              <div className="flex-center">
+                <CircleX className="cursor-pointer" />
+              </div>
+              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+
+              <div className="flex-center gap-x-5 h-30">
+                <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
+                <div>
+                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <p>$95.00</p>
+                </div>
+              </div>
+              <div className="flex-center">
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={RemoveQuantity}>-</button>
+                <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
+                <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer' onClick={AddQuantity} >+</button>
               </div>
               <div className="flex-center">
                 <p>$200.00</p>
@@ -104,25 +120,26 @@ export default function Cart({title, subtitle}) {
             <h1 className="m-0 text-2xl font-bold">Cart Total</h1>
             <div className="grid grid-flow-row grid-cols-2 gap-x-5">
               <div className="col-span-2 border-b border-gray-300 mb-2"></div>
+
               <p className="font-bold">Subtotal</p>
               <p>$410.00</p>
               <div className="col-span-2 border-b border-gray-300 my-2"></div>
+
               <p className="font-bold">Total</p>
               <p>$410.00</p>
+
               <div className="col-span-2 border-b border-gray-300 mt-2"></div>
             </div>
             <div className="flex items-center h-50">
               <div className="grid  grid-cols-2 gap-x-5 gap-y-4 w-full">
                 <div>
-
-                  <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Update Cart</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 max-lg:text-xs">Update Cart</button>
                 </div>
                 <div>
-
-                  <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Continue Shopping</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 max-lg:text-xs">Continue Shopping</button>
                 </div>
-                <div className="col-span-2">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200">Proceed to checkout</button>
+                <div className="col-span-2 ">
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 max-lg:text-xs">Proceed to checkout</button>
                 </div>
               </div>
             </div>
@@ -140,8 +157,8 @@ export default function Cart({title, subtitle}) {
         <footer className="grid grid-flow-col gap-10">
           <div className="flex flex-col gap-y-4">
             <h1 className="text-xl font-bold">Urban</h1>
-            <p className="text-wrap w-80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, facere expedita quibusdam est aspernatur ex error! Debitis autem dicta eveniet dolorum magnam nulla sequi ducimus iste velit. </p>
-            <p className="text-wrap">Lorem ipsum dolor sit amet consectetur.</p>
+            <p className="w-80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, facere expedita quibusdam est aspernatur ex error! Debitis autem dicta eveniet dolorum magnam nulla sequi ducimus iste velit. </p>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
           </div>
           <div className="flex flex-col gap-y-4">
             <h1 className="text-lg font-bold">Quick Links</h1>
