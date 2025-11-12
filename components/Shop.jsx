@@ -1,24 +1,8 @@
 'use client'
 import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
-export default function Shop({title, subtitle}, {cat}) {
-  const [produtos, setProdutos] = useState([])
-
-  useEffect(() => {
-    async function loadProdutos() {
-        try {
-            const res = await fetch(`http://localhost:8000/products/${cat}`)
-            const data = await res.json()
-            setProdutos(data)
-        } catch (err) {
-            return []
-        }
-
-    }
-    loadProdutos()
-  }, [cat])
+export default function Shop({title, subtitle, cat}) {
 
   return (
     <div className="flex-center">
@@ -71,9 +55,10 @@ export default function Shop({title, subtitle}, {cat}) {
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap'>
                 Default sorting
               </button>
+              
             </div>
-            {produtos.map((e) => (
-                <div key={e.id} className>
+            {cat.map((e) => (
+                <div key={e.id} >
                   <Link href={'/product'}>
                     <img src={e.image_url} alt="" />
                     <h1 className='text-lg'>{e.name}</h1>
