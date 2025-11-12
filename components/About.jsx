@@ -30,7 +30,6 @@ export default function About({title, subtitle}){
                         Home
                     </Link>
                 </div>
-               
             </div>
         </div>
     )

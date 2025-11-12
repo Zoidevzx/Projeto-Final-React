@@ -1,11 +1,11 @@
 'use client'
-import { User, Search, ShoppingCart, ChevronDown, ChevronRight } from 'lucide-react';
+import {  ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
 
   return (
-    <div className="flex-center">
+    <div className="flex-center  ">
       <div className="container grid grid-rows-[5.3fr_5fr_4fr] gap-10 max-sm:grid-rows-[5.3fr_6fr_3fr] ">
 
         <div className="flex relative">

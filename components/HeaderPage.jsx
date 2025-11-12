@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState , useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-export function HeaderPage() {
+export function HeaderPage({itemcart}) {
     const [openshop, setOpenshop] = useState(false)
     const [openblog, setOpenblog] = useState(false)
     const [openpage, setOpenpage] = useState(false)
@@ -133,8 +133,9 @@ export function HeaderPage() {
                                 </Link>
                             </div>
                             <div >
-                                <Link href={'/cart'}>
+                                <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'}/>
+                                    <div className='bg-red-500 w-3 h-3 absolute rounded-full'>{itemcart}</div>
                                 </Link>
                             </div>
                         </div>

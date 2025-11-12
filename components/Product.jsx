@@ -9,6 +9,10 @@ export default function Product({title, subtitle}) {
   const [hover4, setIsHover4] = useState(false)
   const [hover5, setIsHover5] = useState(false)
 
+  function AddCart (){
+    
+  }
+
   return (
     <div className="flex-center">  
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
@@ -52,7 +56,7 @@ export default function Product({title, subtitle}) {
                     <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
                     <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>  
                   </div>
-                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm'>Add to cart</button>
+                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' onClick={AddCart}>Add to cart</button>
                   <div className="flex-center">
                     <Heart size={24} />
                   </div>

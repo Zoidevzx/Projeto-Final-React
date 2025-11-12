@@ -1,8 +1,25 @@
 'use client'
 import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
-export default function Shop({title, subtitle}) {
+export default function Shop({title, subtitle}, {cat}) {
+  const [produtos, setProdutos] = useState([])
+
+  useEffect(() => {
+    async function loadProdutos() {
+        try {
+            const res = await fetch(`http://localhost:8000/products/${cat}`)
+            const data = await res.json()
+            setProdutos(data)
+        } catch (err) {
+            return []
+        }
+
+    }
+    loadProdutos()
+  }, [cat])
+
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[2fr_13fr]">
@@ -55,69 +72,16 @@ export default function Shop({title, subtitle}) {
                 Default sorting
               </button>
             </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1" />
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/product'}>
-                <img src="item2_Home.png" alt="imagem 1"/>
-                <h1 className='text-lg'>Black Hoodie</h1>
-                <p>$95.00</p>
-              </Link>
-            </div>
+            {produtos.map((e) => (
+                <div key={e.id} className>
+                  <Link href={'/product'}>
+                    <img src={e.image_url} alt="" />
+                    <h1 className='text-lg'>{e.name}</h1>
+                    <p>{e.price}</p>
+                  </Link>
+                </div>
+            ))
+            } 
             <div className='flex justify-center col-span-3 mt-4'>
               <div className='grid grid-flow-col h-8 w-40'>
                 <button className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'><ArrowBigLeft strokeWidth={2} size={18} /></button>
