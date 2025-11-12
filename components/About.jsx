@@ -1,9 +1,13 @@
 import Link from "next/link"
 
-export default function About(){
+export default function About({title, subtitle}){
     return(
         <div className="flex-center">
-            <div className="container grid grid-flow-cols grid-cols-2 gap-6 py-5">
+            <div className="container grid grid-flow-cols grid-cols-2 gap-20 py-5">
+                <div className="flex-center flex-col col-span-2">
+                    <h1 className="text-6xl items-bold">{title}</h1>
+                    <p className="text-sm">{subtitle}</p>
+                </div>
                 <div className="shadow-xl/20 rounded-xl "><img src="Ana_Clara.jfif" className="w-full rounded-xl aspect-square object-cover transition delay-50 duration-150 hover:scale-102" alt="" /></div>
                 <div className="flex items-center">
                     <p>Ana Clara Rezende Pires de Campos é estudante do 2º ano do curso de Informática para Internet no Instituto Federal Goiano - Campus Trindade. Natural de Trindade, tem 16 anos e demonstra interesse nas áreas de desenvolvimento web, buscando aprimorar seus conhecimentos e aplicar suas habilidades em projetos práticos</p>

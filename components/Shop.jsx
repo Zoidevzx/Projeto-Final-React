@@ -2,13 +2,13 @@
 import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Shop() {
+export default function Shop({title, subtitle}) {
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[2fr_13fr]">
         <div className='flex-center flex-col gap-3'>
-          <h1 className='m-0 text-5xl'>Shop-Sidebar</h1>
-          <p className='m-0 text-gray-300 text-base'>Home / Shop-Sidebar</p>
+          <h1 className='m-0 text-5xl'>{title}</h1>
+          <p className='m-0 text-gray-300 text-base'>{subtitle}</p>
         </div>
 
         <div className="grid grid-flow-col grid-cols-[1fr_5fr] m-0_5 gap-x-10 ">

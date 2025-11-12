@@ -2,7 +2,7 @@
 import { Heart } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Product() {
+export default function Product({title, subtitle}) {
   const [hover, setIsHover] = useState(false)
   const [hover2, setIsHover2] = useState(false)
   const [hover3, setIsHover3] = useState(false)
@@ -14,8 +14,8 @@ export default function Product() {
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
         
           <div className="flex-center flex-col">
-            <h1 className="text-4xl items-bold">Single-Product</h1>
-            <p className="text-sm">home/single-product</p>
+            <h1 className="text-4xl items-bold">{title}</h1>
+            <p className="text-sm">{subtitle}</p>
           </div>
 
           <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
@@ -35,7 +35,7 @@ export default function Product() {
               <h1 className='text-2xl font-bold'>Graphic T-Shirt</h1>
               <div className="flex text-sm text-yellow-300  ">
                 <img src={hover  ? "starprenchida.svg" : "star.svg"} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} alt="" />
-                <img src={hover2 || hover ? "starprenchida.svg" : "star.svg"} className  onMouseEnter={() => setIsHover2(true)} onMouseLeave={() => setIsHover2(false)} alt="" />
+                <img src={hover2 || hover ? "starprenchida.svg" : "star.svg"}   onMouseEnter={() => setIsHover2(true)} onMouseLeave={() => setIsHover2(false)} alt="" />
                 <img src={hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover3(true)} onMouseLeave={() => setIsHover3(false)} alt="" />
                 <img src={hover4 || hover3 || hover2 || hover? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover4(true)} onMouseLeave={() => setIsHover4(false)} alt="" />
                 <img src={hover5 || hover4 || hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover5(true)} onMouseLeave={() => setIsHover5(false)} alt="" />

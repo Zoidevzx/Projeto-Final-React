@@ -2,13 +2,13 @@
 import { CircleX } from "lucide-react"
 import Link from 'next/link';
 
-export default function Cart() {
+export default function Cart({title, subtitle}) {
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[4fr_8fr_6fr_4fr]  gap-10">
         <div className="flex-center flex-col gap-4">
-          <h1 className="m-0 font-bold text-5xl">Cart</h1>
-          <p className="m-0 text-gray-300 text-base">Home / Cart</p>
+          <h1 className="m-0 font-bold text-5xl">{title}</h1>
+          <p className="m-0 text-gray-300 text-base">{subtitle}</p>
         </div>
 
         <div className="grid grid-flow-col grid-cols-[4fr_2fr] gap-x-10">
@@ -112,9 +112,15 @@ export default function Cart() {
               <div className="col-span-2 border-b border-gray-300 mt-2"></div>
             </div>
             <div className="flex items-center h-50">
-              <div className="grid grid-flow-row grid-cols-2 gap-x-5 gap-y-4 w-full">
-                <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Update Cart</button>
-                <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Continue Shopping</button>
+              <div className="grid  grid-cols-2 gap-x-5 gap-y-4 w-full">
+                <div>
+
+                  <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Update Cart</button>
+                </div>
+                <div>
+
+                  <button className="text-nowrap bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200">Continue Shopping</button>
+                </div>
                 <div className="col-span-2">
                   <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200">Proceed to checkout</button>
                 </div>
