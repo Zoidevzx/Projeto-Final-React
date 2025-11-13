@@ -135,7 +135,7 @@ export function HeaderPage({itemcart}) {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'}/>
-                                    <div className='bg-red-500 w-3 h-3 absolute rounded-full'>{itemcart}</div>
+                                    <div className='flex-center bg-red-400 w-4 h-4 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>1</p></div>
                                 </Link>
                             </div>
                         </div>

@@ -49,7 +49,7 @@ export default function Shop({title, subtitle, cat}) {
 
           </div>
 
-          <div className='grid grid-cols-3 grid-flow-row grid-rows-[1fr_8fr_8fr_8fr_3fr] grid-cols-auto gap-x-4 gap-y-2'>
+          <div className='grid grid-cols-3 grid-flow-row grid-rows-auto grid-cols-auto gap-x-4 gap-y-2'>
             <div className='flex justify-between col-span-3'>
               <h2 className='text-zinc-500'>Showing 1-9 of 55 results</h2>
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap'>
@@ -58,9 +58,9 @@ export default function Shop({title, subtitle, cat}) {
               
             </div>
             {cat.map((e) => (
-                <div key={e.id} >
+                <div key={e.id} className=''>
                   <Link href={'/product'}>
-                    <img src={e.image_url} alt="" />
+                    <img src={e.image_url} className='h-100 w-full object-cover object-top ' alt="" />
                     <h1 className='text-lg'>{e.name}</h1>
                     <p>{e.price}</p>
                   </Link>
