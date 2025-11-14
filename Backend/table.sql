@@ -4,7 +4,8 @@ CREATE TABLE product(
 	description VARCHAR(255) NOT NULL,
 	price DECIMAl(10,2) NOT NULL,
 	image_url VARCHAR(255) NOT NULL,
-	category VARCHAR(255) NOT NULL
+	category VARCHAR(255) NOT NULL,
+	tags VARCHAR (255) not null
 );
 
 CREATE TABLE stock(

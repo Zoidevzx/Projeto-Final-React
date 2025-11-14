@@ -12,8 +12,8 @@ export default function Product() {
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
         
           <div className="flex-center flex-col">
-            <h1 className="text-4xl items-bold">Single-Product</h1>
-            <p className="text-sm">home/single-product</p>
+            <h1 className="text-4xl items-bold">{title}</h1>
+            <p className="text-sm">{subtitle}</p>
           </div>
 
           <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
@@ -62,7 +62,7 @@ export default function Product() {
                     <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center ' type="text" name="num,e" id="" />
                     <button className='font-bold size-9 border-stone-300 border-1 flex-center '><Plus size={16}/></button>  
                   </div>
-                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm'>Add to cart</button>
+                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' onClick={AddCart}>Add to cart</button>
                   <div className="flex-center">
                     <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => {setIsClickHeart(!clickheart); setIsHoverHeart(false)}} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                   </div>

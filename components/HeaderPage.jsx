@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState , useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-export function HeaderPage() {
+export function HeaderPage({itemcart}) {
     const [openshop, setOpenshop] = useState(false)
     const [openblog, setOpenblog] = useState(false)
     const [openpage, setOpenpage] = useState(false)
@@ -12,9 +12,9 @@ export function HeaderPage() {
     const pathname = usePathname()
 
     const itenshop = [
-        {nome: 'Mordern', link: '/shop'},
-        {nome: 'New', link: '/shop'},
-        {nome: 'Classic', link: '/shop'}
+        {nome: 'Mordern', link: '/shop/Modern'},
+        {nome: 'New', link: '/shop/New'},
+        {nome: 'Classic', link: '/shop/Classic'}
     ]
 
     const itensblog = [
@@ -54,7 +54,7 @@ export function HeaderPage() {
                         <div className="flex-center cursor-pointer"> <Link href={'/'}>Home</Link>  </div>
                         <div className="flex-center cursor-pointer"> <Link href={'/aboutus'}>About Us</Link>  </div>
                         <div  className="flex-center gap-1 cursor-pointer relative"> 
-                            <Link href={'/shop'}> Shop</Link> 
+                            <Link href={'/shop/Classic'}> Shop</Link> 
                             <ChevronDown size={12} className={'xl:size-4'} onClick={() => openblog ? (setOpenblog(!openblog), setOpenshop(!openshop)) : openpage ? (setOpenpage(!openpage), setOpenshop(!openshop)) : openlist ? (setOpenlist(!openlist), setOpenshop(!openshop)) : setOpenshop(!openshop)} />
                             
                             {openshop && (
@@ -133,13 +133,15 @@ export function HeaderPage() {
                                 </Link>
                             </div>
                             <div >
-                                <Link href={'/cart'}>
+                                <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'}/>
+                                    <div className='flex-center bg-red-400 w-4 h-4 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>1</p></div>
                                 </Link>
                             </div>
                         </div>
-                    </div>
 
+                                
+                    </div>
                 </div>
 
             </header>
