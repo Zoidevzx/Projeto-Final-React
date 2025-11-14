@@ -1,14 +1,12 @@
 'use client'
-import { Heart } from 'lucide-react'
+import { Heart, Star, Plus, Minus} from 'lucide-react'
 import { useState } from 'react'
 
 export default function Product() {
-  const [hover, setIsHover] = useState(false)
-  const [hover2, setIsHover2] = useState(false)
-  const [hover3, setIsHover3] = useState(false)
-  const [hover4, setIsHover4] = useState(false)
-  const [hover5, setIsHover5] = useState(false)
-
+  const [hoverstars, setIsHoverStars] = useState(null)
+  const [clickstars, setIsClickStars] = useState(null)
+  const [clickheart, setIsClickHeart] = useState(false)  
+  const [hoverheart, setIsHoverHeart] = useState(false)  
   return (
     <div className="flex-center">  
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
@@ -33,13 +31,25 @@ export default function Product() {
             <div className="flex gap-3 flex-col">
 
               <h1 className='text-2xl font-bold'>Graphic T-Shirt</h1>
-              <div className="flex text-sm text-yellow-300  ">
-                <img src={hover  ? "starprenchida.svg" : "star.svg"} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} alt="" />
-                <img src={hover2 || hover ? "starprenchida.svg" : "star.svg"} className  onMouseEnter={() => setIsHover2(true)} onMouseLeave={() => setIsHover2(false)} alt="" />
-                <img src={hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover3(true)} onMouseLeave={() => setIsHover3(false)} alt="" />
-                <img src={hover4 || hover3 || hover2 || hover? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover4(true)} onMouseLeave={() => setIsHover4(false)} alt="" />
-                <img src={hover5 || hover4 || hover3 || hover2 || hover ? "starprenchida.svg" : "star.svg"}  onMouseEnter={() => setIsHover5(true)} onMouseLeave={() => setIsHover5(false)} alt="" />
-                
+              <div className="flex text-sm text-yellow-300  "  >
+                {[1, 2, 3, 4, 5].map((i)=>(
+                  <Star
+                    key={i}
+                    fill={hoverstars !== null && i <= hoverstars || clickstars !== null && i <= clickstars ? "#ffff00" : "none"}
+                    onClick={() => {
+                       if (clickstars === i) {
+                          setIsClickStars(null);
+                          setIsHoverStars(null);
+                        } else {
+                          setIsClickStars(i);
+                      }
+                    }}
+                    onMouseEnter={() => setIsHoverStars(i)}
+                    onMouseLeave={() => setIsHoverStars(null)}
+                  />
+                ))
+
+                }
               </div>
               <p className='text-xl'>$540.00 <span className='line-through text-xs align-bottomç'>$64.00</span></p>
               <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus voluptatibus sequi quasi reiciendis dolorem ducimus. Quisquam, quibusdam? Accusantium nemo ut blanditiis officia, tenetur velit unde nobis. Sapiente hic, animi sit tempore eos pariatur dolorum blanditiis dicta cum quam adipisci iste!</p>
@@ -47,14 +57,14 @@ export default function Product() {
               <div className='flex flex-col'>
                 <p>3 in stock</p>
                 <div className="flex flex-rows gap-4">
-                  <div>  
-                    <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>-</button>
-                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300' type="text" name="" id="" />
-                    <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg'>+</button>  
+                  <div className='flex flex-row '>  
+                    <button className='font-bold size-9 border-stone-300 border-1 flex-center '><Minus size={16} /></button>
+                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center ' type="text" name="num,e" id="" />
+                    <button className='font-bold size-9 border-stone-300 border-1 flex-center '><Plus size={16}/></button>  
                   </div>
                   <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm'>Add to cart</button>
                   <div className="flex-center">
-                    <Heart size={24} />
+                    <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => {setIsClickHeart(!clickheart); setIsHoverHeart(false)}} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                   </div>
                 </div>
               </div>
