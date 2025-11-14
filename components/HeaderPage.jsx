@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState , useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-export function HeaderPage({itemcart}) {
+export function HeaderPage() {
     const [openshop, setOpenshop] = useState(false)
     const [openblog, setOpenblog] = useState(false)
     const [openpage, setOpenpage] = useState(false)
