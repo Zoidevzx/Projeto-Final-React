@@ -24,13 +24,14 @@ export default function Cart({ title, subtitle }) {
           <p className="m-0 text-gray-300 text-base">{subtitle}</p>
         </div>
 
-        <div className="grid grid-flow-col grid-cols-[4fr_2fr] gap-x-10">
+        <div className="grid grid-flow-col xl:grid-cols-[4fr_2fr] gap-10 max-lg:grid-rows-2 grid-cols-1 max-lg:gap-20">
 
           <div className="grid grid-flow-row h-50">
-            <div className="grid grid-cols-3 h-10 border-b border-gray-300 mb-2">
+            <div className="grid grid-cols-3 h-10">
               <p className="font-medium">Product</p>
               <p className="font-medium">Quantity</p>
               <p className="font-medium">Subtotal</p>
+              <hr className="col-span-4 border-stone-300" />
             </div>
             <div className="grid grid-cols-[1fr_2fr_1fr_1fr] gap-4 h-80 overflow-y-auto">
               <div className="flex-center gap-x-5 h-30">
@@ -51,7 +52,7 @@ export default function Cart({ title, subtitle }) {
               <div className="flex-center">
                 <CircleX className="cursor-pointer" />
               </div>
-              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <hr className="col-span-4 border-stone-300" />
 
               <div className="flex-center gap-x-5 h-30">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
@@ -71,7 +72,7 @@ export default function Cart({ title, subtitle }) {
               <div className="flex-center">
                 <CircleX className="cursor-pointer" />
               </div>
-              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <hr className="col-span-4 border-stone-300" />
 
               <div className="flex-center gap-x-5 h-30">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
@@ -91,7 +92,7 @@ export default function Cart({ title, subtitle }) {
               <div className="flex-center">
                 <CircleX className="cursor-pointer" />
               </div>
-              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <hr className="col-span-4 border-stone-300" />
 
               <div className="flex-center gap-x-5 h-30">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
@@ -111,7 +112,7 @@ export default function Cart({ title, subtitle }) {
               <div className="flex-center">
                 <CircleX className="cursor-pointer" />
               </div>
-              <div className="col-span-4 border-b border-gray-300 mb-2"></div>
+              <hr className="col-span-4 border-stone-300" />
             </div>
           </div>
 
@@ -119,16 +120,16 @@ export default function Cart({ title, subtitle }) {
           <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-4">
             <h1 className="m-0 text-2xl font-bold">Cart Total</h1>
             <div className="grid grid-flow-row grid-cols-2 gap-x-5">
-              <div className="col-span-2 border-b border-gray-300 mb-2"></div>
 
+              <hr className="col-span-2 border-stone-300" />
               <p className="font-bold">Subtotal</p>
               <p>$410.00</p>
-              <div className="col-span-2 border-b border-gray-300 my-2"></div>
+              <hr className="col-span-2 border-stone-300" />
 
               <p className="font-bold">Total</p>
               <p>$410.00</p>
 
-              <div className="col-span-2 border-b border-gray-300 mt-2"></div>
+              <hr className="col-span-2 border-stone-300" />
             </div>
             <div className="flex items-center h-50">
               <div className="grid  grid-cols-2 gap-x-5 gap-y-4 w-full">
