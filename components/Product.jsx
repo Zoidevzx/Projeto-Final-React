@@ -2,11 +2,23 @@
 import { Heart, Star, Plus, Minus} from 'lucide-react'
 import { useState } from 'react'
 
-export default function Product() {
+export default function Product({title, subtitle}) {
   const [hoverstars, setIsHoverStars] = useState(null)
   const [clickstars, setIsClickStars] = useState(null)
   const [clickheart, setIsClickHeart] = useState(false)  
   const [hoverheart, setIsHoverHeart] = useState(false)  
+  const [quantity, setQuantity] = useState(0)
+
+  function AddQuantity(){
+    if (quantity >= 0)
+      setQuantity(quantity + 1) 
+  }
+
+  function RemoveQuantity(){
+    if (quantity != 0)
+      setQuantity(quantity - 1)
+  }
+
   return (
     <div className="flex-center">  
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
@@ -58,11 +70,11 @@ export default function Product() {
                 <p>3 in stock</p>
                 <div className="flex flex-rows gap-4">
                   <div className='flex flex-row '>  
-                    <button className='font-bold size-9 border-stone-300 border-1 flex-center '><Minus size={16} /></button>
-                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center ' type="text" name="num,e" id="" />
-                    <button className='font-bold size-9 border-stone-300 border-1 flex-center '><Plus size={16}/></button>  
+                    <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center'><Minus size={16} /></button>
+                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center text-center' value={quantity} type="text" name="num,e" id="" disabled />
+                    <button onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center '><Plus size={16}/></button>  
                   </div>
-                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' onClick={AddCart}>Add to cart</button>
+                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
                   <div className="flex-center">
                     <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => {setIsClickHeart(!clickheart); setIsHoverHeart(false)}} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                   </div>

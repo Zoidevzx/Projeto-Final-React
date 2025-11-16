@@ -58,7 +58,7 @@ export default function Shop({title, subtitle, cat}) {
               
             </div>
             {cat.map((e) => (
-                <div key={e.id} className=''>
+                <div key={e.id} >
                   <Link href={'/product'}>
                     <img src={e.image_url} className='h-100 w-full object-cover object-top ' alt="" />
                     <h1 className='text-lg'>{e.name}</h1>

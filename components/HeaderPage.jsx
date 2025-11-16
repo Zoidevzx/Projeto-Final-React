@@ -128,7 +128,7 @@ export function HeaderPage() {
                                 <Search size={12} className={'xl:size-5 '}/>
                             </div>
                             <div>
-                                <Link href={'http://lattes.cnpq.br/4116708456419800'}>
+                                <Link href={'/dev'}>
                                     <User size={12} className={'xl:size-5'} />
                                 </Link>
                             </div>
