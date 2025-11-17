@@ -9,15 +9,26 @@ app.use(express.json())
 app.use(cors())
 
 
-// CREATE
-// app.post('/person', (req, res) => {
-//     const { nome, idade, sexo } = req.body
-//     db.query('INSERT INTO person ( nome, idade, sexo) VALUES ($1, $2, $3)', [ nome, idade, sexo ])
-//     .then(() => res.status(201).send('Registro inserido com sucesso!'))
-//     .catch((err) => res.status(500).send(err.stack))
-// })
+//CREATE
+app.post('/adicionar', (req, res) => {
+    const { name, description, price, image_url, category, tags  } = req.body
+    db.query('INSERT INTO person ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [ name, description, price, image_url, category, tags ])
+    .then(() => res.status(201).send('Camiseta inserido com sucesso!'))
+    .catch((err) => res.status(500).send(err.stack))
+})
 
-// READ
+
+
+app.get('/products', (req, res) => {
+    
+    db.query(`SELECT * FROM product ORDER BY ID`)
+    .then((e) => {
+        res.status(200).json(e.rows)
+    })
+    .catch((err) => res.status(500).json({error: err.stack}))
+})
+
+// READ CAT
 app.get('/products/:cat', (req, res) => {
     const cat = req.params.cat
     db.query(`SELECT * FROM product WHERE category = '${cat}' ORDER BY ID`)
@@ -34,30 +45,31 @@ app.get('/products/:cat', (req, res) => {
 //        cat = 'New'
 //     else if (id === '3')
 //        cat = 'Moderno' 
+
 // // UPDATE
-// app.put('/person/:id', (req, res) => {
-//     const { id } = req.params;
-//     const { nome, idade, sexo } = req.body;
-//     db.query('UPDATE person SET nome = $1, idade = $2, sexo = $3 WHERE id = $4', [nome, idade, sexo, id])
-//     .then((result) => {
-//         if (result.rowCount === 0)
-//             return res.status(404).send('Pessoa não encontrada.');
-//         res.status(200).send('Registro atualizado com sucesso!');
-//     })
-//     .catch((err) => res.status(500).send(err.stack));
-// })
+app.put('/products/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, description, price, image_url, category, tags } = req.body;
+    db.query('UPDATE person SET name = $1, description = $2, price = $3, image_url = $4,  category = $5,  tags = $6 WHERE id = $7', [name, description, price, image_url, category, tags, id])
+    .then((result) => {
+        if (result.rowCount === 0)
+            return res.status(404).send('Camiseta não encontrada.');
+        res.status(200).send('Registro atualizado com sucesso!');
+    })
+    .catch((err) => res.status(500).send(err.stack));
+})
 
 // // DELETE
-// app.delete('/person/:id', (req, res) => {
-//     const { id } = req.params;
-//     db.query('DELETE FROM person WHERE id = $1', [id])
-//     .then((result) => {
-//         if (result.rowCount == 0)
-//             return res.status(404).send('Pessoa não encontrado.');
-//         res.status(200).send('Pessoa deletado com sucesso!');
-//     })
-//     .catch((err) => res.status(500).send(err.stack));
-// })
+app.delete('/products/:id', (req, res) => {
+    const { id } = req.params;
+    db.query('DELETE FROM person WHERE id = $1', [id])
+    .then((result) => {
+        if (result.rowCount == 0)
+            return res.status(404).send('Camiseta não encontrado.');
+        res.status(200).send('Camiseta deletado com sucesso!');
+    })
+    .catch((err) => res.status(500).send(err.stack));
+})
 
 
 
