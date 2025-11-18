@@ -6,6 +6,13 @@ import { useState } from "react";
 export default function Cart({ title, subtitle }) {
   const [quantity, setQuantity] = useState(0)
 
+  const cartItens = [
+    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
+    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
+    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
+    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' }
+  ]
+
   function AddQuantity() {
     if (quantity >= 0)
       setQuantity(quantity + 1)
@@ -18,26 +25,26 @@ export default function Cart({ title, subtitle }) {
 
   return (
     <div className="flex-center">
-      <div className="container grid grid-rows-[4fr_8fr_6fr_4fr]  gap-10">
+      <div className="container grid grid-rows-[4fr_8fr_6fr_4fr] gap-10">
         <div className="flex-center flex-col gap-4">
           <h1 className="m-0 font-bold text-5xl">{title}</h1>
           <p className="m-0 text-gray-300 text-base">{subtitle}</p>
         </div>
 
-        <div className="grid grid-flow-col xl:grid-cols-[4fr_2fr] gap-10 max-lg:grid-rows-2 grid-cols-1 max-lg:gap-20">
+        <div className="grid grid-flow-col xl:grid-cols-[4fr_2fr] gap-10 max-xl:grid-rows-2 grid-cols-1 lg:gap-50 md:gap-40">
 
           <div className="grid grid-flow-row h-50">
-            <div className="grid grid-cols-3 h-10">
-              <p className="font-medium">Product</p>
-              <p className="font-medium">Quantity</p>
-              <p className="font-medium">Subtotal</p>
+            <div className="grid grid-cols-3 h-10 xl:grid-cols-[1.7fr_1fr_1.2fr] md:grid-cols-[1.4fr_1fr_1.2fr] lg:grid-cols-[1.3fr_1fr_1.5fr] sm:grid-cols-[1.6fr_1fr_1fr]">
+              <p className="font-semibold">Product</p>
+              <p className="font-semibold">Quantity</p>
+              <p className="font-semibold">Subtotal</p>
               <hr className="col-span-4 border-stone-300" />
             </div>
-            <div className="grid grid-cols-[1fr_2fr_1fr_1fr] gap-4 h-80 overflow-y-auto">
-              <div className="flex-center gap-x-5 h-30">
-                <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
+            <div className="grid xl:grid-cols-[2.2fr_2fr_1fr_1fr] gap-10 xl:h-80 overflow-y-auto lg:grid-cols-[1fr_1.3fr_1fr_1fr] lg:h-115 md:grid-cols-[1.7fr_1.8fr_1fr_1fr] md:h-120 sm:grid-cols-[2.5fr_3fr_1fr_1fr] sm:h-70">
+              <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40">
+                <img src="item1_Home.png" alt="imagem 1" className="size-full object-cover object-" />
                 <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <h1 className='font-medium text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
@@ -54,10 +61,10 @@ export default function Cart({ title, subtitle }) {
               </div>
               <hr className="col-span-4 border-stone-300" />
 
-              <div className="flex-center gap-x-5 h-30">
+              <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <h1 className='font-medium text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
@@ -74,10 +81,10 @@ export default function Cart({ title, subtitle }) {
               </div>
               <hr className="col-span-4 border-stone-300" />
 
-              <div className="flex-center gap-x-5 h-30">
+              <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <h1 className='font-medium text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
@@ -94,10 +101,10 @@ export default function Cart({ title, subtitle }) {
               </div>
               <hr className="col-span-4 border-stone-300" />
 
-              <div className="flex-center gap-x-5 h-30">
+              <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40">
                 <img src="item1_Home.png" alt="imagem 1" className="w-full h-full object-cover" />
                 <div>
-                  <h1 className='text-lg'>Black Hoodie</h1>
+                  <h1 className='font-medium text-lg'>Black Hoodie</h1>
                   <p>$95.00</p>
                 </div>
               </div>
@@ -117,30 +124,30 @@ export default function Cart({ title, subtitle }) {
           </div>
 
 
-          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-4">
-            <h1 className="m-0 text-2xl font-bold">Cart Total</h1>
-            <div className="grid grid-flow-row grid-cols-2 gap-x-5">
+          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-y-4">
+            <h1 className="m-0 text-4xl font-bold">Cart Total</h1>
+            <div className="grid grid-flow-row grid-cols-2">
 
               <hr className="col-span-2 border-stone-300" />
-              <p className="font-bold">Subtotal</p>
-              <p>$410.00</p>
+              <p className="font-bold text-xl">Subtotal</p>
+              <p className="text-xl font-semibold">$410.00</p>
               <hr className="col-span-2 border-stone-300" />
 
-              <p className="font-bold">Total</p>
-              <p>$410.00</p>
+              <p className="font-bold text-xl">Total</p>
+              <p className="text-xl font-semibold">$410.00</p>
 
               <hr className="col-span-2 border-stone-300" />
             </div>
-            <div className="flex items-center h-50">
-              <div className="grid  grid-cols-2 gap-x-5 gap-y-4 w-full">
+            <div className="flex-center h-50 flex-wrap">
+              <div className="grid grid-cols-2 gap-6 w-full">
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 max-lg:text-xs">Update Cart</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-base lg:text-xl ">Update Cart</button>
                 </div>
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 max-lg:text-xs">Continue Shopping</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-base lg:text-xl ">Continue Shopping</button>
                 </div>
-                <div className="col-span-2 ">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 max-lg:text-xs">Proceed to checkout</button>
+                <div className="col-span-2">
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-base lg:text-xl ">Proceed to checkout</button>
                 </div>
               </div>
             </div>
@@ -151,15 +158,18 @@ export default function Cart({ title, subtitle }) {
             <h1 className="text-4xl font-bold text-center mb-3 text-wrap">Get Offers & discounts by subscribing us</h1>
             <form className="flex flex-col gap-2" action="">
               <input className='italic rounded-sm w-full h-12 pl-6 border-1 border-neutral-500' type="email" placeholder='Enter Your Email Address' />
-              <button className='bg-black text-white rounded-sm  w-full h-12'>Subscribe Now</button>
+              <button className='bg-black text-white rounded-sm w-full h-12'>Subscribe Now</button>
             </form>
           </div>
         </div>
         <footer className="grid grid-flow-col gap-10">
           <div className="flex flex-col gap-y-4">
             <h1 className="text-xl font-bold">Urban</h1>
-            <p className="w-80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, facere expedita quibusdam est aspernatur ex error! Debitis autem dicta eveniet dolorum magnam nulla sequi ducimus iste velit. </p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p className="w-80 text-pretty">
+              In modern urban settings, contemporary style guides creative communities and elevates everyday environments.
+              Emerging trends unite cultural expression with innovation, forming distinctive identities defined by authenticity today.
+            </p>
+            <p>Urban design shapes modern lifestyles globally.</p>
           </div>
           <div className="flex flex-col gap-y-4">
             <h1 className="text-lg font-bold">Quick Links</h1>
@@ -179,9 +189,9 @@ export default function Cart({ title, subtitle }) {
           </div>
           <div className="flex flex-col gap-y-4">
             <h1 className="text-lg font-bold">Contact Us</h1>
-            <p className="text-wrap">+ 12(0) 34 56 78 910</p>
-            <p className="text-wrap">jean.carlos@estudante.ifgoiano.edu.br</p>
-            <p>Lorem ipsum dolor sit.</p>
+            <p className="break-all">+1 (555) 347-9820</p>
+            <p className="break-all">support@urbanstore.com</p>
+            <p>Contact Urban support for guidance.</p>
           </div>
         </footer>
       </div>
