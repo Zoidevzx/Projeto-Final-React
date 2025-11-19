@@ -10,13 +10,21 @@ app.use(cors())
 
 
 //CREATE
-app.post('/adicionar', (req, res) => {
-    const { name, description, price, image_url, category, tags  } = req.body
-    db.query('INSERT INTO person ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [ name, description, price, image_url, category, tags ])
-    .then(() => res.status(201).send('Camiseta inserido com sucesso!'))
-    .catch((err) => res.status(500).send(err.stack))
+app.post('/add', (req, res) => {
+    const { name, description, price, image_url, category, tags } = req.body
+    db.query('INSERT INTO product ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [name, description, price, image_url, category, tags])
+        .then(() => res.status(201).send('Camiseta inserido com sucesso!'))
+        .catch((err) => res.status(500).send(err.stack))
 })
 
+app.get('/product/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    db.query(`SELECT * FROM product WHERE id IN ($1, $2, $3)`, [id, id - 1, id + 1])
+        .then((e) => {
+            res.status(200).json(e.rows)
+        })
+        .catch((err) => res.status(500).json({ error: err.stack }))
+})
 
 
 app.get('/products', (req, res) => {
