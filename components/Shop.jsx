@@ -2,7 +2,7 @@
 import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Shop({title, subtitle, cat}) {
+export default function Shop({ title, subtitle, cat }) {
 
   return (
     <div className="flex-center">
@@ -55,18 +55,22 @@ export default function Shop({title, subtitle, cat}) {
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap'>
                 Default sorting
               </button>
-              
+
             </div>
-            {cat.map((e) => (
+          
+            {cat.length === 0 ? (
+              <p className='flex items-start justify-center text-4xl  col-span-3 '>Produto não encontrado</p>
+            ) : 
+            cat.map((e) => (
                 <div key={e.id} >
-                  <Link href={'/product'}>
+                  <Link href={`/product/${e.id}`}>
                     <img src={e.image_url} className='h-100 w-full object-cover object-top ' alt="" />
                     <h1 className='text-lg'>{e.name}</h1>
                     <p>{e.price}</p>
                   </Link>
                 </div>
             ))
-            } 
+            }
             <div className='flex justify-center col-span-3 mt-4'>
               <div className='grid grid-flow-col h-8 w-40'>
                 <button className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'><ArrowBigLeft strokeWidth={2} size={18} /></button>

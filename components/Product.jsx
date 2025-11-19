@@ -2,7 +2,7 @@
 import { Heart, Star, Plus, Minus} from 'lucide-react'
 import { useState } from 'react'
 
-export default function Product({title, subtitle}) {
+export default function Product({title, subtitle, product}) {
   const [hoverstars, setIsHoverStars] = useState(null)
   const [clickstars, setIsClickStars] = useState(null)
   const [clickheart, setIsClickHeart] = useState(false)  
@@ -13,6 +13,7 @@ export default function Product({title, subtitle}) {
     if (quantity >= 0)
       setQuantity(quantity + 1) 
   }
+
 
   function RemoveQuantity(){
     if (quantity != 0)
@@ -27,66 +28,65 @@ export default function Product({title, subtitle}) {
             <h1 className="text-4xl items-bold">{title}</h1>
             <p className="text-sm">{subtitle}</p>
           </div>
-
           <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
-
             <div className="grid grid-flow-row grid-rows-auto grid-cols-auto h-[90%] gap-3">
-              <img src="item1_Home.png" alt="" />
-              <img src="item2_Home.png" alt="" />
-              <img src="item2_Home.png" alt="" />
-            </div>
+              <img src={product.length === 2 ? product[1].image_url : product[0].image_url} alt="" />
+              <img src={product.length === 2 ? product[0].image_url : product[1].image_url} alt="" />
+              <img src={product.length === 2 ? product[1].image_url : product[2].image_url} alt="" />
+          </div>   
+
+          <div className="w-full  " >
+            <img src={product[1].image_url} alt="" className='h-[90%] w-full object-cover' />
+          </div>
             
-            <div className="w-full ">
-              <img src="item1_Home.png" alt="" className='h-[90%] w-full object-cover' />
-            </div>
 
-            <div className="flex gap-3 flex-col">
+              <div className="flex gap-3 flex-col">
 
-              <h1 className='text-2xl font-bold'>Graphic T-Shirt</h1>
-              <div className="flex text-sm text-yellow-300  "  >
-                {[1, 2, 3, 4, 5].map((i)=>(
-                  <Star
-                    key={i}
-                    fill={hoverstars !== null && i <= hoverstars || clickstars !== null && i <= clickstars ? "#ffff00" : "none"}
-                    onClick={() => {
-                       if (clickstars === i) {
-                          setIsClickStars(null);
-                          setIsHoverStars(null);
-                        } else {
-                          setIsClickStars(i);
-                      }
-                    }}
-                    onMouseEnter={() => setIsHoverStars(i)}
-                    onMouseLeave={() => setIsHoverStars(null)}
-                  />
-                ))
+                <h1 className='text-2xl font-bold'>{product[1].name}</h1>
+                <div className="flex text-sm text-yellow-300  "  >
+                  {[1, 2, 3, 4, 5].map((i)=>(
+                    <Star
+                      key={i}
+                      fill={hoverstars !== null && i <= hoverstars || clickstars !== null && i <= clickstars ? "#ffff00" : "none"}
+                      onClick={() => {
+                        if (clickstars === i) {
+                            setIsClickStars(null);
+                            setIsHoverStars(null);
+                          } else {
+                            setIsClickStars(i);
+                        }
+                      }}
+                      onMouseEnter={() => setIsHoverStars(i)}
+                      onMouseLeave={() => setIsHoverStars(null)}
+                    />
+                  ))
 
                 }
-              </div>
-              <p className='text-xl'>$540.00 <span className='line-through text-xs align-bottomç'>$64.00</span></p>
-              <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus voluptatibus sequi quasi reiciendis dolorem ducimus. Quisquam, quibusdam? Accusantium nemo ut blanditiis officia, tenetur velit unde nobis. Sapiente hic, animi sit tempore eos pariatur dolorum blanditiis dicta cum quam adipisci iste!</p>
+                </div>
+                <p className='text-xl'>${product[1].price}<span className='line-through text-xs align-bottomç'>${parseInt(product[1].price)+parseInt(product[1].price*40/100) }</span></p>
+                <p className='text-sm'>{product[1].description}</p>
 
-              <div className='flex flex-col'>
-                <p>3 in stock</p>
-                <div className="flex flex-rows gap-4">
-                  <div className='flex flex-row '>  
-                    <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Minus size={16} /></button>
-                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center text-center' value={quantity} type="text" name="num,e" id="" disabled />
-                    <button onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Plus size={16}/></button>  
-                  </div>
-                  <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
-                  <div className="flex-center">
-                    <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => {setIsClickHeart(!clickheart); setIsHoverHeart(false)}} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
+                <div className='flex flex-col'>
+                  <p>50 in stock</p>
+                  <div className="flex flex-rows gap-4">
+                    <div className='flex flex-row '>  
+                      <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Minus size={16} /></button>
+                      <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center text-center' value={quantity} type="text" name="num,e" id="" disabled />
+                      <button onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Plus size={16}/></button>  
+                    </div>
+                    <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
+                    <div className="flex-center">
+                      <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => {setIsClickHeart(!clickheart); setIsHoverHeart(false)}} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <ul>
-                <li><span className='font-bold' >SKU:</span> Woo-belt</li>
-                <li><span className='font-bold'>Category:</span> Acessories</li>
-                <li><span className='font-bold'>Togs:</span> Black Wooden Minmal Chair</li>
-              </ul>
-            </div>
+                <ul>
+                  <li><span className='font-bold' >SKU:</span> Woo-belt</li>
+                  <li><span className='font-bold'>Category:</span> {product[1].category}</li>
+                  <li><span className='font-bold'>Tags:</span> {product[1].tags}</li>
+                </ul>
+              </div>
           </div>
 
           <div className="flex flex-col gap-2 ">
