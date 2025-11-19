@@ -2,7 +2,7 @@
 import { Search, ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Shop({title, subtitle, cat}) {
+export default function Shop({ title, subtitle, cat }) {
 
   return (
     <div className="flex-center">
@@ -55,7 +55,7 @@ export default function Shop({title, subtitle, cat}) {
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap'>
                 Default sorting
               </button>
-              
+
             </div>
           
             {cat.length === 0 ? (
@@ -70,7 +70,7 @@ export default function Shop({title, subtitle, cat}) {
                   </Link>
                 </div>
             ))
-            } 
+            }
             <div className='flex justify-center col-span-3 mt-4'>
               <div className='grid grid-flow-col h-8 w-40'>
                 <button className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100'><ArrowBigLeft strokeWidth={2} size={18} /></button>
