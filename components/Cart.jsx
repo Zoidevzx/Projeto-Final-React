@@ -7,10 +7,10 @@ export default function Cart({ title, subtitle }) {
   const [quantity, setQuantity] = useState(0)
 
   const cartItens = [
-    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
-    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
-    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' },
-    { img_url: 'item1_Home.png', name: 'Black Hoodie', value: '$95.00', subvalue: '$200.00' }
+    { id: 1, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
+    { id: 2, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
+    { id: 3, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
+    { id: 4, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200}
   ]
 
   function AddQuantity() {
@@ -27,8 +27,8 @@ export default function Cart({ title, subtitle }) {
     <div className="flex-center">
       <div className="container grid xl:grid-rows-[4fr_8fr_6fr_4fr] gap-20 ">
         <div className="flex-center flex-col gap-4">
-          <h1 className="m-0 font-bold text-5xl">{title}</h1>
-          <p className="m-0 text-gray-300 text-base">{subtitle}</p>
+          <h1 className="m-0 font-bold xl:text-7xl max-lg:text-5xl">{title}</h1>
+          <p className="m-0 text-gray-300 xl:text-xl max-lg:text-lg">{subtitle}</p>
         </div>
 
         <div className="grid grid-flow-col xl:grid-cols-[4fr_2fr] gap-10 max-xl:grid-rows-2 grid-cols-1 lg:gap-50 md:gap-40 sm:gap-20 max-sm:gap-35">
@@ -48,7 +48,7 @@ export default function Cart({ title, subtitle }) {
                     <img src={e.img_url} alt="imagem 1" className="size-full object-cover object-" />
                     <div>
                       <h1 className='font-medium text-lg'>{e.name}</h1>
-                      <p>{e.value}</p>
+                      <p>${e.value}.00</p>
                     </div>
                   </div>
                   <div className="flex-center">
@@ -57,7 +57,7 @@ export default function Cart({ title, subtitle }) {
                     <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center' onClick={AddQuantity} ><Plus size={16} /></button>
                   </div>
                   <div className="flex-center">
-                    <p>{e.subvalue}</p>
+                    <p>${e.subvalue}.00</p>
                   </div>
                   <div className="flex-center">
                     <CircleX className="cursor-pointer" />
@@ -74,24 +74,24 @@ export default function Cart({ title, subtitle }) {
 
               <hr className="col-span-2 border-stone-300" />
               <p className="font-bold text-xl">Subtotal</p>
-              <p className="text-xl font-semibold">$410.00</p>
+              <p className="text-xl font-semibold">${cartItens.reduce((v, e) => (v + e.subvalue), 0)}.00</p>
               <hr className="col-span-2 border-stone-300" />
 
               <p className="font-bold text-xl">Total</p>
-              <p className="text-xl font-semibold">$410.00</p>
+              <p className="text-xl font-semibold">${cartItens.reduce((v, e) => (v + e.value), 0)}.00</p>
 
               <hr className="col-span-2 border-stone-300" />
             </div>
             <div className="flex-center h-50 flex-wrap">
               <div className="grid grid-cols-2 gap-6 w-full">
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-base lg:text-xl ">Update Cart</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-xl lg:text-xl ">Update Cart</button>
                 </div>
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-base lg:text-xl ">Continue Shopping</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-xl lg:text-xl ">Continue Shopping</button>
                 </div>
                 <div className="col-span-2">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-base lg:text-xl ">Proceed to checkout</button>
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl ">Proceed to checkout</button>
                 </div>
               </div>
             </div>
