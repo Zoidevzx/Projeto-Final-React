@@ -70,9 +70,9 @@ export default function Product({title, subtitle}) {
                 <p>3 in stock</p>
                 <div className="flex flex-rows gap-4">
                   <div className='flex flex-row '>  
-                    <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center'><Minus size={16} /></button>
+                    <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Minus size={16} /></button>
                     <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center text-center' value={quantity} type="text" name="num,e" id="" disabled />
-                    <button onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center '><Plus size={16}/></button>  
+                    <button onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Plus size={16}/></button>  
                   </div>
                   <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
                   <div className="flex-center">
