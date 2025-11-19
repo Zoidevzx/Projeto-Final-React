@@ -57,9 +57,13 @@ export default function Shop({title, subtitle, cat}) {
               </button>
               
             </div>
-            {cat.map((e) => (
+          
+            {cat.length === 0 ? (
+              <p className='flex items-start justify-center text-4xl  col-span-3 '>Produto não encontrado</p>
+            ) : 
+            cat.map((e) => (
                 <div key={e.id} >
-                  <Link href={'/product'}>
+                  <Link href={`/product/${e.id}`}>
                     <img src={e.image_url} className='h-100 w-full object-cover object-top ' alt="" />
                     <h1 className='text-lg'>{e.name}</h1>
                     <p>{e.price}</p>

@@ -44,7 +44,7 @@ export default function Desenvolvedor(){
                 {liberado &&
                     <div className="container mt-5">
                     <h2>Formulário</h2>
-                    <form method="POST" action="http://localhost:8000/adicionar">
+                    <form method="POST" action="http://localhost:8000/add">
               
                         <div className="mb-3">
                         <label className="form-label">Name:</label>
