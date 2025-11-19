@@ -1,4 +1,4 @@
-'use client'
+chi-'use client'
 import { User, Search, ShoppingCart, ChevronDown, ChevronRight, TextAlignJustify } from 'lucide-react';
 import Link from 'next/link'
 import { useState , useEffect } from 'react';

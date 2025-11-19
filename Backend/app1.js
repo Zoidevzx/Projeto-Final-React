@@ -13,7 +13,7 @@ app.use(cors())
 app.post('/add', (req, res) => {
     const { name, description, price, image_url, category, tags } = req.body
     db.query('INSERT INTO product ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [name, description, price, image_url, category, tags])
-        .then(() => res.status(201).send('Camiseta inserido com sucesso!'))
+        .then(() => res.status(201).send('Camiseta inserida com sucesso!'))
         .catch((err) => res.status(500).send(err.stack))
 })
 
@@ -36,7 +36,6 @@ app.get('/products', (req, res) => {
     .catch((err) => res.status(500).json({error: err.stack}))
 })
 
-// READ CAT
 app.get('/products/:cat', (req, res) => {
     const cat = req.params.cat
     db.query(`SELECT * FROM product WHERE category = '${cat}' ORDER BY ID`)
@@ -47,18 +46,13 @@ app.get('/products/:cat', (req, res) => {
 })
 
 
-// const { id } = req.params
-//     let cat = 'Classic'
-//     if (id === '2')
-//        cat = 'New'
-//     else if (id === '3')
-//        cat = 'Moderno' 
 
-// // UPDATE
-app.put('/products/:id', (req, res) => {
+
+// UPDATE
+app.put('/edit/:id', (req, res) => {
     const { id } = req.params;
     const { name, description, price, image_url, category, tags } = req.body;
-    db.query('UPDATE person SET name = $1, description = $2, price = $3, image_url = $4,  category = $5,  tags = $6 WHERE id = $7', [name, description, price, image_url, category, tags, id])
+    db.query('UPDATE product SET name = $1, description = $2, price = $3, image_url = $4,  category = $5,  tags = $6 WHERE id = $7', [name, description, price, image_url, category, tags, id])
     .then((result) => {
         if (result.rowCount === 0)
             return res.status(404).send('Camiseta não encontrada.');
@@ -70,17 +64,30 @@ app.put('/products/:id', (req, res) => {
 // // DELETE
 app.delete('/products/:id', (req, res) => {
     const { id } = req.params;
-    db.query('DELETE FROM person WHERE id = $1', [id])
+    db.query('DELETE FROM product WHERE id = $1', [id])
     .then((result) => {
         if (result.rowCount == 0)
             return res.status(404).send('Camiseta não encontrado.');
-        res.status(200).send('Camiseta deletado com sucesso!');
+        res.status(200).send('Camiseta deletada com sucesso!');
     })
     .catch((err) => res.status(500).send(err.stack));
 })
 
 
+//CREATE CARRINHO
 
+app.post('/add/cart', (req, res) => {
+    const { carrinho } = req.body
+
+    const somaFinal = carrinho.reduce((soma, item) => soma + item.preco, 0);
+      
+    db.query('INSERT INTO sale (finalPrice) VALUES ($1)', [somaFinal])
+        .then(() => res.status(201).send('Venda inserida com sucesso!'))
+        .catch((err) => res.status(500).send(err.stack))
+})
+
+
+//Callback
 
 const server = app.listen(8000, () => {
     console.log('Conectando com servidor...')
@@ -98,3 +105,6 @@ const shutdown = async () => {
 
 process.on('SIGINT', shutdown)
 process.on('SIGTERM', shutdown)
+
+//criar uma tabela onde tenha o ID do produto e o preço dele, no final fazer uma somatória de todos os preços(reduce)
+

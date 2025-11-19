@@ -10,7 +10,7 @@ export default function About({title, subtitle}){
                 </div>
                 <div className="shadow-xl/20 rounded-xl "><img src="Ana_Clara.jfif" className="w-full rounded-xl aspect-square object-cover transition delay-50 duration-150 hover:scale-102" alt="" /></div>
                 <div className="flex items-center">
-                    <p>Ana Clara Rezende Pires de Campos é estudante do 2º ano do curso de Informática para Internet no Instituto Federal Goiano - Campus Trindade. Natural de Trindade, tem 16 anos e demonstra interesse nas áreas de desenvolvimento web, buscando aprimorar seus conhecimentos e aplicar suas habilidades em projetos práticos</p>
+                    <p>Ana Clara Rezende Pires de Campos é estudante do 2º ano do curso de Informática para Internet no Instituto Federal Goiano - Campus Iporá. Natural de Trindade, tem 16 anos e demonstra interesse nas áreas de desenvolvimento web, buscando aprimorar seus conhecimentos e aplicar suas habilidades em projetos práticos</p>
                 </div>
                 <div className="flex items-center">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod exercitationem excepturi modi repellendus totam. Iure illo expedita quibusdam at nulla ipsum est, ab, dicta numquam nobis obcaecati eaque voluptatum, eum dolorem ducimus nostrum sint adipisci architecto doloremque dolor mollitia. Veritatis, nesciunt in laudantium adipisci ex error nihil mollitia voluptatum! Voluptatem.</p>
