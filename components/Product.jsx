@@ -1,6 +1,7 @@
 'use client'
 import { Heart, Star, Plus, Minus} from 'lucide-react'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Product({title, subtitle, product}) {
   const [hoverstars, setIsHoverStars] = useState(null)
@@ -20,6 +21,10 @@ export default function Product({title, subtitle, product}) {
       setQuantity(quantity - 1)
   }
 
+  function firtsproductorlast(prop){
+    return product.length === 2 ? product[0][prop] : product[1][prop]
+  }
+
   return (
     <div className="flex-center">  
       <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
@@ -30,19 +35,25 @@ export default function Product({title, subtitle, product}) {
           </div>
           <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
             <div className="grid grid-flow-row grid-rows-auto grid-cols-auto h-[90%] gap-3">
-              <img src={product.length === 2 ? product[1].image_url : product[0].image_url} alt="" />
-              <img src={product.length === 2 ? product[0].image_url : product[1].image_url} alt="" />
-              <img src={product.length === 2 ? product[1].image_url : product[2].image_url} alt="" />
+              <Link href={`/product/${product[1].id}`}>
+                <img src={product[1].image_url} alt="" />
+              </Link>
+              <Link href={`/product/${product[0].id}`}>
+                <img src={product[0].image_url} alt="" />
+              </Link>
+              <Link href={`/product/${product[2].id}`}>
+                <img src={product[2].image_url} alt="" />
+              </Link>
           </div>   
 
           <div className="w-full  " >
-            <img src={product[1].image_url} alt="" className='h-[90%] w-full object-cover' />
+            <img src={product[0].image_url} alt="" className='h-[90%] w-full object-cover' />
           </div>
             
 
               <div className="flex gap-3 flex-col">
 
-                <h1 className='text-2xl font-bold'>{product[1].name}</h1>
+                <h1 className='text-2xl font-bold'>{product[0].name}</h1>
                 <div className="flex text-sm text-yellow-300  "  >
                   {[1, 2, 3, 4, 5].map((i)=>(
                     <Star
@@ -63,11 +74,11 @@ export default function Product({title, subtitle, product}) {
 
                 }
                 </div>
-                <p className='text-xl'>${product[1].price}<span className='line-through text-xs align-bottomç'>${parseInt(product[1].price)+parseInt(product[1].price*40/100) }</span></p>
-                <p className='text-sm'>{product[1].description}</p>
+                <p className='text-xl'>${product[0].price}<span className='line-through text-xs align-bottomç'>${parseInt(product[0].price)+parseInt(product[0].price*40/100) }</span></p>
+                <p className='text-sm'>{product[0].description}</p>
 
                 <div className='flex flex-col'>
-                  <p>50 in stock</p>
+                  <p>100 in stock</p>
                   <div className="flex flex-rows gap-4">
                     <div className='flex flex-row '>  
                       <button onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Minus size={16} /></button>
@@ -83,8 +94,8 @@ export default function Product({title, subtitle, product}) {
 
                 <ul>
                   <li><span className='font-bold' >SKU:</span> Woo-belt</li>
-                  <li><span className='font-bold'>Category:</span> {product[1].category}</li>
-                  <li><span className='font-bold'>Tags:</span> {product[1].tags}</li>
+                  <li><span className='font-bold'>Category:</span> {product[0].category}</li>
+                  <li><span className='font-bold'>Tags:</span> {product[0].tags}</li>
                 </ul>
               </div>
           </div>

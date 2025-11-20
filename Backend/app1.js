@@ -17,14 +17,40 @@ app.post('/add', (req, res) => {
         .catch((err) => res.status(500).send(err.stack))
 })
 
-app.get('/product/:id', (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    db.query(`SELECT * FROM product WHERE id IN ($1, $2, $3)`, [id, id - 1, id + 1])
-        .then((e) => {
-            res.status(200).json(e.rows)
-        })
-        .catch((err) => res.status(500).json({ error: err.stack }))
-})
+app.get('/product/:id', async (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  try {
+    const lastRow = await db.query(`SELECT MAX(id) AS max_id FROM product`);
+    const lastId = lastRow.rows[0].max_id;
+
+    let ids = [];
+
+    if (id === 1) {
+      ids = [id, id + 1, id + 2];
+    } else if (id === lastId) {
+      ids = [id, id - 1, id - 2];
+    } else {
+      ids = [id - 1, id, id + 1];
+    }
+
+    const result = await db.query(
+      `SELECT * 
+       FROM product 
+       WHERE id = ANY($1::int[]) 
+       ORDER BY CASE 
+         WHEN id = $2 THEN 0 
+         ELSE 1 
+       END, id`,
+      [ids, id]
+    );
+
+    res.status(200).json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.stack });
+  }
+});
+
 
 
 app.get('/products', (req, res) => {

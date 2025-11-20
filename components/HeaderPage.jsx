@@ -1,7 +1,7 @@
-chi-'use client'
-import { User, Search, ShoppingCart, ChevronDown, ChevronRight, TextAlignJustify } from 'lucide-react';
+'use client'
+import { User, Search, ShoppingCart, ChevronDown, TextAlignJustify } from 'lucide-react';
 import Link from 'next/link'
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export function HeaderPage() {

@@ -16,6 +16,17 @@ export default function Desenvolvedor(){
             setValuep('Senha Errada, tente novamente')  
     }
 
+    function enterapertado(event){
+        if(event.key === 'Enter'){
+        event.preventDefault();
+            if(senha === senhacorreta)
+            setLiberado(true)
+            else if(senha === '') 
+            setValuep('Prencha o Campo')
+            else 
+            setValuep('Senha Errada, tente novamente')  
+        }
+    }
     return(
         <div className="flex justify-center size-full">
             <div className="container grid grid-rows-[1fr_3fr] ">
@@ -34,6 +45,7 @@ export default function Desenvolvedor(){
                                 onChange={(e) => setSenha(e.target.value)} 
                                 type="password" 
                                 placeholder='Enter Passowrd of Dev Page' 
+                                onKeyDown={enterapertado}
                             />
                                 <p>{valuep}</p>
                             <button type='button' className="bg-[#9F1D1D] rounded-sm p-2 h-10 text-white text-sm" onClick={TestedeSenha} >Enviar</button>
