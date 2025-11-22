@@ -7,10 +7,10 @@ export default function Cart({ title, subtitle }) {
   const [quantity, setQuantity] = useState(0)
 
   const cartItens = [
-    { id: 1, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
-    { id: 2, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
-    { id: 3, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200},
-    { id: 4, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200}
+    { id: 1, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
+    { id: 2, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
+    { id: 3, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
+    { id: 4, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 }
   ]
 
   function AddQuantity() {
@@ -52,9 +52,11 @@ export default function Cart({ title, subtitle }) {
                     </div>
                   </div>
                   <div className="flex-center">
-                    <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center' onClick={RemoveQuantity}><Minus size={16} /></button>
-                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
-                    <button className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center' onClick={AddQuantity} ><Plus size={16} /></button>
+                    <form className="flex-center">
+                      <button type="button" className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center' onClick={RemoveQuantity}><Minus size={16} /></button>
+                      <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center' value={quantity} type="text" name="" id="" disabled />
+                      <button type="button" className='font-bold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center' onClick={AddQuantity} ><Plus size={16} /></button>
+                    </form>
                   </div>
                   <div className="flex-center">
                     <p>${e.subvalue}.00</p>
@@ -85,10 +87,10 @@ export default function Cart({ title, subtitle }) {
             <div className="flex-center h-50 flex-wrap">
               <div className="grid grid-cols-2 gap-6 w-full">
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-xl lg:text-xl ">Update Cart</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Update Cart</button>
                 </div>
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-xl lg:text-xl ">Continue Shopping</button>
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
                 </div>
                 <div className="col-span-2">
                   <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl ">Proceed to checkout</button>
