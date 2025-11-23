@@ -1,5 +1,7 @@
 'use client'
-import { Heart, Star, Plus, Minus } from 'lucide-react'
+import ItemsQuantity from './ItemsQuantity'
+import Subscribe from './Subscribe'
+import { Heart, Star } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
 
@@ -8,18 +10,6 @@ export default function Product({ title, subtitle, product }) {
   const [clickstars, setIsClickStars] = useState(null)
   const [clickheart, setIsClickHeart] = useState(false)
   const [hoverheart, setIsHoverHeart] = useState(false)
-  const [quantity, setQuantity] = useState(0)
-
-  function AddQuantity() {
-    if (quantity >= 0)
-      setQuantity(quantity + 1)
-  }
-
-
-  function RemoveQuantity() {
-    if (quantity != 0)
-      setQuantity(quantity - 1)
-  }
 
   function firtsproductorlast(prop) {
     return product.length === 2 ? product[0][prop] : product[1][prop]
@@ -81,11 +71,7 @@ export default function Product({ title, subtitle, product }) {
               <p>100 in stock</p>
               <div className="flex flex-rows gap-4">
                 <div className='flex'>
-                  <form className='flex-center'>
-                    <button type='button' onClick={RemoveQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Minus size={16} /></button>
-                    <input className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 flex-center text-center' value={quantity} type="text" name="num,e" id="" disabled />
-                    <button type='button' onClick={AddQuantity} className='font-bold size-9 border-stone-300 border-1 flex-center cursor-pointer'><Plus size={16} /></button>
-                  </form>
+                  <ItemsQuantity />
                 </div>
                 <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
                 <div className="flex-center">
@@ -135,13 +121,7 @@ export default function Product({ title, subtitle, product }) {
         </div>
 
         <div className="flex-center ">
-          <form action="" className='flex flex-col w-[50%] gap-1'>
-
-            <h1 className='text-4xl font-bold text-center mb-3'>Get offers & discounts by subscribing us</h1>
-            <input className='italic rounded-sm w-full h-12 pl-6 border-1 border-neutral-500' type="email" placeholder='Enter Your Email Address' />
-            <button className='bg-black text-white rounded-sm  w-full h-12'>Subscribe Now</button>
-
-          </form>
+          <Subscribe />
         </div>
 
       </div>
