@@ -5,6 +5,9 @@ export const content = [
   "./components/**/*.{js,ts,jsx,tsx}",
 ];
 export const theme = {
-  extend: {},
+    theme: {
+    extend: {
+    },
+  },
 };
 export const plugins = [];

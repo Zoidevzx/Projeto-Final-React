@@ -36,7 +36,7 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
 
   return (
     <div className="flex-center">
-      <div className="container grid sm:grid-rows-[2fr_13fr] max-sm:grid-rows-[1fr_15fr]">
+      <div className="container grid sm:grid-rows-[1fr_13fr] max-sm:grid-rows-[1fr_15fr]">
         <div className='flex-center flex-col gap-3'>
           <h1 className='m-0 text-5xl font-bold'>{title}</h1>
           <p className='m-0 text-gray-300 text-lg font-medium'>{subtitle}</p>
@@ -87,7 +87,7 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
 
           </div>
 
-          <div className='grid gap-5 sm:grid-cols-3 sm:gap-4 max-sm:grid-cols-1 max-sm:grid-flow-row'>
+          <div className='grid gap-5 sm:grid-cols-3  sm:gap-4 max-sm:grid-cols-1 max-sm:grid-flow-row'>
             <div className='flex justify-between sm:col-span-3'>
               <h2 className='text-zinc-500 font-medium'>Showing 1-9 of 27 results</h2>
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap font-medium'>
@@ -97,15 +97,24 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
             {productList.length === 0 ? (
               <p className='flex items-start justify-center text-4xl sm:col-span-3 '>Produto não encontrado</p>
             ) :
-              productList.map((e) => (
-                <div key={e.id} >
-                  <Link href={`/product/${e.id}`}>
-                    <img src={e.image_url} className='xl:h-100 w-full object-cover object-top max-xl:h-75 max-lg:h-100 max-sm:h-100' alt="" />
-                    <h1 className='font-semibold sm:text-2xl max-sm:text-xl max-sm:flex-center'>{e.name}</h1>
-                    <p className='font-light sm:text-lg max-sm:text-lg max-sm:flex-center'>${e.price}</p>
-                  </Link>
-                </div>
-              ))
+              productList.map((e, i) => {
+                const produtosfinal = i >= productList.length - (productList.length % 3);
+                const resto = productList.length % 3;
+
+                let Classefinal = "";
+                if (produtosfinal && resto === 1) {
+                  Classefinal = "sm:col-start-2";
+                }
+                return (
+                  <div key={e.id} className={Classefinal}>
+                    <Link href={`/product/${e.id}`}>
+                      <img src={e.image_url} className='xl:h-100 w-full object-cover object-top max-xl:h-75 max-lg:h-100 max-sm:h-100' alt="" />
+                      <p className='font-semibold sm:text-2xl max-sm:text-xl max-sm:flex-center'>{e.name}</p>
+                      <p className='font-light sm:text-lg max-sm:text-lg max-sm:flex-center'>${e.price}</p>
+                    </Link>
+                  </div>
+                )
+              })
             }
             <div className='flex justify-center sm:col-span-3 mt-4'>
               <div className='grid grid-cols-5 h-8 w-40'>

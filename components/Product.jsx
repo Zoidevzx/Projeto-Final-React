@@ -44,33 +44,34 @@ export default function Product({ title, subtitle, product }) {
 
   return (
     <div className="flex-center">
-      <div className="container grid grid-rows-[1fr_2fr_1fr_1fr]">
+      <div className="container grid grid-rows-[0.8fr_2fr_1fr_0.8fr] gap-10">
 
         <div className="flex-center flex-col">
           <h1 className="text-4xl items-bold">{title}</h1>
           <p className="text-sm">{subtitle}</p>
         </div>
+
         <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
-          <div className="grid grid-flow-row grid-rows-auto grid-cols-auto h-[90%] gap-3">
-            <Link href={`/product/${product[1].id}`}>
-              <img src={product[1].image_url} alt="" />
+          <div className="grid  grid-rows-3 gap-3">
+            <Link className='h-full' href={`/product/${product[1].id}`}>
+              <img src={product[1].image_url} className='size-full object-cover' alt="" />
             </Link>
-            <Link href={`/product/${product[0].id}`}>
-              <img src={product[0].image_url} alt="" />
+            <Link className='h-full' href={`/product/${product[0].id}`}>
+              <img src={product[0].image_url} className='size-full object-cover' alt="" />
             </Link>
-            <Link href={`/product/${product[2].id}`}>
-              <img src={product[2].image_url} alt="" />
+            <Link className='h-full' href={`/product/${product[2].id}`}>
+              <img src={product[2].image_url} className='size-full object-cover' alt="" />
             </Link>
           </div>
 
-          <div className="w-full  " >
-            <img src={product[0].image_url} alt="" className='h-[90%] w-full object-cover' />
+          <div className='h-full w-auto'   >
+            <img src={product[0].image_url} alt="" className='size-full object-cover' />
           </div>
 
 
           <div className="flex gap-3 flex-col">
 
-            <h1 className='text-2xl font-bold'>{product[0].name}</h1>
+            <h2 className='text-2xl font-bold'>{product[0].name}</h2>
             <div className="flex text-sm text-yellow-300  "  >
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star
@@ -139,7 +140,7 @@ export default function Product({ title, subtitle, product }) {
 
           <div className="flex flex-col gap-2">
 
-            <h1 className='font-bold text-lg'>Product Descripition</h1>
+            <h2 className='font-bold text-lg'>Product Descripition</h2>
             <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem deserunt cumque tenetur quidem fugiat alias dicta ea vitae quaerat, suscipit quam beatae sit natus quia molestiae praesentium distinctio nesciunt error temporibus voluptate rerum repellat? Cupiditate repellat totam aut quibusdam eligendi assumenda consequatur. Exercitationem, sequi! Eaque laudantium commodi incidunt dicta ipsa?</p>
             <ul className='list-disc list-inside ml-4 text-3'>
               <li>Lorem ipsum dolor sit amet.</li>
@@ -151,7 +152,7 @@ export default function Product({ title, subtitle, product }) {
           </div>
         </div>
 
-        <div className="flex-center ">
+        <div className="flex-center flex-col">
           <Subscribe />
         </div>
 

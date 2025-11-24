@@ -15,7 +15,7 @@ export default function Cart({ title, subtitle }) {
   const handleCheckout = async () => {
     if (cartItems.length === 0)
 
-    setLoading(true);
+      setLoading(true);
 
     try {
       const dadosParaEnviar = {
@@ -31,7 +31,8 @@ export default function Cart({ title, subtitle }) {
         body: JSON.stringify(dadosParaEnviar)
       });
 
-      if (res.ok) {;
+      if (res.ok) {
+        ;
         clearCart();
       }
 
@@ -95,7 +96,7 @@ export default function Cart({ title, subtitle }) {
           </div>
 
           <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-y-4">
-            <h1 className="m-0 text-4xl font-bold">Cart Total</h1>
+            <h2 className="m-0 text-4xl font-bold">Cart Total</h2>
             <div className="grid grid-flow-row grid-cols-2">
 
               <hr className="col-span-2 border-stone-300" />
@@ -121,7 +122,7 @@ export default function Cart({ title, subtitle }) {
                 </div>
                 <div>
                   <Link href={'/shop'}>
-                    <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
+                    <button className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
                   </Link>
                 </div>
                 <div className="col-span-2">
@@ -140,7 +141,7 @@ export default function Cart({ title, subtitle }) {
         </div>
         <footer className="grid grid-flow-col gap-10">
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-xl font-bold">Urban</h1>
+            <h2 className="text-xl font-bold">Urban</h2>
             <p className="w-80 text-pretty">
               In modern urban settings, contemporary style guides creative communities and elevates everyday environments.
               Emerging trends unite cultural expression with innovation, forming distinctive identities defined by authenticity today.
@@ -148,7 +149,7 @@ export default function Cart({ title, subtitle }) {
             <p>Urban design shapes modern lifestyles globally.</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Quick Links</h1>
+            <h2 className="text-lg font-bold">Quick Links</h2>
             <Link href={'/'}>Home</Link>
             <Link href={'/aboutus'}>About</Link>
             <p>Services</p>
@@ -156,7 +157,7 @@ export default function Cart({ title, subtitle }) {
             <p>Contacts</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Social</h1>
+            <h2 className="text-lg font-bold">Social</h2>
             <p>Facebook</p>
             <p>Twitter</p>
             <p>Pinterest</p>
@@ -164,7 +165,7 @@ export default function Cart({ title, subtitle }) {
             <p>Youtube</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Contact Us</h1>
+            <h2 className="text-lg font-bold">Contact Us</h2>
             <p className="break-all">+1 (555) 347-9820</p>
             <p className="break-all">support@urbanstore.com</p>
             <p>Contact Urban support for guidance.</p>

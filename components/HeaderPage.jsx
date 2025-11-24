@@ -19,10 +19,10 @@ export function HeaderPage() {
     ]
 
     const itensblog = [
-        { nome: 'Ana', link: 'https://github.com/Jean1702' },
+        { nome: 'Ana', link: 'https://github.com/Ana-Clara1104' },
         { nome: 'Bruno', link: 'https://github.com/Zoidevzx' },
         { nome: 'Jean', link: 'https://github.com/Jean1702' },
-        { nome: 'Joao', link: 'https://github.com/Zoidevzx' }
+        { nome: 'Joao', link: 'https://github.com/jooaoDev' }
     ]
 
     const itenspage = [
@@ -140,7 +140,7 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'} />
-                                    <div className='flex-center bg-red-400 w-5 h-5 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>{totalItems}</p></div>
+                                    <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-3 md:size-2 lg:size-4 lg:top-3 lg:left-3'><p className='text-center text-white text-xs sm:text-2.5 lg:text-base '>{totalItems}</p></div>
                                 </Link>
                             </div>
                         </div>

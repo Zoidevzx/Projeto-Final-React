@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 html,
 body {
   width: 100%;
@@ -11,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 
 .button_home {
   @apply text-sm xl:text-lg flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 border-1 border-b-gray-500 xl:w-30 xl:h-13 max-sm:text-xs
@@ -31,6 +31,7 @@ body {
 body {
   margin: 0;
   padding: 0;
+    font-family: var(--font-funnel-display);
 }
 
 input{
@@ -39,4 +40,8 @@ input{
 
 p {
   margin: 0;
+}
+
+h1 {
+  font-family: var(--font-plaster);
 }
