@@ -12,5 +12,5 @@ CREATE TABLE product(
 
 CREATE TABLE sale(
 	ID SERIAL PRIMARY KEY,
-	finalPrice DECIMAL(10,2) NOT NULL
+	finalprice DECIMAL(10,2) NOT NULL
 )

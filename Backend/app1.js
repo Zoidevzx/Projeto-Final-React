@@ -81,10 +81,6 @@ app.get('/products/categories/:cat', (req, res) => {
     .catch((err) => res.status(500).json({ error: err.stack }))
 })
 
-
-
-
-
 // UPDATE
 app.post('/edit/:id', (req, res) => {
   const { id } = req.params;
@@ -118,7 +114,7 @@ app.post('/add/cart', (req, res) => {
 
   const somaFinal = carrinho.reduce((soma, item) => soma + item.preco, 0);
 
-  db.query('INSERT INTO sale (finalPrice) VALUES ($1)', [somaFinal])
+  db.query('INSERT INTO sale (finalprice) VALUES ($1)', [somaFinal])
     .then(() => res.status(201).send('Venda inserida com sucesso!'))
     .catch((err) => res.status(500).send(err.stack))
 })

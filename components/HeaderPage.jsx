@@ -3,6 +3,7 @@ import { User, Search, ShoppingCart, ChevronDown, TextAlignJustify } from 'lucid
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useCart } from '../context/ContextCart'
 
 export function HeaderPage() {
     const [openshop, setOpenshop] = useState(false)
@@ -38,6 +39,10 @@ export function HeaderPage() {
         setOpenpage(false)
         setOpenlist(false)
     }, [pathname])
+
+    const { cartItems } = useCart()
+
+    const totalItems = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
     return (
         <div className="flex-center w-full">
@@ -135,7 +140,7 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'} />
-                                    <div className='flex-center bg-red-400 w-4 h-4 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>1</p></div>
+                                    <div className='flex-center bg-red-400 w-5 h-5 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>{totalItems}</p></div>
                                 </Link>
                             </div>
                         </div>

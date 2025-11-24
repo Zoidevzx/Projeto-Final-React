@@ -4,12 +4,39 @@ import Subscribe from './Subscribe'
 import { Heart, Star } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useCart } from '../context/ContextCart'
 
 export default function Product({ title, subtitle, product }) {
   const [hoverstars, setIsHoverStars] = useState(null)
   const [clickstars, setIsClickStars] = useState(null)
   const [clickheart, setIsClickHeart] = useState(false)
   const [hoverheart, setIsHoverHeart] = useState(false)
+
+  const { addToCart } = useCart();
+
+  const [qty, setQty] = useState(1);
+
+  const handleIncrease = () => setQty(prev => prev + 1);
+  const handleDecrease = () => setQty(prev => (prev > 1 ? prev - 1 : 1));
+
+
+  const handleAddToCart = () => {
+
+    const productToAdd = {
+      id: product[0].id,
+      img_url: product[0].image_url,
+      name: product[0].name,
+      value: product[0].price,
+      description: product[0].description,
+      category: product[0].category,
+      tags: product[0].tags,
+      quantity: qty
+    };
+
+    addToCart(productToAdd);
+  };
+
+  console.log()
 
   function firtsproductorlast(prop) {
     return product.length === 2 ? product[0][prop] : product[1][prop]
@@ -71,9 +98,13 @@ export default function Product({ title, subtitle, product }) {
               <p>100 in stock</p>
               <div className="flex flex-rows gap-4">
                 <div className='flex'>
-                  <ItemsQuantity />
+                  <ItemsQuantity
+                    quantity={qty}
+                    onIncrease={handleIncrease}
+                    onDecrease={handleDecrease}
+                  />
                 </div>
-                <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm' >Add to cart</button>
+                <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
                 <div className="flex-center">
                   <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => { setIsClickHeart(!clickheart); setIsHoverHeart(false) }} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                 </div>

@@ -3,16 +3,44 @@ import ItemsQuantity from "./ItemsQuantity";
 import Subscribe from "./Subscribe";
 import { CircleX } from "lucide-react"
 import Link from 'next/link';
-import { Fragment} from "react";
+import { Fragment, useState } from "react";
+import { useCart } from "../context/ContextCart";
 
 export default function Cart({ title, subtitle }) {
 
-  const cartItens = [
-    { id: 1, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
-    { id: 2, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
-    { id: 3, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 },
-    { id: 4, img_url: 'item1_Home.png', name: 'Black Hoodie', value: 95, subvalue: 200 }
-  ]
+
+  const { cartItems, clearCart, changeQuantity, removeFromCart } = useCart();
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    if (cartItems.length === 0)
+
+    setLoading(true);
+
+    try {
+      const dadosParaEnviar = {
+        carrinho: cartItems.map(item => ({
+          ...item,
+          preco: Number(item.value) * (item.quantity || 1)
+        }))
+      };
+
+      const res = await fetch('http://localhost:8000/add/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dadosParaEnviar)
+      });
+
+      if (res.ok) {;
+        clearCart();
+      }
+
+    } catch (error) {
+      console.error(error);;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex-center">
@@ -33,27 +61,36 @@ export default function Cart({ title, subtitle }) {
             </div>
 
             <div className="cart-container">
-              {cartItens.map((e) => (
-                <Fragment key={e.id}>
-                  <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40 sm:h-60 max-sm:h-70">
-                    <img src={e.img_url} alt="imagem 1" className="size-full object-cover object-" />
-                    <div>
-                      <h1 className='font-medium text-xl'>{e.name}</h1>
-                      <p className="font-extralight">${e.value}.00</p>
+              {cartItems.length > 0 ? (
+                cartItems.map((e, index) => (
+                  <Fragment key={`${e.id}-${index}`}>
+                    <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40 sm:h-60 max-sm:h-70">
+                      <img src={e.img_url} alt="imagem 1" className="flex-center size-full object-cover object-top" />
+                      <div>
+                        <h1 className='font-medium text-xl'>{e.name}</h1>
+                        <p className="font-extralight">${e.value}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-center">
-                    <ItemsQuantity />
-                  </div>
-                  <div className="flex-center">
-                    <p className="font-extralight">${e.subvalue}.00</p>
-                  </div>
-                  <div className="flex-center">
-                    <CircleX className="cursor-pointer" />
-                  </div>
-                  <hr className="col-span-4 border-stone-300" />
-                </Fragment>
-              ))}
+                    <div className="flex-center">
+                      <ItemsQuantity
+                        quantity={e.quantity}
+                        onIncrease={() => changeQuantity(e.id, 'plus')}
+                        onDecrease={() => changeQuantity(e.id, 'minus')}
+                      />
+                    </div>
+                    <div className="flex-center">
+                      <p className="font-extralight">${e.value}</p>
+                    </div>
+                    <div className="flex-center">
+                      <CircleX className="cursor-pointer" onClick={() => removeFromCart(e.id)} />
+                    </div>
+                    <hr className="col-span-4 border-stone-300" />
+                  </Fragment>
+                ))
+              ) : (
+                <p className="col-span-4 flex-center font-semibold text-3xl"> O carrinho está vazio </p>
+              )}
+
             </div>
           </div>
 
@@ -63,11 +100,17 @@ export default function Cart({ title, subtitle }) {
 
               <hr className="col-span-2 border-stone-300" />
               <p className="font-semibold text-xl">Subtotal</p>
-              <p className="text-xl font-light">${cartItens.reduce((v, e) => (v + e.subvalue), 0)}.00</p>
+              <p className="text-xl font-light">{cartItems.reduce((v, e) => (v + Number(e.value)), 0).toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              })}</p>
               <hr className="col-span-2 border-stone-300" />
 
               <p className="font-semibold text-xl">Total</p>
-              <p className="text-xl font-light">${cartItens.reduce((v, e) => (v + e.value), 0)}.00</p>
+              <p className="text-xl font-light">{cartItems.reduce((acc, items) => (acc + (Number(items.value) * items.quantity)), 0).toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              })}</p>
 
               <hr className="col-span-2 border-stone-300" />
             </div>
@@ -77,10 +120,14 @@ export default function Cart({ title, subtitle }) {
                   <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Update Cart</button>
                 </div>
                 <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
+                  <Link href={'/shop'}>
+                    <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
+                  </Link>
                 </div>
                 <div className="col-span-2">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl ">Proceed to checkout</button>
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl" onClick={handleCheckout} disabled={loading}>
+                    {loading ? 'Processando...' : 'Proceed to checkout'}
+                  </button>
                 </div>
               </div>
             </div>
