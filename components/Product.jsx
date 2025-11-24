@@ -38,13 +38,10 @@ export default function Product({ title, subtitle, product }) {
 
   console.log()
 
-  function firtsproductorlast(prop) {
-    return product.length === 2 ? product[0][prop] : product[1][prop]
-  }
 
   return (
     <div className="flex-center">
-      <div className="container grid grid-rows-[0.8fr_2fr_1fr_0.8fr] gap-10">
+      <div className="container grid grid-rows-[0.4fr_2fr_0.4fr_0.8fr] gap-10">
 
         <div className="flex-center flex-col">
           <h1 className="text-4xl items-bold">{title}</h1>
@@ -52,7 +49,8 @@ export default function Product({ title, subtitle, product }) {
         </div>
 
         <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
-          <div className="grid  grid-rows-3 gap-3">
+          
+          <div className="grid  grid-rows-3  gap-3">
             <Link className='h-full' href={`/product/${product[1].id}`}>
               <img src={product[1].image_url} className='size-full object-cover' alt="" />
             </Link>
@@ -96,16 +94,16 @@ export default function Product({ title, subtitle, product }) {
             <p className='text-sm'>{product[0].description}</p>
 
             <div className='flex flex-col'>
-              <p>100 in stock</p>
-              <div className="flex flex-rows gap-4">
-                <div className='flex'>
+              <p className='max-md:text-center'>100 in stock</p>
+              <div className="flex max-md:flex-col max-md:flex-center flex-row gap-4">
+                <div className=' max-md:flex-center'>
                   <ItemsQuantity
                     quantity={qty}
                     onIncrease={handleIncrease}
                     onDecrease={handleDecrease}
                   />
                 </div>
-                <button className='bg-[#9F1D1D] rounded-sm p-2 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
+                <button className='bg-[#9F1D1D] rounded-sm p-2 max-sm:w-30 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
                 <div className="flex-center">
                   <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => { setIsClickHeart(!clickheart); setIsHoverHeart(false) }} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                 </div>

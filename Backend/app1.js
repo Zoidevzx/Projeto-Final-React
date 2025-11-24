@@ -14,7 +14,7 @@ app.post('/add', (req, res) => {
   const { name, description, price, image_url, category, tags } = req.body
   db.query('INSERT INTO product ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [name, description, price, image_url, category, tags])
     .then(() => res.redirect('http://localhost:8000/added'))
-    .catch((err) => res.status(500).send(err.stack))
+    .catch((err) => res.redirect('http://localhost:8000/error'))
 })
 
 app.get("/added", (req, res) => {
@@ -26,8 +26,8 @@ app.get("/added", (req, res) => {
           Produto adicionado!
         </h1>
 
-        <a href="http://localhost:3000"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:30px;text-decoration:none;font-weight:bold;">
+        <a href="http://localhost:3000/dev"
+           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:6px;text-decoration:none;font-weight:bold;">
           Voltar
         </a>
 
@@ -119,8 +119,8 @@ app.get("/edited", (req, res) => {
           Produto editado!
         </h1>
 
-        <a href="http://localhost:3000"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:30px;text-decoration:none;font-weight:bold;">
+        <a href="http://localhost:3000/dev"
+           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius: 6px;text-decoration:none;font-weight:bold;">
           Voltar
         </a>
 
@@ -139,7 +139,7 @@ app.get("/error", (req, res) => {
         </h1>
 
         <a href="http://localhost:3000/dev"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:30px;text-decoration:none;font-weight:bold;">
+           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:6px;text-decoration:none;font-weight:bold;">
           Voltar
         </a>
 

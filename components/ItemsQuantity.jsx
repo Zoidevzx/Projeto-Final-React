@@ -20,6 +20,7 @@ export default function ItemsQuantity({ quantity, onIncrease, onDecrease }) {
                     type="text"
                     readOnly
                     disabled
+                    
                 />
 
                 <button

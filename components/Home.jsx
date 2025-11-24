@@ -53,7 +53,7 @@ export default function Home() {
 
           <div className="relative">
             <Link href={'/shop/categories/Classic'}>
-              <img src="item1_Home.png" alt="" className='w-full h-full object-cover' />
+              <img src="item3_Home.png" alt="" className='w-full h-full object-cover' />
               <div className='absolute z-10 inset-x-0 gap-3 flex-center flex-col justify-end bottom-5 bg-neutral-300/70 py-2 2xl:p-10 2xl:gap-5' >
                 <p className='text-2xl sm:text-xl xl:text-5xl max-sm:text-lg'>Classic Collection</p>
                 <button className="button_home cursor-pointer">

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { setegid } from "process"
 
 export default function Desenvolvedor({ produtos }) {
     const [senhacorreta] = useState('postgres')
@@ -12,8 +13,28 @@ export default function Desenvolvedor({ produtos }) {
     const [hover, setHover] = useState(null);
     const [produtoSelecionado, setProdutoSelecionado] = useState(null)
     const [produtosdel, setProdutosDelete] = useState(produtos)
+    const [error, setError] = useState("")
     const router = useRouter();
 
+    const SubmissaoAdicionar = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const image_url = formData.get("image_url");
+        const name = formData.get("name");
+        const description = formData.get("description");
+        const price = formData.get("price");
+        const category = formData.get("category");
+        const tags = formData.get("tags");
+
+        if (!image_url || !name || !description || !price || !category || !tags) {
+            setError("Todos os campos devem ser preenchidos!");
+            return;
+        }
+
+        setError("");
+        e.target.submit();
+    };
     function TestedeSenha() {
         if (senha === senhacorreta)
             setLiberado(true)
@@ -100,11 +121,11 @@ export default function Desenvolvedor({ produtos }) {
                     <div className="flex flex-col gap-4 mt-5">
                         <div className="flex flex-col items-center">
                             <div className="w-60 flex-center">
-                                <button className={buttonstylepage("adicionar")} onClick={() => { setPagina("adicionar"); setTimeout(() => router.refresh(), 0); }} onMouseEnter={() => setHover("adicionar")}
+                                <button className={buttonstylepage("adicionar")} onClick={() => { setPagina("adicionar"); setTimeout(() => router.refresh(), 0); setError() }} onMouseEnter={() => setHover("adicionar")}
                                     onMouseLeave={() => setHover(null)} >Adicionar</button>
-                                <button className={buttonstylepage("atualizar")} onClick={() => { setPagina("atualizar"); setTimeout(() => router.refresh(), 0); }} onMouseEnter={() => setHover("atualizar")}
+                                <button className={buttonstylepage("atualizar")} onClick={() => { setPagina("atualizar"); setTimeout(() => router.refresh(), 0); setError() }} onMouseEnter={() => setHover("atualizar")}
                                     onMouseLeave={() => setHover(null)}>Atualizar</button>
-                                <button className={buttonstylepage("deletar")} onClick={() => { setPagina("deletar"); setTimeout(() => router.refresh(), 0); }} onMouseEnter={() => setHover("deletar")}
+                                <button className={buttonstylepage("deletar")} onClick={() => { setPagina("deletar"); setTimeout(() => router.refresh(), 0);  setError()}} onMouseEnter={() => setHover("deletar")}
                                     onMouseLeave={() => setHover(null)}>Deletar</button>
                             </div>
                         </div>
@@ -112,7 +133,7 @@ export default function Desenvolvedor({ produtos }) {
                         {paginaatual === "adicionar" &&
                             <div >
                                 <h2 className="flex-center text-3xl font-bold mb-4">Formulário De Insert</h2>
-                                <form method="POST" action="http://localhost:8000/add" className="flex flex-col gap-10" >
+                                <form method="POST" action="http://localhost:8000/add" onSubmit={SubmissaoAdicionar} className="flex flex-col gap-10" >
 
                                     <div className="flex justify-center flex-row gap-5">
                                         <div className="flex flex-col gap-4 ">
@@ -171,9 +192,20 @@ export default function Desenvolvedor({ produtos }) {
                                         </div>
                                     </div>
 
+                                    {error && (
+                                        <p className="text-red-600 text-lg font-semibold text-center">{error}</p>
+                                    )}
+
                                     <div className="flex-center">
-                                        <button type="submit" className="bg-[#9F1D1D] rounded-md text-blue-50 p-2 w-22 h-12 text-xl ">Send</button>
+                                        <button
+                                            type="submit"
+                                            className="bg-[#9F1D1D] rounded-md text-blue-50 p-2 w-22 h-12 text-xl"
+                                        >
+                                            Enviar
+                                        </button>
                                     </div>
+
+
 
 
                                 </form>
@@ -182,7 +214,7 @@ export default function Desenvolvedor({ produtos }) {
 
                         {paginaatual === "atualizar" &&
                             <div >
-                                <h1 className="text-3xl text-center font-bold mb-6">Formulario de Atualização</h1>
+                                <h2 className="text-3xl text-center font-bold mb-6">Formulário de Atualização</h2>
 
                                 <div className="flex flex-col gap-6">
                                     {produtosdel.length === 0 ? (
@@ -206,9 +238,10 @@ export default function Desenvolvedor({ produtos }) {
                                                     <button
                                                         className="bg-[#9F1D1D] text-white px-4 py-2 rounded-md hover:bg-red-900"
                                                         onClick={() =>
-                                                            setProdutoSelecionado(
+                                                           { setProdutoSelecionado(
                                                                 produtoSelecionado?.id === produto.id ? null : produto
                                                             )
+                                                            setError()}
                                                         }
                                                     >
                                                         Atualizar
@@ -235,6 +268,7 @@ export default function Desenvolvedor({ produtos }) {
                                                             method="POST"
                                                             action={`http://localhost:8000/edit/${produto.id}`}
                                                             className="shadow-md p-6 rounded-md bg-white"
+                                                            onSubmit={SubmissaoAdicionar}
                                                         >
 
                                                             <h2 className="text-xl font-bold mb-4">Atualização</h2>
@@ -246,9 +280,13 @@ export default function Desenvolvedor({ produtos }) {
                                                                 <input type="text" name="category" placeholder="Nova categoria" className="border p-2 rounded-md" />
                                                                 <input type="text" name="tags" placeholder="Novas tags" className="border p-2 rounded-md" />
 
+                                                                {error && (
+                                                                    <p className="text-red-600 text-lg font-semibold text-center">{error}</p>
+                                                                )}
                                                                 <button
                                                                     type="submit"
                                                                     className="bg-lime-700 text-white px-4 py-2 rounded-md hover:bg-lime-800"
+                            
                                                                 >
                                                                     Atualizar Produto
                                                                 </button>
@@ -264,8 +302,8 @@ export default function Desenvolvedor({ produtos }) {
                         }
 
                         {paginaatual === "deletar" &&
-                            <div>
-                                <h1 className="text-3xl text-center font-bold mb-6">Formulario de Delete</h1>
+                            <div className="flex flex-col gap-6">
+                                <h2 className="text-3xl text-center font-bold mb-6">Formulário de Delete</h2>
                                 {produtosdel.length === 0 ? (
                                     <p className="mt-2 text-center text-3xl">Não há produtos</p>
                                 ) : (

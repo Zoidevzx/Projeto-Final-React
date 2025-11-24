@@ -135,7 +135,7 @@ export default function Cart({ title, subtitle }) {
           </div>
         </div>
         <div className="flex-center">
-          <div className="flex flex-col">
+          <div className="flex-center flex-col">
             <Subscribe />
           </div>
         </div>

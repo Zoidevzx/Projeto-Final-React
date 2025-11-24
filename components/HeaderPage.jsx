@@ -111,9 +111,11 @@ export function HeaderPage() {
                     <div className="flex-center ">
                         <div className='flex md:hidden flex-col relative' >
                             <TextAlignJustify className='cursor-pointer max-sm:size-3' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
-
+                            <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-4'>
+                                <p className='text-center text-white text-[10px]   '>{totalItems}</p>
+                            </div>
                             {openlist && (
-                                <ul className='flex-center flex-col top-7 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
+                                <ul className='flex-center flex-col top-9 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
                                     <li ><Search size={12} className={'xl:size-5 '} /></li>
                                     <li >
                                         <Link href={'/dev'}>
@@ -140,7 +142,9 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'} />
-                                    <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-3 md:size-2 lg:size-4 lg:top-3 lg:left-3'><p className='text-center text-white text-xs sm:text-2.5 lg:text-base '>{totalItems}</p></div>
+                                    <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-2 md:size-3.5 lg:size-4 lg:top-2 lg:left-2 2xl:top-3 2xl:left-3'>
+                                        <p className='text-center text-white text-[10px] sm:text-2.5 lg:text-2  '>{totalItems}</p>
+                                    </div>
                                 </Link>
                             </div>
                         </div>
