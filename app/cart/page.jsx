@@ -1,8 +1,7 @@
 import Cart from '@/components/Cart';
 
-export default async function PageCart() {
-  
+export default function PageCart() {
   return (
-    <Cart title={'Cart'}  subtitle={'Home / Cart'} />
+    <Cart title={'Cart'} subtitle={'Home / Cart'} />
   );
 }

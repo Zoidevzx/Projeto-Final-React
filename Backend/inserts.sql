@@ -28,34 +28,3 @@ INSERT INTO product (name, description, price, image_url, category, tags) VALUES
 ('Camiseta Oversized com Bolso', 'Modelo largo com detalhe de bolso na frente, tecido pesado.', 175.00, 'https://i.pinimg.com/1200x/9b/5f/9e/9b5f9eb3cb294b48e3782d0c9d043d25.jpg', 'New', 'Oversized Fit');
 
 
-
-
-
-INSERT INTO stock (quantitty, ID_product) VALUES
-(50, 1),
-(40, 2),
-(35, 3),
-(25, 4),
-(60, 5),
-(30, 6),
-(45, 7),
-(38, 8),
-(20, 9),
-(22, 10),
-(28, 11),
-(33, 12),
-(27, 13),
-(50, 14),
-(42, 15),
-(29, 16),
-(37, 17),
-(55, 18),
-(24, 19),
-(31, 20),
-(18, 21),
-(48, 22),
-(62, 23),
-(26, 24),
-(15, 25),
-(41, 26),
-(19, 27)
