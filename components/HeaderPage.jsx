@@ -40,25 +40,25 @@ export function HeaderPage() {
     }, [pathname])
 
     return (
-        <div className="flex-center">
+        <div className="flex-center w-full">
 
             <header className="container flex justify-between ">
 
                 <div className="flex-center">
-                    <h1 className='m-0 p-0 font-bold text-3xl xl:text-5xl'>Urban</h1>
+                    <h1 className='m-0 p-0 font-bold text-3xl max-sm:text-base xl:text-5xl'>Urban</h1>
                 </div>
 
                 <div className="flex gap-10 text-xs">
 
-                    <div className="grid grid-flow-col gap-3 xl:text-xl">
+                    <div className="grid grid-flow-col gap-3 xl:text-xl mr-4 max-sm:text-xs">
                         <div className="flex-center cursor-pointer"> <Link href={'/'}>Home</Link>  </div>
-                        <div className="flex-center cursor-pointer"> <Link href={'/aboutus'}>About Us</Link>  </div>
+                        <div className="flex-center cursor-pointer text-nowrap"> <Link href={'/aboutus'}>About Us</Link>  </div>
                         <div className="flex-center gap-1 cursor-pointer relative">
-                            <Link href={'/shop/categories/Classic'}> Shop</Link>
+                            <Link href={'/shop'}> Shop</Link>
                             <ChevronDown size={12} className={'xl:size-4'} onClick={() => openblog ? (setOpenblog(!openblog), setOpenshop(!openshop)) : openpage ? (setOpenpage(!openpage), setOpenshop(!openshop)) : openlist ? (setOpenlist(!openlist), setOpenshop(!openshop)) : setOpenshop(!openshop)} />
 
                             {openshop && (
-                                <ul className='flex flex-col absolute top-8 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 gap-1 z-10 p-1 bg-white'>
                                     {itenshop.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -74,7 +74,7 @@ export function HeaderPage() {
                             <ChevronDown size={12} className={'xl:size-4'} onClick={() => openshop ? (setOpenshop(!openshop), setOpenblog(!openblog)) : openpage ? (setOpenpage(!openpage), setOpenblog(!openblog)) : openlist ? (setOpenlist(!openlist), setOpenblog(!openblog)) : setOpenblog(!openblog)} />
 
                             {openblog && (
-                                <ul className='flex flex-col absolute top-8 left-0 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 bg-white'>
                                     {itensblog.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -90,7 +90,7 @@ export function HeaderPage() {
                             Page<ChevronDown size={12} className={'xl:size-4'} />
 
                             {openpage && (
-                                <ul className='flex flex-col absolute top-8 left-0 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 bg-white'>
                                     {itenspage.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -105,13 +105,13 @@ export function HeaderPage() {
 
                     <div className="flex-center ">
                         <div className='flex md:hidden flex-col relative' >
-                            <TextAlignJustify className='cursor-pointer' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
+                            <TextAlignJustify className='cursor-pointer max-sm:size-3' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
 
                             {openlist && (
                                 <ul className='flex-center flex-col top-7 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
                                     <li ><Search size={12} className={'xl:size-5 '} /></li>
                                     <li >
-                                        <Link href={'http://lattes.cnpq.br/4116708456419800'}>
+                                        <Link href={'/dev'}>
                                             <User size={12} className={'xl:size-5'} />
                                         </Link>
                                     </li>

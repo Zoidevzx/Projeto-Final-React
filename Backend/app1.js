@@ -86,7 +86,7 @@ app.get('/products/categories/:cat', (req, res) => {
 
 
 // UPDATE
-app.put('/edit/:id', (req, res) => {
+app.post('/edit/:id', (req, res) => {
   const { id } = req.params;
   const { name, description, price, image_url, category, tags } = req.body;
   db.query('UPDATE product SET name = $1, description = $2, price = $3, image_url = $4,  category = $5,  tags = $6 WHERE id = $7', [name, description, price, image_url, category, tags, id])
@@ -99,7 +99,7 @@ app.put('/edit/:id', (req, res) => {
 })
 
 // // DELETE
-app.delete('/products/:id', (req, res) => {
+app.delete('/delete/:id', (req, res) => {
   const { id } = req.params;
   db.query('DELETE FROM product WHERE id = $1', [id])
     .then((result) => {
