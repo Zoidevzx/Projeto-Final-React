@@ -5,6 +5,7 @@ import { CircleX } from "lucide-react"
 import Link from 'next/link';
 import { Fragment, useState } from "react";
 import { useCart } from "../context/ContextCart";
+import { FinalizarCompra } from "../actions/checkCart";
 
 export default function Cart({ title, subtitle }) {
 
@@ -14,34 +15,18 @@ export default function Cart({ title, subtitle }) {
 
   const handleCheckout = async () => {
     if (cartItems.length === 0)
+      return
 
-      setLoading(true);
+    setLoading(true);
 
-    try {
-      const dadosParaEnviar = {
-        carrinho: cartItems.map(item => ({
-          ...item,
-          preco: Number(item.value) * (item.quantity || 1)
-        }))
-      };
+    const result = await FinalizarCompra(cartItems)
 
-      const res = await fetch('http://localhost:8000/add/cart', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dadosParaEnviar)
-      });
+    setLoading(false)
 
-      if (res.ok) {
-        ;
-        clearCart();
-      }
+    if (result.sucesso)
+      clearCart()
+  }
 
-    } catch (error) {
-      console.error(error);;
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="flex-center">

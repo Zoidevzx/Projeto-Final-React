@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useCart } from '../context/ContextCart'
 
+
 export default function Product({ title, subtitle, product }) {
   const [hoverstars, setIsHoverStars] = useState(null)
   const [clickstars, setIsClickStars] = useState(null)
@@ -18,7 +19,6 @@ export default function Product({ title, subtitle, product }) {
 
   const handleIncrease = () => setQty(prev => prev + 1);
   const handleDecrease = () => setQty(prev => (prev > 1 ? prev - 1 : 1));
-
 
   const handleAddToCart = () => {
 
@@ -36,9 +36,6 @@ export default function Product({ title, subtitle, product }) {
     addToCart(productToAdd);
   };
 
-  console.log()
-
-
   return (
     <div className="flex-center">
       <div className="container grid grid-rows-[0.4fr_2fr_0.4fr_0.8fr] gap-10">
@@ -49,7 +46,7 @@ export default function Product({ title, subtitle, product }) {
         </div>
 
         <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
-          
+
           <div className="grid  grid-rows-3  gap-3">
             <Link className='h-full' href={`/product/${product[1].id}`}>
               <img src={product[1].image_url} className='size-full object-cover' alt="" />

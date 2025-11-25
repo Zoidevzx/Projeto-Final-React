@@ -9,32 +9,40 @@ export function CartProvider({ children }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        const savedCart = localStorage.getItem('urban-shop-cart');
-        if (savedCart) {
-            const parsedCart = JSON.parse(savedCart);
+        const saveCart = localStorage.getItem('urban-shop-cart');
+        if (saveCart) {
+            const verifiedCart = JSON.parse(saveCart);
 
-            const sanitizedCart = parsedCart.map(item => ({
+            const cleanCart = verifiedCart.map(item => ({
                 ...item,
                 quantity: item.quantity || 1
             }));
 
-            setCartItems(sanitizedCart);
+            setCartItems(cleanCart);
         }
         setIsLoaded(true);
     }, []);
 
+    useEffect(() => {
+        if (isLoaded) {
+            localStorage.setItem('urban-shop-cart', JSON.stringify(cartItems));
+        }
+    }, [cartItems, isLoaded]);
+
+
+
     const addToCart = (product) => {
         setCartItems((prevItems) => {
 
-            const existingItemIndex = prevItems.findIndex((item) => item.id === product.id);
+            const includedItems = prevItems.findIndex((item) => item.id === product.id);
 
-            if (existingItemIndex > -1) {
+            if (includedItems > -1) {
 
                 const newCartItems = [...prevItems];
 
-                const currentItem = newCartItems[existingItemIndex];
+                const currentItem = newCartItems[includedItems];
 
-                newCartItems[existingItemIndex] = {
+                newCartItems[includedItems] = {
                     ...currentItem,
                     quantity: currentItem.quantity + (product.quantity || 1)
                 };
