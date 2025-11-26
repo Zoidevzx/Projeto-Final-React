@@ -17,7 +17,7 @@ body {
 }
 
 .shop-layout {
-  @apply grid xl:grid-flow-row xl:grid-rows-[1fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:gap-7 sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-2 max-sm:grid-flow-row max-sm:gap-30
+  @apply grid xl:grid-flow-row xl:grid-rows-[1fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:justify-between sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-2 max-sm:grid-flow-row max-sm:gap-30
 }
 
 .cart-container {

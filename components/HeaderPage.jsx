@@ -109,14 +109,14 @@ export function HeaderPage() {
                     </div>
 
                     <div className="flex-center ">
-                        <div className='flex md:hidden flex-col relative' >
+                        <div className='flex md:hidden flex-col relative mr-5' >
                             <TextAlignJustify className='cursor-pointer max-sm:size-3' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
-                            <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-4'>
-                                <p className='text-center text-white text-[10px]   '>{totalItems}</p>
+                            <div className='flex-center bg-red-500 size-4 absolute rounded-full md:left-2 md:top-2 sm:left-4 sm:top-3'>
+                                <p className='text-center text-white text-[10px]'>{totalItems}</p>
                             </div>
                             {openlist && (
                                 <ul className='flex-center flex-col top-9 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
-                                    <li ><Search size={12} className={'xl:size-5 '} /></li>
+                                    <li ><Search size={12} className={'xl:size-5'} /></li>
                                     <li >
                                         <Link href={'/dev'}>
                                             <User size={12} className={'xl:size-5'} />
@@ -130,9 +130,9 @@ export function HeaderPage() {
                                 </ul>
                             )}
                         </div>
-                        <div className='md:flex-center gap-3 hidden'>
+                        <div className='md:flex-center gap-3 hidden md:mr-2'>
                             <div>
-                                <Search size={12} className={'xl:size-5 '} />
+                                <Search size={12} className={'xl:size-5'} />
                             </div>
                             <div>
                                 <Link href={'/dev'}>

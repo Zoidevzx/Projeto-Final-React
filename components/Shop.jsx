@@ -36,16 +36,16 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
 
   return (
     <div className="flex-center">
-      <div className="container grid sm:grid-rows-[1fr_13fr] max-sm:grid-rows-[1fr_15fr]">
+      <div className="container grid sm:grid-rows-[1fr_13fr] max-sm:grid-rows-[0.6fr_15fr]">
         <div className='flex-center flex-col gap-3'>
-          <h1 className='m-0 text-5xl font-bold'>{title}</h1>
+          <h1 className='m-0 text-5xl font-bold max-sm:text-4xl'>{title}</h1>
           <p className='m-0 text-gray-300 text-lg font-medium'>{subtitle}</p>
         </div>
 
-        <div className="grid xl:grid-flow-col xl:grid-cols-[1fr_5fr] lg:grid-flow-col lg:grid-cols-[2fr_5fr] max-md:grid-cols-1 gap-10 max-md:gap-30">
+        <div className="grid xl:grid-flow-col xl:grid-cols-[1fr_5fr] lg:grid-flow-col lg:grid-cols-[2fr_5fr] max-md:grid-cols-1 gap-15 max-md:gap-30">
 
           <div className='shop-layout'>
-            <div className='xl:flex md:flex md:items-start max-md:flex max-md:items-start '>
+            <div className='xl:flex md:flex md:items-start max-md:flex max-md:items-start max-sm:ml-2'>
               <form className='flex-center '>
                 <input type="text" placeholder='Search' className='border-1 border-black p-1 h-10' />
                 <button type='button' className='bg-[#704204] p-1 flex-center h-10 w-10 cursor-pointer'>
@@ -65,7 +65,7 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
               ))}
             </div>
 
-            <div>
+            <div className='max-sm:ml-2'>
               <h3 className='font-semibold underline text-xl'>Tags</h3>
               {Tags.map((n) => (
                 <Fragment key={n.id}>
@@ -87,11 +87,13 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
 
           </div>
 
-          <div className='grid gap-5 sm:grid-cols-3  sm:gap-4 max-sm:grid-cols-1 max-sm:grid-flow-row'>
-            <div className='flex justify-between sm:col-span-3'>
+          <div className='grid gap-5 sm:grid-cols-3 sm:gap-4 max-sm:grid-cols-1 max-sm:grid-flow-row'>
+            <div className='flex justify-between sm:col-span-3 max-sm:mr-2 ml-2'>
               <h2 className='text-zinc-500 font-medium'>Showing 1-9 of 27 results</h2>
               <button className='border-1 p-1 border-stone-300 hover:cursor-pointer w-30 h-8 text-nowrap font-medium'>
-                Default sorting
+                <Link href={'/shop'}>
+                  Default sorting
+                </Link>
               </button>
             </div>
             {productList.length === 0 ? (

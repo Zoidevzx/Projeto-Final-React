@@ -30,7 +30,7 @@ export default function Cart({ title, subtitle }) {
 
   return (
     <div className="flex-center">
-      <div className="container grid xl:grid-rows-[4fr_8fr_6fr_4fr] gap-20 ">
+      <div className="container grid xl:grid-rows-[4fr_8fr_6fr_4fr] gap-20">
         <div className="flex-center flex-col gap-4">
           <h1 className="m-0 font-bold xl:text-7xl max-lg:text-5xl">{title}</h1>
           <p className="m-0 text-gray-300 xl:text-xl max-lg:text-lg">{subtitle}</p>
@@ -57,6 +57,7 @@ export default function Cart({ title, subtitle }) {
                         <p className="font-extralight">${e.value}</p>
                       </div>
                     </div>
+
                     <div className="flex-center">
                       <ItemsQuantity
                         quantity={e.quantity}
@@ -70,7 +71,7 @@ export default function Cart({ title, subtitle }) {
                     <div className="flex-center">
                       <CircleX className="cursor-pointer" onClick={() => removeFromCart(e.id)} />
                     </div>
-                    <hr className="col-span-4 border-stone-300" />
+                    <hr className="col-span-4 border-stone-300"/>
                   </Fragment>
                 ))
               ) : (
@@ -80,17 +81,17 @@ export default function Cart({ title, subtitle }) {
             </div>
           </div>
 
-          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-y-4">
+          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-4">
             <h2 className="m-0 text-4xl font-bold">Cart Total</h2>
             <div className="grid grid-flow-row grid-cols-2">
 
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300"/>
               <p className="font-semibold text-xl">Subtotal</p>
               <p className="text-xl font-light">{cartItems.reduce((v, e) => (v + Number(e.value)), 0).toLocaleString('pt-BR', {
                 style: 'currency',
                 currency: 'BRL'
               })}</p>
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300"/>
 
               <p className="font-semibold text-xl">Total</p>
               <p className="text-xl font-light">{cartItems.reduce((acc, items) => (acc + (Number(items.value) * items.quantity)), 0).toLocaleString('pt-BR', {
@@ -98,20 +99,20 @@ export default function Cart({ title, subtitle }) {
                 currency: 'BRL'
               })}</p>
 
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300"/>
             </div>
             <div className="flex-center h-50 flex-wrap">
-              <div className="grid grid-cols-2 gap-6 w-full">
-                <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Update Cart</button>
+              <div className="grid grid-cols-2 gap-6 w-full max-md:grid-cols-1">
+                <div className="max-md: flex-center">
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4">Update Cart</button>
                 </div>
                 <div>
-                  <Link href={'/shop'}>
-                    <button className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
+                  <Link href={'/shop'}  className="max-md:flex-center">
+                    <button className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4">Continue Shopping</button>
                   </Link>
                 </div>
-                <div className="col-span-2">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl" onClick={handleCheckout} disabled={loading}>
+                <div className="md:col-span-2 max-md:flex-center">
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl max-md:w-3/4" onClick={handleCheckout} disabled={loading}>
                     {loading ? 'Processando...' : 'Proceed to checkout'}
                   </button>
                 </div>
@@ -120,7 +121,7 @@ export default function Cart({ title, subtitle }) {
           </div>
         </div>
         <div className="flex-center">
-          <div className="flex-center flex-col">
+          <div className="flex-center flex-col text-wrap">
             <Subscribe />
           </div>
         </div>
@@ -150,10 +151,10 @@ export default function Cart({ title, subtitle }) {
             <p>Youtube</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h2 className="text-lg font-bold">Contact Us</h2>
+            <h2 className="text-lg font-bold break-all">Contact Us</h2>
             <p className="break-all">+1 (555) 347-9820</p>
             <p className="break-all">support@urbanstore.com</p>
-            <p>Contact Urban support for guidance.</p>
+            <p className="text-pretty">Contact Urban support for guidance.</p>
           </div>
         </footer>
       </div>
