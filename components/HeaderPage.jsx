@@ -50,7 +50,9 @@ export function HeaderPage() {
             <header className="container flex justify-between ">
 
                 <div className="flex-center">
-                    <h1 className='m-0 p-0 font-bold text-3xl max-sm:text-base xl:text-5xl'>Urban</h1>
+                    <Link href={'/'}>
+                        <h1 className='m-0 p-0 font-bold text-3xl max-sm:text-base xl:text-5xl'>Urban</h1>
+                    </Link>
                 </div>
 
                 <div className="flex gap-10 text-xs">
