@@ -1,138 +1,125 @@
-🌟 <div align="center">Projeto Next.js + React + Express + PostgreSQL</div>
-<div style="border: 2px solid #4A90E2; border-radius: 12px; padding: 18px; background: #F0F7FF; margin-bottom: 20px;"> <h2>🚀 Como rodar o projeto</h2> <p>Abaixo estão as instruções completas para iniciar o frontend, backend e banco de dados.</p> </div>
-🏃‍♂️💻 1. Como rodar o projeto
-<div style="font-size: 22px;">🟦 Frontend – Next.js / React (localhost:3000)</div>
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; background: #ffffff;">
-▶️ Passos:
+# 🚀 Projeto Next.js + React + Express + PostgreSQL
 
-📌 Instale as dependências:
+Este projeto integra um frontend em Next.js/React com um backend em Express e um banco de dados PostgreSQL.
 
-npm install
+-----
 
+## 🏃‍♂️💻 1. Como rodar o projeto
 
-▶️ Execute o projeto:
+Abaixo estão as instruções completas para iniciar o frontend, backend e banco de dados.
 
-npm run dev
+### 🟦 Frontend – Next.js / React (localhost:3000)
 
+1.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+2.  **Execute o projeto:**
+    ```bash
+    npm run dev
+    ```
+    > 🌐 Acesse: **http://localhost:3000**
 
-🌐 Acesse: http://localhost:3000
+### 🟩 Backend – Express (localhost:4000)
 
-</div>
-<div style="font-size: 22px;">🟩 Backend – Express (localhost:4000)</div>
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; background: #ffffff;">
-▶️ Passos:
+1.  **Abra outro terminal**
+2.  **Acesse a pasta:**
+    ```bash
+    cd Backend
+    ```
+3.  **Instale dependências:**
+    ```bash
+    npm i
+    ```
+4.  **Inicie o servidor:**
+    ```bash
+    node app1.js
+    ```
+    > 🌐 Acesse: **http://localhost:4000**
 
-Abra outro terminal
+### 🗄️ Banco de Dados – PostgreSQL
 
-Acesse a pasta:
+Execute os seguintes arquivos na sua base de dados:
 
-cd Backend
+  * **`table.sql`** – cria as tabelas
+  * **`inserts.sql`** – insere os dados
 
+-----
 
-Instale dependências:
+## 🔐 2. Variáveis de Ambiente (.env)
 
-npm i
+Configure seu arquivo `.env` (provavelmente na pasta `Backend`) com as seguintes variáveis:
 
+```env
+DB_HOST = localhost
+DB_USER = postgres
+DB_PASSWORD = postgres
+DB_NAME = DB_Store
+PORT = 5432
+```
 
-Inicie o servidor:
+-----
 
-node app1.js
+## 🗺️ 3. Mapa das Rotas da API (Backend Express)
 
+### 📦 Produtos
 
-🌐 Acesse: http://localhost:4000
+| Método | Rota | Descrição |
+| :--- | :--- | :--- |
+| `POST` | `/add` | Adiciona produto |
+| `GET` | `/product/:id` | Busca por ID |
+| `GET` | `/products` | Lista todos os Produtos |
+| `GET` | `/products/tags/:tag` | Filtra os Produtos por tag |
+| `GET` | `/products/categories/:cat` | Filtra os Produtos por categoria |
+| `POST` | `/edit/:id` | Edita Produto|
+| `DELETE` | `/delete/:id` | Deleta Produto|
 
-</div>
-🗄️ Banco de Dados – PostgreSQL
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; background: #ffffff;">
+### 🛒 Carrinho
 
-Execute na sua base:
+| Método | Rota | Descrição |
+| :--- | :--- | :--- |
+| `POST` | `/add/cart` | Adiciona item ao Carrinho |
 
-📄 table.sql – cria tabelas
+-----
 
-📄 inserts.sql – popula dados
+## 🧭 4. Rotas do Frontend (Next.js)
 
-</div>
-🔐 2. Variáveis de Ambiente (.env)
-<div style="border: 2px solid #6C63FF; border-radius: 12px; padding: 15px; background: #F3F1FF;">
-- DB_HOST = localhost
-- DB_USER = postgres
-- DB_PASSWORD = postgres
-- DB_NAME = DB_Store
-- PORT = 5432
+### 📍 Páginas principais
 
-</div>
-🗺️ 3. Mapa das Rotas da API (Backend Express)
-<div style="border: 2px solid #FF9F43; border-radius: 12px; padding: 18px; background: #FFF8EE;">
-📦 Produtos
-  
-- POST /add – adiciona produto
+  * `/` – Home
+  * `/shop` – Loja
+  * `/product/[product]` – Produto
+  * `/cart` – Carrinho
+  * `/aboutus` – Sobre nós
+  * `/dev` – Área administrativa
 
-- GET /product/:id – busca por ID
+### 📂 Rotas dinâmicas (shop)
 
-- GET /products – lista tudo
+  * `/shop/[categories]` – por categoria
+  * `/shop/[tags]` – por tag
 
-- GET /products/tags/:tag – filtra por tag
+### 🛠️ Rotas internas do /dev
 
-- GET /products/categories/:cat – filtra por categoria
+  * `/dev/added` – sucesso ao adicionar
+  * `/dev/edited` – sucesso ao editar
+  * `/dev/error` – erro em operações
 
-- POST /edit/:id – edita
+-----
 
-- DELETE /delete/:id – deleta
+## 👥 5. Integrantes do Grupo
 
-🛒 Carrinho
+### 👨‍🏫 Professores
 
--POST /add/cart – adiciona item
+*(ordem alfabética)*
 
-</div>
-🧭 4. Rotas do Frontend (Next.js)
-<div style="border: 2px solid #00B894; border-radius: 12px; padding: 18px; background: #EDFFF8;">
-  
-📍 Páginas principais
+  * Adson Silva Rocha
+  * Rodrigo de Sousa Gomide
 
-- / – Home
+### 👨‍🎓 Alunos
 
-- /shop – Loja
+*(ordem alfabética)*
 
-- /product/[product] – Produto
-
-- /cart – Carrinho
-
-- /aboutus – Sobre nós
- 
-- /dev – Área administrativa
-
-📂 Rotas dinâmicas (shop)
-
-- /shop/[categories] – por categoria
-
-- /shop/[tags] – por tag
-
-🛠️ Rotas internas do /dev
-
-- /dev/added – sucesso ao adicionar
-
-- /dev/edited – sucesso ao editar
-
-- /dev/error – erro em operações
-
-</div>
-👥 5. Integrantes do Grupo
-<div style="border: 2px solid #0984E3; border-radius: 12px; padding: 18px; background: #F0F7FF;">
-  
-👨‍🏫 Professores (ordem alfabética)
-
-- Adson Silva Rocha
-
-- Rodrigo de Sousa Gomide
-
-👨‍🎓 Alunos (ordem alfabética)
-
-- Ana Clara Rezende Pires de Campos
-
-- Bruno Gonçalves de Freitas
-
-- Jean Carlos Pereira Souza
-
-- João Victor Souza
-
-</div>
+  * Ana Clara Rezende Pires de Campos
+  * Bruno Gonçalves de Freitas
+  * Jean Carlos Pereira Souza
+  * João Victor Souza
