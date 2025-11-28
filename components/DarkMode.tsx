@@ -12,7 +12,7 @@ export default function Darkmode() {
     <div>
       <Toggle
         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-        className="group size-9 data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted max-md:size-5"
+        className="group size-9 data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted max-md:size-5 cursor-pointer"
         onPressedChange={toggleTheme}
         pressed={theme === "dark"}
         variant="outline"

@@ -71,10 +71,12 @@ export function HeaderPage() {
                                 >
                                     Home
                                 </Link>
+                                </Link>
                             </div>
                             <div className="flex-center cursor-pointer text-nowrap relative group">
+                            <div className="flex-center cursor-pointer text-nowrap relative group">
                                 <Link href={'/aboutus'}
-                                    className="relative text-sm 
+                                    className="relative text-base 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -83,15 +85,17 @@ export function HeaderPage() {
                                 >
                                     About Us
                                 </Link>
+                                </Link>
                             </div>
                             <div className="flex-center gap-1 cursor-pointer relative group">
                                 <Link href={'/shop'}
-                                    className="relative text-sm
+                                    className="relative text-base
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
                                     group-hover:after:w-full
                                     dark:after:bg-white"
+                                >
                                 >
                                     Shop
                                 </Link>
@@ -109,6 +113,7 @@ export function HeaderPage() {
                                     </ul>
                                 )}
                             </div>
+
 
                             <div className="flex-center border-0 gap-1 cursor-pointer relative group">
                                 <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}
@@ -207,10 +212,12 @@ export function HeaderPage() {
                             <div>
                                 <Link href={'/dev'}>
                                     <User size={12}
+                                    <User size={12}
                                         className="xl:size-5 
                                         transition duration-300 ease-in-out 
                                         hover:scale-110 hover:rotate-6 
                                         active:scale-95 
+                                        dark:text-white"
                                         dark:text-white"
                                     />
                                 </Link>
@@ -219,10 +226,12 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12}
+                                    <ShoppingCart size={12}
                                         className="xl:size-5 
                                         transition duration-300 ease-in-out 
                                         hover:scale-110 hover:rotate-6 
                                         active:scale-95 
+                                        dark:text-white"
                                         dark:text-white"
                                     />
                                     <div className='flex-center bg-red-500 size-4 absolute rounded-full z-29 left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-2 md:size-3.5 lg:size-4 lg:top-2 lg:left-2 2xl:top-3 2xl:left-3'>

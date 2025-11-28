@@ -157,7 +157,7 @@ export default function Cart({ title, subtitle }) {
             <Link href={'/'}>Home</Link>
             <Link href={'/aboutus'}>About</Link>
             <p>Services</p>
-            <p>Blogs</p>
+            <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'} target="_blank">Blog</Link>
             <p>Contacts</p>
           </div>
           <div className="flex flex-col gap-y-4">
@@ -175,7 +175,7 @@ export default function Cart({ title, subtitle }) {
             <p className="text-pretty">Contact Urban support for guidance.</p>
           </div>
         </footer>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
