@@ -92,6 +92,7 @@ PORT = 5432
   * `/cart` – Carrinho
   * `/aboutus` – Sobre nós
   * `/dev` – Área administrativa
+  * `/404` – Página de "Não Encontrado" (automática)
 
 ### 📂 Rotas dinâmicas (shop)
 
