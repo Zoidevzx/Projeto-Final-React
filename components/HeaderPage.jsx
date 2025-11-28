@@ -62,7 +62,7 @@ export function HeaderPage() {
                         <div className='grid grid-flow-col gap-3 max-sm:gap-2'>
                             <div className="flex-center cursor-pointer relative group"> 
                                 <Link href={'/'}  
-                                    className="relative text-base 
+                                    className="relative text-sm 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -74,7 +74,7 @@ export function HeaderPage() {
                             </div>
                             <div className="flex-center cursor-pointer text-nowrap relative group"> 
                                 <Link href={'/aboutus'}
-                                    className="relative text-base 
+                                    className="relative text-sm 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -86,7 +86,7 @@ export function HeaderPage() {
                             </div>
                             <div className="flex-center gap-1 cursor-pointer relative group">
                                 <Link href={'/shop'}
-                                    className="relative text-base
+                                    className="relative text-sm
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -110,10 +110,10 @@ export function HeaderPage() {
                                 )}
                             </div>
                 
-                            <div className="flex-center border-0 gap-1 cursor-pointer relative">
+                            <div className="flex-center border-0 gap-1 cursor-pointer relative group">
                             <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}
                                 target='_blank'
-                                    className="relative text-base 
+                                    className="relative text-sm 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -144,7 +144,7 @@ export function HeaderPage() {
                             </div>
                             <div className="flex-center gap-1 cursor-pointer relative  group" onClick={() => openshop ? (setOpenshop(!openshop), setOpenpage(!openpage)) : openblog ? (setOpenblog(!openblog), setOpenpage(!openpage)) : openlist ? (setOpenlist(!openlist), setOpenpage(!openpage)) : setOpenpage(!openpage)}>
                                 <Link href={'/'}
-                                    className="relative text-base
+                                    className="relative text-sm
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out

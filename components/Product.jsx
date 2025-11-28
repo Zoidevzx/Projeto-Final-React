@@ -45,22 +45,45 @@ export default function Product({ title, subtitle, product }) {
           <p className="text-sm">{subtitle}</p>
         </div>
 
-        <div className="grid gap-5 grid-cols-1 md:grid-flow-col md:grid-cols-[1fr_4fr_3fr] md:grid-rows-[0.1fr] h-full content-stretch">
+        <div className="grid gap-5 grid-cols-1  md:grid-flow-col md:grid-cols-[1fr_4fr_3fr] grid-rows-[0.1fr] h-full content-stretch">
+          
+          <div className="grid grid-cols-3 max-sm:h-50 content-stretch md:grid-cols-1 md:grid-rows-3 gap-3 order-2 h-full md:order-1 md:h-200">
+            <Link
+              className='h-full transition-transform duration-300 hover:scale-105 active:scale-95'
+              href={`/product/${product[1].id}`}
+            >
+              <img
+                src={product[1].image_url}
+                className='w-full h-full max-sm:h-50 object-cover object-top shadow-md hover:shadow-xl transition-shadow duration-300'
+                alt=""
+              />
+            </Link>
 
-          <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-3 gap-3 order-2 h-full md:order-1 md:h-200">
-            <Link className='h-full' href={`/product/${product[1].id}`}>
-              <img src={product[1].image_url} className='w-full h-full object-cover' alt="" />
+            <Link
+              className='h-full transition-transform duration-300 hover:scale-105 active:scale-95'
+              href={`/product/${product[0].id}`}
+            >
+              <img
+                src={product[0].image_url}
+                className='w-full h-full max-sm:h-50 object-cover object-top shadow-md hover:shadow-xl transition-shadow duration-300'
+                alt=""
+              />
             </Link>
-            <Link className='h-full' href={`/product/${product[0].id}`}>
-              <img src={product[0].image_url} className='w-full h-full object-cover' alt="" />
-            </Link>
-            <Link className='h-full' href={`/product/${product[2].id}`}>
-              <img src={product[2].image_url} className='w-full h-full object-cover' alt="" />
+
+            <Link
+              className='h-full transition-transform duration-300 hover:scale-105 active:scale-95'
+              href={`/product/${product[2].id}`}
+            >
+              <img
+                src={product[2].image_url}
+                className='w-full h-full max-sm:h-50 object-cover object-top shadow-md hover:shadow-xl transition-shadow duration-300'
+                alt=""
+              />
             </Link>
           </div>
 
           <div className='h-full w-auto order-1 md:order-2 '   >
-            <img src={product[0].image_url} alt="" className='w-full h-full md:h-200 object-cover object-top' />
+            <img src={product[0].image_url} alt="" className='w-full h-full max-sm:h-100 md:h-200 object-cover object-top' />
           </div>
 
 

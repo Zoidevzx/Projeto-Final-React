@@ -127,13 +127,25 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
                   Classefinal = "sm:col-start-2";
                 }
                 return (
-                  <div key={e.id} className={Classefinal}>
+                  <div
+                    key={e.id}
+                    className={`${Classefinal} transition-transform duration-300 hover:scale-105 active:scale-95`}
+                  >
                     <Link href={`/product/${e.id}`}>
-                      <img src={e.image_url} className='xl:h-100 w-full object-cover object-top max-xl:h-75 max-lg:h-100 max-sm:h-100' alt="" />
-                      <p className='font-semibold sm:text-2xl max-sm:text-xl max-sm:flex-center'>{e.name}</p>
-                      <p className='font-light sm:text-lg max-sm:text-lg max-sm:flex-center'>${e.price}</p>
+                      <img
+                        src={e.image_url}
+                        className='xl:h-100 w-full object-cover object-top max-xl:h-75 max-lg:h-100 max-sm:h-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300'
+                        alt={e.name}
+                      />
+                      <p className='font-semibold sm:text-2xl max-sm:text-xl max-sm:flex-center'>
+                        {e.name}
+                      </p>
+                      <p className='font-light sm:text-lg max-sm:text-lg max-sm:flex-center'>
+                        ${e.price}
+                      </p>
                     </Link>
                   </div>
+
                 )
               })
             }
