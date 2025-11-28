@@ -59,13 +59,15 @@ export default function Desenvolvedor({ produtos }) {
     const buttonstylepage = (page) => {
         if (hover && hover !== paginaatual) {
             return page === paginaatual
-                ? "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2"
-                : "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2 hover:bg-[#9F1D1D] hover:text-white";
+                ? "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2 transition-all duration-300 ease-in-out"
+                : "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2 transition-all duration-300 ease-in-out hover:bg-[#9F1D1D] hover:text-white hover:scale-105 hover:shadow-md active:scale-95"
+
         }
 
         return page === paginaatual
-            ? "bg-[#9F1D1D] text-white rounded-t-md text-xl h-11 p-2"
-            : "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2 hover:bg-[#9F1D1D] hover:text-white";
+            ? "bg-[#9F1D1D] text-white rounded-t-md text-xl h-11 p-2 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-md active:scale-95"
+            : "bg-gray-200 text-black rounded-t-md text-xl h-11 p-2 transition-all duration-300 ease-in-out hover:bg-[#9F1D1D] hover:text-white hover:scale-105 hover:shadow-md active:scale-95"
+
     };
 
     const deletarProduto = async (id) => {
@@ -93,7 +95,7 @@ export default function Desenvolvedor({ produtos }) {
 
     return (
         <div className="flex justify-center size-full">
-            <div className="container grid grid-rows-[1fr_3fr] ">
+            <div className="container grid grid-flow-row grid-rows-auto ">
                 <div className="flex-center flex-col">
                     <h1 className="text-6xl items-bold">Dev Page</h1>
                     <p className="">Home / Page</p>
@@ -112,7 +114,7 @@ export default function Desenvolvedor({ produtos }) {
                                 onKeyDown={enterapertado}
                             />
                             <p>{valuep}</p>
-                            <button type='button' className="bg-[#9F1D1D] rounded-sm p-2 h-10 text-white text-sm" onClick={TestedeSenha} >Enviar</button>
+                            <button type='button' className="bg-[#9F1D1D] rounded-sm p-2 h-10 text-white text-sm font-semibold shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95" onClick={TestedeSenha} >Enviar</button>
                         </form>
                     </div>
                 }
@@ -140,7 +142,9 @@ export default function Desenvolvedor({ produtos }) {
 
                                             <div className="flex gap-2">
                                                 <label className="text-lg">URL link image:</label>
-                                                <input type="text" className="w-55 h-8 border border-gray-600 rounded-md " value={url} onChange={(e) => setUrl(e.target.value)} name="image_url" />
+                                                <input type="text" className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2 " value={url} onChange={(e) => setUrl(e.target.value)} name="image_url" />
                                             </div>
 
                                             {url ? (
@@ -164,32 +168,62 @@ export default function Desenvolvedor({ produtos }) {
 
                                         <div className="flex flex-col justify-start text-xl gap-10">
 
-                                            <div className="flex flex-col ">
-                                                <label className="form-label">Name:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 rounded-md " name="name" />
-                                            </div>
+  <div className="flex flex-col">
+    <label className="form-label text-gray-900 dark:text-gray-100">Name:</label>
+    <input
+      type="text"
+      name="name"
+      className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2"
+    />
+  </div>
 
-                                            <div className="flex flex-col ">
-                                                <label className="form-label">Description:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 rounded-md " name="description" />
-                                            </div>
+  <div className="flex flex-col">
+    <label className="form-label text-gray-900 dark:text-gray-100">Description:</label>
+    <input
+      type="text"
+      name="description"
+      className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2"
+    />
+  </div>
 
-                                            <div className="flex flex-col ">
-                                                <label className="form-label">Price:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 rounded-md " name="price" />
-                                            </div>
+  <div className="flex flex-col">
+    <label className="form-label text-gray-900 dark:text-gray-100">Price:</label>
+    <input
+      type="text"
+      name="price"
+      className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2"
+    />
+  </div>
 
-                                            <div className="flex flex-col ">
-                                                <label className="form-label">Category:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 rounded-md " name="category" />
-                                            </div>
+  <div className="flex flex-col">
+    <label className="form-label text-gray-900 dark:text-gray-100">Category:</label>
+    <input
+      type="text"
+      name="category"
+      className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2"
+    />
+  </div>
 
+  <div className="flex flex-col">
+    <label className="form-label text-gray-900 dark:text-gray-100">Tag:</label>
+    <input
+      type="text"
+      name="tags"
+      className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100 p-2"
+    />
+  </div>
+</div>
 
-                                            <div className="flex flex-col ">
-                                                <label className="form-label">Tag:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 rounded-md " name="tags" />
-                                            </div>
-                                        </div>
                                     </div>
 
                                     {error && (
@@ -231,12 +265,12 @@ export default function Desenvolvedor({ produtos }) {
                                                         />
                                                         <div>
                                                             <h2 className="text-xl font-semibold">{produto.name}</h2>
-                                                            <p className="text-gray-700">R$ {produto.price}</p>
+                                                            <p className="text-gray-700 dark:text-stone-100">R$ {produto.price}</p>
                                                         </div>
                                                     </div>
 
                                                     <button
-                                                        className="bg-[#9F1D1D] text-white px-4 py-2 rounded-md hover:bg-red-900"
+                                                        className="bg-[#9F1D1D] text-white px-4 py-2 rounded-md font-semibold shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95"
                                                         onClick={() =>
                                                            { setProdutoSelecionado(
                                                                 produtoSelecionado?.id === produto.id ? null : produto
@@ -251,48 +285,148 @@ export default function Desenvolvedor({ produtos }) {
                                                 {produtoSelecionado?.id === produto.id && (
                                                     <div className="mt-6 grid grid-cols-2 gap-6">
 
-                                                        <form className="shadow-md p-6 rounded-md bg-gray-100">
-                                                            <h2 className="text-xl font-bold mb-4">Produto Atual</h2>
-                                                            <div className="flex flex-col gap-4">
-                                                                <input type="text" value={produto.id} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.name} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.description} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.price} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.image_url} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.category} readOnly className="border p-2 rounded-md" />
-                                                                <input type="text" value={produto.tags} readOnly className="border p-2 rounded-md" />
-                                                            </div>
-                                                        </form>
+                                                        <form className="shadow-md p-6 rounded-md bg-gray-100 dark:bg-gray-800">
+  <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    Produto Atual
+  </h2>
+  <div className="flex flex-col gap-4">
+    <input
+      type="text"
+      value={produto.id}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.name}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.description}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.price}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.image_url}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.category}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      value={produto.tags}
+      readOnly
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+  </div>
+</form>
+
 
                                                         <form
-                                                            method="POST"
-                                                            action={`http://localhost:8000/edit/${produto.id}`}
-                                                            className="shadow-md p-6 rounded-md bg-white"
-                                                            onSubmit={SubmissaoAdicionar}
-                                                        >
+  method="POST"
+  action={`http://localhost:8000/edit/${produto.id}`}
+  className="shadow-md p-6 rounded-md bg-white dark:bg-gray-800"
+  onSubmit={SubmissaoAdicionar}
+>
+  <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    Atualização
+  </h2>
 
-                                                            <h2 className="text-xl font-bold mb-4">Atualização</h2>
-                                                            <div className="flex flex-col gap-4">
-                                                                <input type="text" name="name" placeholder="Novo nome" className="border p-2 rounded-md" />
-                                                                <input type="text" name="description" placeholder="Nova descrição" className="border p-2 rounded-md" />
-                                                                <input type="text" name="price" placeholder="Novo preço" className="border p-2 rounded-md" />
-                                                                <input type="text" name="image_url" placeholder="Nova URL da imagem" className="border p-2 rounded-md" />
-                                                                <input type="text" name="category" placeholder="Nova categoria" className="border p-2 rounded-md" />
-                                                                <input type="text" name="tags" placeholder="Novas tags" className="border p-2 rounded-md" />
+  <div className="flex flex-col gap-4">
+    <input
+      type="text"
+      name="name"
+      placeholder="Novo nome"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      name="description"
+      placeholder="Nova descrição"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      name="price"
+      placeholder="Novo preço"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      name="image_url"
+      placeholder="Nova URL da imagem"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      name="category"
+      placeholder="Nova categoria"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
+    <input
+      type="text"
+      name="tags"
+      placeholder="Novas tags"
+      className="border border-gray-300 dark:border-gray-600 
+                 p-2 rounded-md bg-white dark:bg-gray-700 
+                 text-gray-900 dark:text-gray-100"
+    />
 
-                                                                {error && (
-                                                                    <p className="text-red-600 text-lg font-semibold text-center">{error}</p>
-                                                                )}
-                                                                <button
-                                                                    type="submit"
-                                                                    className="bg-lime-700 text-white px-4 py-2 rounded-md hover:bg-lime-800"
-                            
-                                                                >
-                                                                    Atualizar Produto
-                                                                </button>
-                                                            </div>
+    {error && (
+      <p className="text-red-600 dark:text-red-400 text-lg font-semibold text-center">
+        {error}
+      </p>
+    )}
 
-                                                        </form>
+    <button
+      type="submit"
+      className="bg-lime-700 text-white px-4 py-2 rounded-md 
+                 hover:bg-lime-800 transition-all duration-300 ease-in-out
+                 dark:bg-lime-600 dark:hover:bg-lime-700"
+    >
+      Atualizar Produto
+    </button>
+  </div>
+</form>
+
                                                     </div>
                                                 )}
                                             </div>
@@ -318,7 +452,7 @@ export default function Desenvolvedor({ produtos }) {
                                                     />
                                                     <div>
                                                         <h2 className="text-xl font-semibold">{produto.name}</h2>
-                                                        <p className="text-gray-700">R$ {produto.price}</p>
+                                                        <p className="text-gray-700 dark:text-stone-100">R$ {produto.price}</p>
                                                     </div>
                                                 </div>
 

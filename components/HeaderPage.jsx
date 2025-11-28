@@ -3,7 +3,8 @@ import { User, Search, ShoppingCart, ChevronDown, TextAlignJustify } from 'lucid
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { useCart } from '../context/ContextCart'
+import { useCart } from '../context/ContextCart';
+import Darkmode from './DarkMode';
 
 export function HeaderPage() {
     const [openshop, setOpenshop] = useState(false)
@@ -65,7 +66,10 @@ export function HeaderPage() {
                             <ChevronDown size={12} className={'xl:size-4'} onClick={() => openblog ? (setOpenblog(!openblog), setOpenshop(!openshop)) : openpage ? (setOpenpage(!openpage), setOpenshop(!openshop)) : openlist ? (setOpenlist(!openlist), setOpenshop(!openshop)) : setOpenshop(!openshop)} />
 
                             {openshop && (
-                                <ul className='flex flex-col absolute top-8 md:top-10 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+             bg-white dark:bg-gray-800 
+             text-gray-900 dark:text-gray-100 
+             border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
                                     {itenshop.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -81,7 +85,10 @@ export function HeaderPage() {
                             <ChevronDown size={12} className={'xl:size-4'} onClick={() => openshop ? (setOpenshop(!openshop), setOpenblog(!openblog)) : openpage ? (setOpenpage(!openpage), setOpenblog(!openblog)) : openlist ? (setOpenlist(!openlist), setOpenblog(!openblog)) : setOpenblog(!openblog)} />
 
                             {openblog && (
-                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+             bg-white dark:bg-gray-800 
+             text-gray-900 dark:text-gray-100 
+             border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
                                     {itensblog.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -97,7 +104,10 @@ export function HeaderPage() {
                             Page<ChevronDown size={12} className={'xl:size-4'} />
 
                             {openpage && (
-                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 bg-white'>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+             bg-white dark:bg-gray-800 
+             text-gray-900 dark:text-gray-100 
+             border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
                                     {itenspage.map((e, i) => (
                                         <li key={i}>
                                             <Link href={e.link}>
@@ -117,8 +127,11 @@ export function HeaderPage() {
                                 <p className='text-center text-white text-[10px]'>{totalItems}</p>
                             </div>
                             {openlist && (
-                                <ul className='flex-center flex-col top-9 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
-                                    <li ><Search size={12} className={'xl:size-5'} /></li>
+                                <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+             bg-white dark:bg-gray-800 
+             text-gray-900 dark:text-gray-100 
+             border border-gray-200 dark:border-gray-700 rounded-md shadow-md '>
+                                    <li ><Darkmode  /></li>
                                     <li >
                                         <Link href={'/dev'}>
                                             <User size={12} className={'xl:size-5'} />
@@ -134,7 +147,7 @@ export function HeaderPage() {
                         </div>
                         <div className='md:flex-center gap-3 hidden md:mr-2'>
                             <div>
-                                <Search size={12} className={'xl:size-5'} />
+                                <Darkmode/>
                             </div>
                             <div>
                                 <Link href={'/dev'}>

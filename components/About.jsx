@@ -26,7 +26,9 @@ export default function About({ title, subtitle }) {
                 <div className="shadow-xl/20 rounded-xl"><img src="Joao_Victor.jfif" alt="" className="w-full aspect-square rounded-xl object-cover transition delay-50 duration-150 hover:scale-102" /></div>
 
                 <div className="col-span-2  flex-center">
-                    <Link href={'/'} className=" bg-[#9F1D1D] rounded-sm p-3 xl:text-5xl text-white ">
+                    <Link href={'/'} className=" bg-[#9F1D1D] rounded-md px-6 py-3 xl:text-5xl text-white font-semibold 
+               shadow-lg transform transition-all duration-300 ease-in-out
+               hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95">
                         <p>Home</p>
                     </Link>
                 </div>

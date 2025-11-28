@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { HeaderPage } from '../components/HeaderPage';
 import { CartProvider } from '../context/ContextCart';
+import { ThemeProvider} from '../context/Theme'
 import { Funnel_Display, Plaster } from 'next/font/google';
 
 const funnelDisplay = Funnel_Display({
@@ -33,10 +34,13 @@ export default function RootLayout({
       <body
         className={`${plaster.variable} ${funnelDisplay.className} antialiased`}
       >
-        <CartProvider>
-          <HeaderPage />
-          {children}
-        </CartProvider>
+        <ThemeProvider>
+
+          <CartProvider>
+            <HeaderPage />
+            {children}
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

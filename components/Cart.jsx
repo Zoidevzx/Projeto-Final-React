@@ -112,7 +112,7 @@ export default function Cart({ title, subtitle }) {
                   </Link>
                 </div>
                 <div className="md:col-span-2 max-md:flex-center">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl max-md:w-3/4" onClick={handleCheckout} disabled={loading}>
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl max-md:w-3/4 font-semibold shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95" onClick={handleCheckout} disabled={loading}>
                     {loading ? 'Processando...' : 'Proceed to checkout'}
                   </button>
                 </div>

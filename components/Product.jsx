@@ -45,9 +45,10 @@ export default function Product({ title, subtitle, product }) {
           <p className="text-sm">{subtitle}</p>
         </div>
 
-        <div className="grid grid-flow-col grid-cols-[1fr_4fr_3fr] gap-5">
+        <div className="grid gap-5 
+                grid-cols-1 md:grid-flow-col md:grid-cols-[1fr_4fr_3fr]">
 
-          <div className="grid  grid-rows-3  gap-3">
+          <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-3 gap-3 order-2 md:order-1">
             <Link className='h-full' href={`/product/${product[1].id}`}>
               <img src={product[1].image_url} className='size-full object-cover' alt="" />
             </Link>
@@ -59,12 +60,12 @@ export default function Product({ title, subtitle, product }) {
             </Link>
           </div>
 
-          <div className='h-full w-auto'   >
+          <div className='h-full w-auto order-1 md:order-2'   >
             <img src={product[0].image_url} alt="" className='size-full object-cover' />
           </div>
 
 
-          <div className="flex gap-3 flex-col">
+          <div className="flex gap-3 flex-col order-3 ">
 
             <h2 className='text-2xl font-bold'>{product[0].name}</h2>
             <div className="flex text-sm text-yellow-300  "  >
@@ -91,17 +92,17 @@ export default function Product({ title, subtitle, product }) {
             <p className='text-sm'>{product[0].description}</p>
 
             <div className='flex flex-col'>
-              <p className='max-md:text-center'>100 in stock</p>
-              <div className="flex max-md:flex-col max-md:flex-center flex-row gap-4">
-                <div className=' max-md:flex-center'>
+              <p className=''>100 in stock</p>
+              <div className="flex flex-row max-md:flex-col max-md:items-start gap-4">
+                <div className=''>
                   <ItemsQuantity
                     quantity={qty}
                     onIncrease={handleIncrease}
                     onDecrease={handleDecrease}
                   />
                 </div>
-                <button className='bg-[#9F1D1D] rounded-sm p-2 max-sm:w-30 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
-                <div className="flex-center">
+                <div className="flex-center gap-2">
+                  <button className='bg-[#9F1D1D] rounded-sm p-2 max-sm:w-30 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
                   <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => { setIsClickHeart(!clickheart); setIsHoverHeart(false) }} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                 </div>
               </div>
