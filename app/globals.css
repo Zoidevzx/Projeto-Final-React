@@ -126,6 +126,37 @@
   align-items: center;
 }
 
+@layer utilities {
+  @keyframes deep-space-float {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+    }
+
+    33% {
+      transform: translateY(-25px) rotate(2deg) scale(1.02);
+      filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.1));
+    }
+
+    66% {
+      transform: translateY(10px) rotate(-2deg) scale(0.98);
+      filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+    }
+
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+    }
+  }
+
+  .animate-deep-float {
+
+    animation: deep-space-float 8s ease-in-out infinite;
+    will-change: transform, filter;
+
+  }
+}
+
 input::-ms-reveal {
   filter: invert(50%);
 }

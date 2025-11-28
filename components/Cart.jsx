@@ -104,8 +104,8 @@ export default function Cart({ title, subtitle }) {
             <div className="flex-center h-50 flex-wrap">
               <div className="grid grid-cols-2 gap-6 w-full max-md:grid-cols-1">
                 <div className="max-md: flex-center">
-                  <button 
-                  className="bg-[#212529] p-1 cursor-pointer h-11 w-full 
+                  <button
+                    className="bg-[#212529] p-1 cursor-pointer h-11 w-full 
                   text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4 
                   transition duration-300 ease-in-out 
                   hover:bg-neutral-700 hover:text-white hover:scale-105 
@@ -117,8 +117,8 @@ export default function Cart({ title, subtitle }) {
                 </div>
                 <div>
                   <Link href={'/shop'} className="max-md:flex-center">
-                    <button 
-                    className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full 
+                    <button
+                      className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full 
                     text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4 
                     transition duration-300 ease-in-out 
                     hover:bg-neutral-700 hover:text-white hover:scale-105 
@@ -157,7 +157,7 @@ export default function Cart({ title, subtitle }) {
             <Link href={'/'}>Home</Link>
             <Link href={'/aboutus'}>About</Link>
             <p>Services</p>
-            <p>Blogs</p>
+            <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'} target="_blank">Blog</Link>
             <p>Contacts</p>
           </div>
           <div className="flex flex-col gap-y-4">
@@ -175,7 +175,7 @@ export default function Cart({ title, subtitle }) {
             <p className="text-pretty">Contact Urban support for guidance.</p>
           </div>
         </footer>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
