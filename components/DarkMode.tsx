@@ -12,19 +12,19 @@ export default function Darkmode() {
     <div>
       <Toggle
         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-        className="group size-9 data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted"
+        className="group size-9 data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted max-md:size-5"
         onPressedChange={toggleTheme}
         pressed={theme === "dark"}
         variant="outline"
       >
         <MoonIcon
           aria-hidden="true"
-          className="shrink-0 scale-0 opacity-0 transition-all group-data-[state=on]:scale-100 group-data-[state=on]:opacity-100 max-sm:size-10"
+          className="shrink-0 scale-0 opacity-0 transition-all group-data-[state=on]:scale-100 group-data-[state=on]:opacity-100 max-md:size-3"
           size={16}
         />
         <SunIcon
           aria-hidden="true"
-          className="absolute shrink-0 scale-100 opacity-100 transition-all group-data-[state=on]:scale-0 group-data-[state=on]:opacity-0 max-sm:size-10"
+          className="absolute shrink-0 scale-100 opacity-100 transition-all group-data-[state=on]:scale-0 group-data-[state=on]:opacity-0 max-md:size-3"
           size={16}
         />
       </Toggle>

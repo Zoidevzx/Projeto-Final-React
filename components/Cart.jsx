@@ -51,7 +51,7 @@ export default function Cart({ title, subtitle }) {
                 cartItems.map((e, index) => (
                   <Fragment key={`${e.id}-${index}`}>
                     <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40 sm:h-60 max-sm:h-70">
-                      <img src={e.img_url} alt="imagem 1" className="flex-center size-full object-cover object-top" />
+                      <img src={e.img_url} alt="imagem 1" className="flex-center size-full object-cover object-top max-sm:h-70 max-sm:w-70" />
                       <div>
                         <h1 className='font-medium text-xl'>{e.name}</h1>
                         <p className="font-extralight">${e.value}</p>

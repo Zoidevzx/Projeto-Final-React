@@ -15,7 +15,7 @@ export default function ItemsQuantity({ quantity, onIncrease, onDecrease }) {
                 </button>
 
                 <input
-                    className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center font-medium'
+                    className='h-9 w-14 bg-gray-200 border-y-1 border-stone-300 text-center font-medium dark:bg-[#010517] dark:text-amber-100'
                     value={quantity}
                     type="text"
                     readOnly
