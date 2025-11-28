@@ -39,22 +39,22 @@ export default function Cart({ title, subtitle }) {
         <div className="grid grid-flow-col xl:grid-cols-[4fr_2fr] gap-10 max-xl:grid-rows-2 grid-cols-1 lg:gap-50 md:gap-40 sm:gap-20 max-sm:gap-35">
 
           <div className="grid grid-flow-row h-50">
-            <div className="cart-details">
+            <div className="grid p-2 grid-cols-3 h-10 xl:grid-cols-[3fr_0.9fr_1fr] lg:grid-cols-[1.8fr_1fr_1.5fr] md:grid-cols-[2fr_1.3fr_1.2fr]  sm:grid-cols-[1.6fr_1fr_1fr] max-sm:grid-cols-[2.6fr_1.3fr_0.1fr]">
               <p className="font-semibold">Product</p>
               <p className="font-semibold">Quantity</p>
-              <p className="font-semibold">Subtotal</p>
+              <p className="font-semibold max-sm:hidden">Subtotal</p>
               <hr className="col-span-4 border-stone-300" />
             </div>
 
-            <div className="cart-container">
+            <div className="grid p-2 xl:grid-cols-[4fr_1fr_0.2fr_0.5fr] gap-10 xl:h-130 overflow-y-auto lg:grid-cols-[1.6fr_1.3fr_1fr_1fr] lg:h-115 md:grid-cols-[1.7fr_1.2fr_1fr_0.4fr] md:h-120 sm:grid-cols-[1fr_3fr_1fr_0.3fr] sm:h-90 max-sm:grid-cols-2 max-sm:h-100 ">
               {cartItems.length > 0 ? (
                 cartItems.map((e, index) => (
                   <Fragment key={`${e.id}-${index}`}>
-                    <div className="flex-center gap-x-5 xl:h-50 lg:h-45 md:h-40 sm:h-60 max-sm:h-70">
-                      <img src={e.img_url} alt="imagem 1" className="flex-center size-full object-cover object-top max-sm:h-70 max-sm:w-70" />
+                    <div className="flex items-center gap-x-4 xl:h-50 lg:h-45 md:h-35 sm:h-25 max-sm:h-25">
+                      <img src={e.img_url} alt="imagem 1" className="h-full aspect-square object-cover object-top rounded-md" />
                       <div>
-                        <h1 className='font-medium text-xl'>{e.name}</h1>
-                        <p className="font-extralight">${e.value}</p>
+                        <h1 className='text-sm md:font-medium md:text-xl'>{e.name}</h1>
+                        <p className="text-sm md:font-extralight">${e.value}</p>
                       </div>
                     </div>
 
@@ -66,12 +66,12 @@ export default function Cart({ title, subtitle }) {
                       />
                     </div>
                     <div className="flex-center">
-                      <p className="font-extralight">${e.value}</p>
+                      <p className="text-sm md:font-extralight">${e.value}</p>
                     </div>
                     <div className="flex-center">
-                      <CircleX className="cursor-pointer" onClick={() => removeFromCart(e.id)} />
+                      <CircleX className="cursor-pointer size-5 " onClick={() => removeFromCart(e.id)} />
                     </div>
-                    <hr className="col-span-4 border-stone-300" />
+                    <hr className="sm:col-span-4 max-sm:col-span-2 border-stone-300" />
                   </Fragment>
                 ))
               ) : (

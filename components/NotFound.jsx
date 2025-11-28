@@ -20,7 +20,7 @@ export default function NotFoundPage() {
                     </div>
                 </div>
                 <div className="flex items-center justify-end">
-                    <img src="/astronaut.svg" alt="Astronaut" className="size-60" />
+                    <img src="/notFound.png" alt="Astronaut" className="size-60" />
                 </div>
             </div>
         </div >

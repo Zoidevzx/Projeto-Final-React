@@ -114,6 +114,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -130,23 +131,11 @@ input::-ms-reveal {
 }
 
 .button_home {
- @apply text-sm xl:text-lg flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 
-       border-1 border-neutral-900 xl:w-30 xl:h-13 max-sm:text-xs
-       transition-all duration-300 ease-in-out font-semibold shadow-md
-       hover:scale-105 hover:shadow-lg hover:bg-neutral-800 active:scale-95
-       dark:hover:text-white;
+  @apply text-sm xl:text-lg flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 border-1 border-neutral-900 xl:w-30 xl:h-13 max-sm:text-xs transition-all duration-300 ease-in-out font-semibold shadow-md hover:scale-105 hover:shadow-lg hover:bg-neutral-800 active:scale-95 dark:hover:text-white;
 }
 
 .shop-layout {
-  @apply grid xl:grid-flow-row xl:grid-rows-[1fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:justify-between sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-1 max-sm:grid-flow-row max-sm:gap-30
-}
-
-.cart-container {
-  @apply grid xl:grid-cols-[2.2fr_2fr_1fr_1fr] gap-10 xl:h-130 overflow-y-auto lg:grid-cols-[1fr_1.3fr_1fr_1fr] lg:h-115 md:grid-cols-[1.7fr_1.8fr_1fr_1fr] md:h-120 sm:grid-cols-[3fr_2fr_1fr_0.6fr] sm:h-90 max-sm:grid-cols-[2fr_1fr_0.7fr_0.5fr] max-sm:h-100
-}
-
-.cart-details {
-  @apply grid grid-cols-3 h-10 xl:grid-cols-[1.7fr_1fr_1.2fr] md:grid-cols-[1.4fr_1fr_1.2fr] lg:grid-cols-[1.3fr_1fr_1.5fr] sm:grid-cols-[1.6fr_1fr_1fr] max-sm:grid-cols-[2.6fr_1fr_1fr]
+  @apply grid xl:grid-flow-row xl:grid-rows-[4fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:justify-between sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-1 max-sm:grid-flow-row max-sm:gap-30
 }
 
 body {
@@ -172,4 +161,8 @@ input[type=number]::-webkit-outer-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none;
 }
