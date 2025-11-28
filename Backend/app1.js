@@ -13,7 +13,7 @@ app.use(cors())
 app.post('/add', (req, res) => {
   const { name, description, price, image_url, category, tags } = req.body
   db.query('INSERT INTO product ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [name, description, price, image_url, category, tags])
-    .then(() => res.redirect('http://localhost:3000/added'))
+    .then(() => res.redirect('http://localhost:3000/dev/added'))
     .catch((err) => res.redirect('http://localhost:3000/dev/error'))
 })
 
