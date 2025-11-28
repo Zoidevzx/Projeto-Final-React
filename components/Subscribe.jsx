@@ -22,7 +22,7 @@ export default function Subscribe() {
                     hover:bg-blue-600 hover:scale-105 
                     active:scale-95 
                     dark:bg-white dark:text-black dark:hover:bg-blue-400"
-                    >
+                >
                     Subscribe Now
                 </button>
             </form>

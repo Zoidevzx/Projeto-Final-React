@@ -147,12 +147,15 @@ export default function Desenvolvedor({ produtos }) {
 
                                             <div className="flex gap-2 max-sm:flex-col max-sm:flex-center">
                                                 <label className="text-lg">URL link image:</label>
-                                                <input type="text" className="w-55 h-9 border border-gray-600 dark:border-gray-500 
-                                                rounded-md bg-white dark:bg-gray-700 
-                                                text-gray-900 dark:text-gray-100 p-2 " 
-                                                value={url} 
-                                                onChange={(e) => setUrl(e.target.value)} 
-                                                name="image_url" />
+                                                <input 
+                                                    type="text" 
+                                                    className="w-55 h-9 border border-gray-600 dark:border-gray-500 
+                                                    rounded-md bg-white dark:bg-gray-700 
+                                                    text-gray-900 dark:text-gray-100 p-2 "
+                                                    value={url}
+                                                    onChange={(e) => setUrl(e.target.value)}
+                                                    name="image_url" 
+                                                />
                                             </div>
 
                                             {url ? (

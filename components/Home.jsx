@@ -25,7 +25,7 @@ export default function Home() {
 
         <div className="grid grid-flow-col grid-cols-auto max-sm:grid-flow-row max-sm:grid-rows-auto  gap-3 ">
 
-          <div 
+          <div
             className="relative transition duration-300 ease-in-out 
             hover:scale-102 hover:shadow-lg 
             active:scale-95 active:shadow-md 
@@ -43,7 +43,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div 
+          <div
             className="relative transition duration-300 ease-in-out 
             hover:scale-102 hover:shadow-lg 
             active:scale-95 active:shadow-md 

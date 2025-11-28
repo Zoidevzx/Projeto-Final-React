@@ -6,7 +6,7 @@ export default function ErrorPage() {
         Produto não encontrado!
       </h1>
 
-      <a 
+      <a
         href="/dev"
         className="px-6 py-2 bg-[#9F1D1D] text-white rounded-md font-bold no-underline font-semibold shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95"
       >

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Toggle } from "@/components/ui/toggle";
 import { useTheme } from "@/context/Theme";
 export default function Darkmode() {
-    const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div>
