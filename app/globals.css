@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 html,
 body {
   width: 100%;
@@ -39,4 +38,10 @@ input{
 
 p {
   margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Plaster", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
