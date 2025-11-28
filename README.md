@@ -54,11 +54,11 @@ Execute na sua base:
 </div>
 🔐 2. Variáveis de Ambiente (.env)
 <div style="border: 2px solid #6C63FF; border-radius: 12px; padding: 15px; background: #F3F1FF;">
-DB_HOST = localhost
-DB_USER = postgres
-DB_PASSWORD = postgres
-DB_NAME = DB_Store
-PORT = 5432
+- DB_HOST = localhost
+- DB_USER = postgres
+- DB_PASSWORD = postgres
+- DB_NAME = DB_Store
+- PORT = 5432
 
 </div>
 🗺️ 3. Mapa das Rotas da API (Backend Express)
@@ -86,6 +86,7 @@ PORT = 5432
 </div>
 🧭 4. Rotas do Frontend (Next.js)
 <div style="border: 2px solid #00B894; border-radius: 12px; padding: 18px; background: #EDFFF8;">
+  
 📍 Páginas principais
 
 - / – Home
@@ -117,6 +118,7 @@ PORT = 5432
 </div>
 👥 5. Integrantes do Grupo
 <div style="border: 2px solid #0984E3; border-radius: 12px; padding: 18px; background: #F0F7FF;">
+  
 👨‍🏫 Professores (ordem alfabética)
 
 - Adson Silva Rocha
