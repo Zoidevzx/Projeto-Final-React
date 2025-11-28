@@ -37,42 +37,41 @@ export default function Product({ title, subtitle, product }) {
   };
 
   return (
-    <div className="flex-center">
-      <div className="container grid grid-rows-[0.4fr_2fr_0.4fr_0.8fr] gap-10">
+    <div className="flex-center ">
+      <div className="container grid grid-rows-[0.4fr_2fr_0.4fr_0.8fr] gap-10 ">
 
         <div className="flex-center flex-col">
           <h1 className="text-4xl items-bold">{title}</h1>
           <p className="text-sm">{subtitle}</p>
         </div>
 
-        <div className="grid gap-5 
-                grid-cols-1 md:grid-flow-col md:grid-cols-[1fr_4fr_3fr]">
+        <div className="grid gap-5 grid-cols-1 md:grid-flow-col md:grid-cols-[1fr_4fr_3fr] md:grid-rows-[0.1fr] h-full content-stretch">
 
-          <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-3 gap-3 order-2 md:order-1">
+          <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-3 gap-3 order-2 h-full md:order-1 md:h-200">
             <Link className='h-full' href={`/product/${product[1].id}`}>
-              <img src={product[1].image_url} className='size-full object-cover' alt="" />
+              <img src={product[1].image_url} className='w-full h-full object-cover' alt="" />
             </Link>
             <Link className='h-full' href={`/product/${product[0].id}`}>
-              <img src={product[0].image_url} className='size-full object-cover' alt="" />
+              <img src={product[0].image_url} className='w-full h-full object-cover' alt="" />
             </Link>
             <Link className='h-full' href={`/product/${product[2].id}`}>
-              <img src={product[2].image_url} className='size-full object-cover' alt="" />
+              <img src={product[2].image_url} className='w-full h-full object-cover' alt="" />
             </Link>
           </div>
 
-          <div className='h-full w-auto order-1 md:order-2'   >
-            <img src={product[0].image_url} alt="" className='size-full object-cover' />
+          <div className='h-full w-auto order-1 md:order-2 '   >
+            <img src={product[0].image_url} alt="" className='w-full h-full md:h-200 object-cover object-top' />
           </div>
 
 
-          <div className="flex gap-3 flex-col order-3 ">
+          <div className="flex gap-3 flex-col order-3 max-sm:ml-2">
 
             <h2 className='text-2xl font-bold'>{product[0].name}</h2>
             <div className="flex text-sm text-yellow-300  "  >
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star
                   key={i}
-                  fill={hoverstars !== null && i <= hoverstars || clickstars !== null && i <= clickstars ? "#ffff00" : "none"}
+                  fill={hoverstars !== null && i <= hoverstars || clickstars !== null && i <= clickstars ? "oklch(90.5% 0.182 98.111)" : "none"}
                   onClick={() => {
                     if (clickstars === i) {
                       setIsClickStars(null);
@@ -102,7 +101,7 @@ export default function Product({ title, subtitle, product }) {
                   />
                 </div>
                 <div className="flex-center gap-2">
-                  <button className='bg-[#9F1D1D] rounded-sm p-2 max-sm:w-30 text-white text-sm cursor-pointer' onClick={handleAddToCart} >Add to cart</button>
+                  <button className='bg-[#9F1D1D] rounded-sm p-2 max-sm:w-30 text-white text-sm cursor-pointer  font-semibold shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#b22222] hover:scale-105 hover:shadow-xl active:scale-95' onClick={handleAddToCart} >Add to cart</button>
                   <Heart size={26} strokeWidth="1" fill={clickheart || hoverheart ? "#9F1D1D" : "none"} onClick={() => { setIsClickHeart(!clickheart); setIsHoverHeart(false) }} onMouseEnter={() => setIsHoverHeart(true)} onMouseLeave={() => setIsHoverHeart(false)} />
                 </div>
               </div>
@@ -116,7 +115,7 @@ export default function Product({ title, subtitle, product }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2 max-sm:mx-2">
           <div className="grid grid-flow-col grid-cols-auto border-b-1 border-stone-400">
             <div></div>
             <div className='flex-center hover:bg-[#9F1D1D] hover:text-white h-10 rounded-sm'>
@@ -134,7 +133,7 @@ export default function Product({ title, subtitle, product }) {
             <div></div>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 max-sm:ml-2">
 
             <h2 className='font-bold text-lg'>Product Descripition</h2>
             <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem deserunt cumque tenetur quidem fugiat alias dicta ea vitae quaerat, suscipit quam beatae sit natus quia molestiae praesentium distinctio nesciunt error temporibus voluptate rerum repellat? Cupiditate repellat totam aut quibusdam eligendi assumenda consequatur. Exercitationem, sequi! Eaque laudantium commodi incidunt dicta ipsa?</p>

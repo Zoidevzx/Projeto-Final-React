@@ -125,6 +125,10 @@
   align-items: center;
 }
 
+input::-ms-reveal {
+  filter: invert(50%);
+}
+
 .button_home {
  @apply text-sm xl:text-lg flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 
        border-1 border-neutral-900 xl:w-30 xl:h-13 max-sm:text-xs
@@ -159,3 +163,13 @@ h1 {
   font-family: var(--font-plaster);
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

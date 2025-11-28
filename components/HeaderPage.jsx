@@ -60,10 +60,41 @@ export function HeaderPage() {
                     
                     <div className="grid grid-flow-col gap-3 max-sm:gap-0 xl:text-xl mr-4 max-sm:text-xs">
                         <div className='grid grid-flow-col gap-3 max-sm:gap-2'>
-                            <div className="flex-center cursor-pointer"> <Link href={'/'}>Home</Link>  </div>
-                            <div className="flex-center cursor-pointer text-nowrap"> <Link href={'/aboutus'}>About Us</Link>  </div>
-                            <div className="flex-center gap-1 cursor-pointer relative">
-                                <Link href={'/shop'}> Shop</Link>
+                            <div className="flex-center cursor-pointer relative group"> 
+                                <Link href={'/'}  
+                                    className="relative text-base 
+                                    after:content-[''] after:absolute after:left-0 after:bottom-0
+                                    after:h-[2px] after:w-0 after:bg-black
+                                    after:transition-all after:duration-200 after:ease-in-out
+                                    group-hover:after:w-full
+                                    dark:after:bg-white"
+                                >
+                                    Home
+                                </Link>  
+                            </div>
+                            <div className="flex-center cursor-pointer text-nowrap relative group"> 
+                                <Link href={'/aboutus'}
+                                    className="relative text-base 
+                                    after:content-[''] after:absolute after:left-0 after:bottom-0
+                                    after:h-[2px] after:w-0 after:bg-black
+                                    after:transition-all after:duration-200 after:ease-in-out
+                                    group-hover:after:w-full
+                                    dark:after:bg-white"
+                                >
+                                    About Us
+                                </Link>  
+                            </div>
+                            <div className="flex-center gap-1 cursor-pointer relative group">
+                                <Link href={'/shop'}
+                                    className="relative text-base
+                                    after:content-[''] after:absolute after:left-0 after:bottom-0
+                                    after:h-[2px] after:w-0 after:bg-black
+                                    after:transition-all after:duration-200 after:ease-in-out
+                                    group-hover:after:w-full
+                                    dark:after:bg-white"
+                                > 
+                                    Shop
+                                </Link>
                                 <ChevronDown size={12} className={'xl:size-4'} onClick={() => openblog ? (setOpenblog(!openblog), setOpenshop(!openshop)) : openpage ? (setOpenpage(!openpage), setOpenshop(!openshop)) : openlist ? (setOpenlist(!openlist), setOpenshop(!openshop)) : setOpenshop(!openshop)} />
 
                                 {openshop && (
@@ -78,8 +109,17 @@ export function HeaderPage() {
                                     </ul>
                                 )}
                             </div>
-                            <div className="flex-center border-0 gap-1 cursor-pointer relative">
-                                <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}>Blog</Link>
+                            <div className="flex-center border-0 gap-1 cursor-pointer relative  group">
+                                <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}
+                                    className="relative text-base 
+                                    after:content-[''] after:absolute after:left-0 after:bottom-0
+                                    after:h-[2px] after:w-0 after:bg-black
+                                    after:transition-all after:duration-200 after:ease-in-out
+                                    group-hover:after:w-full
+                                    dark:after:bg-white"
+                                >
+                                    Blog
+                                </Link>
                                 <ChevronDown size={12} className={'xl:size-4'} onClick={() => openshop ? (setOpenshop(!openshop), setOpenblog(!openblog)) : openpage ? (setOpenpage(!openpage), setOpenblog(!openblog)) : openlist ? (setOpenlist(!openlist), setOpenblog(!openblog)) : setOpenblog(!openblog)} />
 
                                 {openblog && (
@@ -100,8 +140,18 @@ export function HeaderPage() {
                                 )}
 
                             </div>
-                            <div className="flex-center gap-1 cursor-pointer relative" onClick={() => openshop ? (setOpenshop(!openshop), setOpenpage(!openpage)) : openblog ? (setOpenblog(!openblog), setOpenpage(!openpage)) : openlist ? (setOpenlist(!openlist), setOpenpage(!openpage)) : setOpenpage(!openpage)}>
-                                Page<ChevronDown size={12} className={'xl:size-4'} />
+                            <div className="flex-center gap-1 cursor-pointer relative  group" onClick={() => openshop ? (setOpenshop(!openshop), setOpenpage(!openpage)) : openblog ? (setOpenblog(!openblog), setOpenpage(!openpage)) : openlist ? (setOpenlist(!openlist), setOpenpage(!openpage)) : setOpenpage(!openpage)}>
+                                <Link href={'/'}
+                                    className="relative text-base
+                                    after:content-[''] after:absolute after:left-0 after:bottom-0
+                                    after:h-[2px] after:w-0 after:bg-black
+                                    after:transition-all after:duration-200 after:ease-in-out
+                                    group-hover:after:w-full
+                                    dark:after:bg-white"
+                                >
+                                    Page
+                                </Link>
+                                <ChevronDown size={12} className={'xl:size-4'} />
 
                                 {openpage && (
                                     <ul 
@@ -154,12 +204,25 @@ export function HeaderPage() {
                             </div>
                             <div>
                                 <Link href={'/dev'}>
-                                    <User size={12} className={'xl:size-5'} />
+                                    <User size={12} 
+                                        className="xl:size-5 
+                                        transition duration-300 ease-in-out 
+                                        hover:scale-110 hover:rotate-6 
+                                        active:scale-95 
+                                        dark:text-white" 
+                                    />
                                 </Link>
+
                             </div>
                             <div >
                                 <Link href={'/cart'} className='relative'>
-                                    <ShoppingCart size={12} className={'xl:size-5'} />
+                                    <ShoppingCart size={12} 
+                                        className="xl:size-5 
+                                        transition duration-300 ease-in-out 
+                                        hover:scale-110 hover:rotate-6 
+                                        active:scale-95 
+                                        dark:text-white" 
+                                    />
                                     <div className='flex-center bg-red-500 size-4 absolute rounded-full z-29 left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-2 md:size-3.5 lg:size-4 lg:top-2 lg:left-2 2xl:top-3 2xl:left-3'>
                                         <p className='text-center text-white text-[10px] sm:text-2.5 lg:text-2  '>{totalItems}</p>
                                     </div>
