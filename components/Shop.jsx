@@ -66,7 +66,7 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
           <div className='shop-layout'>
             <div className='xl:flex md:flex md:items-start max-md:flex max-md:items-start max-sm:ml-2'>
               <form className='flex-center'>
-                <input type="text" placeholder='Search' className='border-1 border-black p-1 h-10 max-sm:w-full' />
+                <input type="text" placeholder='Search' className='border-1  border-black p-1 h-10 max-sm:w-full dark:border-gray-500' />
                 <button type='button' className='bg-[#704204] p-1 flex-center h-10 w-10 cursor-pointer'>
                   <Search size={14} color='white' />
                 </button>

@@ -5,7 +5,7 @@ export const content = [
   "./components/**/*.{js,ts,jsx,tsx}",
 ];
 export const theme = {
-    theme: {
+  theme: {
     extend: {
     },
   },

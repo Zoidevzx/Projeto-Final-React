@@ -57,7 +57,7 @@ export function HeaderPage() {
                 </div>
 
                 <div className="flex gap-10 max-sm:gap-0 text-xs">
-                    
+
                     <div className="grid grid-flow-col gap-3 max-sm:gap-0 xl:text-xl mr-4 max-sm:text-xs">
                         <div className='grid grid-flow-col gap-3 max-sm:gap-2'>
                             <div className="flex-center cursor-pointer"> <Link href={'/'}>Home</Link>  </div>
@@ -79,19 +79,19 @@ export function HeaderPage() {
                                 )}
                             </div>
                             <div className="flex-center border-0 gap-1 cursor-pointer relative">
-                                <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}>Blog</Link>
+                                <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'} target='_blank'>Blog</Link>
                                 <ChevronDown size={12} className={'xl:size-4'} onClick={() => openshop ? (setOpenshop(!openshop), setOpenblog(!openblog)) : openpage ? (setOpenpage(!openpage), setOpenblog(!openblog)) : openlist ? (setOpenlist(!openlist), setOpenblog(!openblog)) : setOpenblog(!openblog)} />
 
                                 {openblog && (
-                                    <ul 
-                                    className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+                                    <ul
+                                        className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
                                     bg-white dark:bg-gray-800 
                                     text-gray-900 dark:text-gray-100 
                                     border border-gray-200 dark:border-gray-700 rounded-md shadow-md'
                                     >
                                         {itensblog.map((e, i) => (
                                             <li key={i}>
-                                                <Link href={e.link}>
+                                                <Link href={e.link} target='_blank'>
                                                     {e.nome}
                                                 </Link>
                                             </li>
@@ -104,8 +104,8 @@ export function HeaderPage() {
                                 Page<ChevronDown size={12} className={'xl:size-4'} />
 
                                 {openpage && (
-                                    <ul 
-                                    className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+                                    <ul
+                                        className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
                                     bg-white dark:bg-gray-800 
                                     text-gray-900 dark:text-gray-100 
                                     border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
@@ -129,8 +129,8 @@ export function HeaderPage() {
                                 <p className='text-center text-white text-[10px]'>{totalItems}</p>
                             </div>
                             {openlist && (
-                                <ul 
-                                className='flex-center flex-col absolute top-8 md:top-10 gap-1 z-10 p-1
+                                <ul
+                                    className='flex-center flex-col absolute top-8 md:top-10 gap-1 z-10 p-1
                                 bg-white dark:bg-gray-800 
                                 text-gray-900 dark:text-gray-100 
                                 border border-gray-200 dark:border-gray-700 rounded-md shadow-md '>
