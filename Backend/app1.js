@@ -13,28 +13,9 @@ app.use(cors())
 app.post('/add', (req, res) => {
   const { name, description, price, image_url, category, tags } = req.body
   db.query('INSERT INTO product ( name, description, price, image_url, category, tags) VALUES ($1, $2, $3, $4, $5, $6)', [name, description, price, image_url, category, tags])
-    .then(() => res.redirect('http://localhost:3000/dev/added'))
-    .catch((err) => res.redirect('http://localhost:8000/error'))
+    .then(() => res.redirect('http://localhost:3000/added'))
+    .catch((err) => res.redirect('http://localhost:3000/dev/error'))
 })
-
-app.get("/added", (req, res) => {
-  res.send(`
-    <html>
-      <body style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:20px;font-family:Arial;">
-          
-        <h1 style="font-size:40px;font-weight:bold;color:black;">
-          Produto adicionado!
-        </h1>
-
-        <a href="http://localhost:3000/dev"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:6px;text-decoration:none;font-weight:bold;">
-          Voltar
-        </a>
-
-      </body>
-    </html>
-  `);
-});
 
 app.get('/product/:id', async (req, res) => {
   const id = parseInt(req.params.id, 10);
@@ -104,48 +85,10 @@ app.post('/edit/:id', (req, res) => {
   db.query('UPDATE product SET name = $1, description = $2, price = $3, image_url = $4,  category = $5,  tags = $6 WHERE id = $7', [name, description, price, image_url, category, tags, id])
     .then((result) => {
       if (result.rowCount === 0)
-        return res.redirect('http://localhost:8000/error');
-      res.redirect('http://localhost:8000/edited');
+        return res.redirect('http://localhost:3000/dev/error');
+      res.redirect('http://localhost:3000/dev/edited');
     })
     .catch((err) => res.status(500).send(err.stack));
-})
-
-app.get("/edited", (req, res) => {
-  res.send(`
-    <html>
-      <body style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:20px;font-family:Arial;">
-          
-        <h1 style="font-size:40px;font-weight:bold;color:black;">
-          Produto editado!
-        </h1>
-
-        <a href="http://localhost:3000/dev"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius: 6px;text-decoration:none;font-weight:bold;">
-          Voltar
-        </a>
-
-      </body>
-    </html>
-  `);
-});
-
-app.get("/error", (req, res) => {
-  res.send(`
-    <html>
-      <body style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:20px;font-family:Arial;">
-          
-        <h1 style="font-size:40px;font-weight:bold;color:black;">
-          Produto não encontrado!
-        </h1>
-
-        <a href="http://localhost:3000/dev"
-           style="padding:10px 25px;background:#9F1D1D;color:white;border-radius:6px;text-decoration:none;font-weight:bold;">
-          Voltar
-        </a>
-
-      </body>
-    </html>
-  `);
 })
 
 // // DELETE
