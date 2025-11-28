@@ -64,20 +64,20 @@ PORT = 5432
 🗺️ 3. Mapa das Rotas da API (Backend Express)
 <div style="border: 2px solid #FF9F43; border-radius: 12px; padding: 18px; background: #FFF8EE;">
 📦 Produtos
+  
+- POST /add – adiciona produto
 
--POST /add – adiciona produto
+- GET /product/:id – busca por ID
 
--GET /product/:id – busca por ID
+- GET /products – lista tudo
 
--GET /products – lista tudo
+- GET /products/tags/:tag – filtra por tag
 
--GET /products/tags/:tag – filtra por tag
+- GET /products/categories/:cat – filtra por categoria
 
--GET /products/categories/:cat – filtra por categoria
+- POST /edit/:id – edita
 
--POST /edit/:id – edita
-
--DELETE /delete/:id – deleta
+- DELETE /delete/:id – deleta
 
 🛒 Carrinho
 
@@ -88,49 +88,49 @@ PORT = 5432
 <div style="border: 2px solid #00B894; border-radius: 12px; padding: 18px; background: #EDFFF8;">
 📍 Páginas principais
 
--/ – Home
+- / – Home
 
--/shop – Loja
+- /shop – Loja
 
--/product/[product] – Produto
+- /product/[product] – Produto
 
--/cart – Carrinho
+- /cart – Carrinho
 
--/aboutus – Sobre nós
-
--/dev – Área administrativa
+- /aboutus – Sobre nós
+ 
+- /dev – Área administrativa
 
 📂 Rotas dinâmicas (shop)
 
--/shop/[categories] – por categoria
+- /shop/[categories] – por categoria
 
--/shop/[tags] – por tag
+- /shop/[tags] – por tag
 
 🛠️ Rotas internas do /dev
 
--/dev/added – sucesso ao adicionar
+- /dev/added – sucesso ao adicionar
 
--/dev/edited – sucesso ao editar
+- /dev/edited – sucesso ao editar
 
--/dev/error – erro em operações
+- /dev/error – erro em operações
 
 </div>
 👥 5. Integrantes do Grupo
 <div style="border: 2px solid #0984E3; border-radius: 12px; padding: 18px; background: #F0F7FF;">
 👨‍🏫 Professores (ordem alfabética)
 
--Adson Silva Rocha
+- Adson Silva Rocha
 
--Rodrigo de Sousa Gomide
+- Rodrigo de Sousa Gomide
 
 👨‍🎓 Alunos (ordem alfabética)
 
--Ana Clara Rezende Pires de Campos
+- Ana Clara Rezende Pires de Campos
 
--Bruno Gonçalves de Freitas
+- Bruno Gonçalves de Freitas
 
--Jean Carlos Pereira Souza
+- Jean Carlos Pereira Souza
 
--João Victor Souza
+- João Victor Souza
 
 </div>
