@@ -11,12 +11,13 @@ body {
   align-items: center;
 }
 
+
 .button_home {
   @apply text-sm xl:text-lg flex-center flex-row gap-1 w-27 h-11 rounded-3xl p-1 border-1 border-b-gray-500 xl:w-30 xl:h-13 max-sm:text-xs
 }
 
 .shop-layout {
-  @apply grid xl:grid-flow-row xl:grid-rows-[1fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:gap-7 sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-2 max-sm:grid-flow-row max-sm:gap-30
+  @apply grid xl:grid-flow-row xl:grid-rows-[1fr_1fr_2fr_2fr] xl:h-50 xl:gap-5 xl:grid-cols-1 lg:grid-flow-row lg:gap-5 lg:h-50 lg:grid-cols-1 md:grid-cols-2 md:grid-flow-row md:justify-between sm:grid-cols-2 sm:grid-flow-row sm:gap-8 max-sm:grid-cols-1 max-sm:grid-flow-row max-sm:gap-30
 }
 
 .cart-container {
@@ -30,18 +31,13 @@ body {
 body {
   margin: 0;
   padding: 0;
-}
-
-input{
-  padding-left: 10px;
+    font-family: var(--font-funnel-display);
 }
 
 p {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: "Plaster", system-ui;
-  font-weight: 400;
-  font-style: normal;
+h1 {
+  font-family: var(--font-plaster);
 }

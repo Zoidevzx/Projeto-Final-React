@@ -9,7 +9,7 @@ export default function ItemsQuantity({ quantity, onIncrease, onDecrease }) {
                 <button
                     type="button"
                     className='font-extrabold h-9 w-8 border-stone-300 border-1 text-lg cursor-pointer flex-center'
-                    onClick={onDecrease} 
+                    onClick={onDecrease}
                 >
                     <Minus size={16} />
                 </button>

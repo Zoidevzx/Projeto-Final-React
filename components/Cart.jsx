@@ -5,6 +5,7 @@ import { CircleX } from "lucide-react"
 import Link from 'next/link';
 import { Fragment, useState } from "react";
 import { useCart } from "../context/ContextCart";
+import { FinalizarCompra } from "../actions/checkCart";
 
 export default function Cart({ title, subtitle }) {
 
@@ -14,39 +15,24 @@ export default function Cart({ title, subtitle }) {
 
   const handleCheckout = async () => {
     if (cartItems.length === 0)
+      return
 
     setLoading(true);
 
-    try {
-      const dadosParaEnviar = {
-        carrinho: cartItems.map(item => ({
-          ...item,
-          preco: Number(item.value) * (item.quantity || 1)
-        }))
-      };
+    const result = await FinalizarCompra(cartItems)
 
-      const res = await fetch('http://localhost:8000/add/cart', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dadosParaEnviar)
-      });
+    setLoading(false)
 
-      if (res.ok) {;
-        clearCart();
-      }
+    if (result.sucesso)
+      clearCart()
+  }
 
-    } catch (error) {
-      console.error(error);;
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="flex-center">
-      <div className="container grid xl:grid-rows-[4fr_8fr_6fr_4fr] gap-20 ">
+      <div className="container grid xl:grid-rows-[4fr_8fr_2fr_4fr] gap-20">
         <div className="flex-center flex-col gap-4">
-          <h1 className="m-0 font-bold xl:text-7xl max-lg:text-5xl">{title}</h1>
+          <h1 className="m-0 font-bold md:text-7xl max-lg:text-5xl">{title}</h1>
           <p className="m-0 text-gray-300 xl:text-xl max-lg:text-lg">{subtitle}</p>
         </div>
 
@@ -71,6 +57,7 @@ export default function Cart({ title, subtitle }) {
                         <p className="font-extralight">${e.value}</p>
                       </div>
                     </div>
+
                     <div className="flex-center">
                       <ItemsQuantity
                         quantity={e.quantity}
@@ -94,17 +81,17 @@ export default function Cart({ title, subtitle }) {
             </div>
           </div>
 
-          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-y-4">
-            <h1 className="m-0 text-4xl font-bold">Cart Total</h1>
-            <div className="grid grid-flow-row grid-cols-2">
+          <div className="grid grid-flow-row grid-rows-[1fr_2fr_6fr] gap-4">
+            <h2 className="m-0 text-4xl font-bold max-md:text-center">Cart Total</h2>
+            <div className="grid grid-flow-row md:grid-cols-2 max-md:text-center">
 
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300 max-md:w-full" />
               <p className="font-semibold text-xl">Subtotal</p>
               <p className="text-xl font-light">{cartItems.reduce((v, e) => (v + Number(e.value)), 0).toLocaleString('pt-BR', {
                 style: 'currency',
                 currency: 'BRL'
               })}</p>
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300 max-md:w-full" />
 
               <p className="font-semibold text-xl">Total</p>
               <p className="text-xl font-light">{cartItems.reduce((acc, items) => (acc + (Number(items.value) * items.quantity)), 0).toLocaleString('pt-BR', {
@@ -112,20 +99,20 @@ export default function Cart({ title, subtitle }) {
                 currency: 'BRL'
               })}</p>
 
-              <hr className="col-span-2 border-stone-300" />
+              <hr className="col-span-2 border-stone-300 max-md:w-full" />
             </div>
             <div className="flex-center h-50 flex-wrap">
-              <div className="grid grid-cols-2 gap-6 w-full">
-                <div>
-                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Update Cart</button>
+              <div className="grid grid-cols-2 gap-6 w-full max-md:grid-cols-1">
+                <div className="max-md: flex-center">
+                  <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4">Update Cart</button>
                 </div>
                 <div>
-                  <Link href={'/shop'}>
-                    <button className="bg-[#212529] p-1 cursor-pointer h-11 w-full text-neutral-200 xl:text-lg lg:text-xl ">Continue Shopping</button>
+                  <Link href={'/shop'} className="max-md:flex-center">
+                    <button className="bg-[#212529] p-1 cursor-pointer text-nowrap h-11 w-full text-neutral-200 xl:text-lg lg:text-xl max-md:w-3/4">Continue Shopping</button>
                   </Link>
                 </div>
-                <div className="col-span-2">
-                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl" onClick={handleCheckout} disabled={loading}>
+                <div className="md:col-span-2 max-md:flex-center">
+                  <button className="w-full bg-[#9f1d1d] p-1 cursor-pointer text-neutral-200  h-11 xl:text-xl lg:text-xl max-md:w-3/4" onClick={handleCheckout} disabled={loading}>
                     {loading ? 'Processando...' : 'Proceed to checkout'}
                   </button>
                 </div>
@@ -134,21 +121,21 @@ export default function Cart({ title, subtitle }) {
           </div>
         </div>
         <div className="flex-center">
-          <div className="flex flex-col">
+          <div className="flex-center flex-col text-wrap">
             <Subscribe />
           </div>
         </div>
-        <footer className="grid grid-flow-col gap-10">
+        <footer className="grid max-md:grid-cols-1 md:grid-cols-4 gap-10 px-10 py-10">
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-xl font-bold">Urban</h1>
-            <p className="w-80 text-pretty">
+            <h2 className="text-xl font-bold">Urban</h2>
+            <p className="w-full text-pretty">
               In modern urban settings, contemporary style guides creative communities and elevates everyday environments.
               Emerging trends unite cultural expression with innovation, forming distinctive identities defined by authenticity today.
             </p>
             <p>Urban design shapes modern lifestyles globally.</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Quick Links</h1>
+            <h2 className="text-lg font-bold">Quick Links</h2>
             <Link href={'/'}>Home</Link>
             <Link href={'/aboutus'}>About</Link>
             <p>Services</p>
@@ -156,7 +143,7 @@ export default function Cart({ title, subtitle }) {
             <p>Contacts</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Social</h1>
+            <h2 className="text-lg font-bold">Social</h2>
             <p>Facebook</p>
             <p>Twitter</p>
             <p>Pinterest</p>
@@ -164,10 +151,10 @@ export default function Cart({ title, subtitle }) {
             <p>Youtube</p>
           </div>
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-lg font-bold">Contact Us</h1>
+            <h2 className="text-lg font-bold break-all">Contact Us</h2>
             <p className="break-all">+1 (555) 347-9820</p>
             <p className="break-all">support@urbanstore.com</p>
-            <p>Contact Urban support for guidance.</p>
+            <p className="text-pretty">Contact Urban support for guidance.</p>
           </div>
         </footer>
       </div>

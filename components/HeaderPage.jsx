@@ -19,10 +19,10 @@ export function HeaderPage() {
     ]
 
     const itensblog = [
-        { nome: 'Ana', link: 'https://github.com/Jean1702' },
+        { nome: 'Ana', link: 'https://github.com/Ana-Clara1104' },
         { nome: 'Bruno', link: 'https://github.com/Zoidevzx' },
         { nome: 'Jean', link: 'https://github.com/Jean1702' },
-        { nome: 'Joao', link: 'https://github.com/Zoidevzx' }
+        { nome: 'Joao', link: 'https://github.com/jooaoDev' }
     ]
 
     const itenspage = [
@@ -50,7 +50,9 @@ export function HeaderPage() {
             <header className="container flex justify-between ">
 
                 <div className="flex-center">
-                    <h1 className='m-0 p-0 font-bold text-3xl max-sm:text-base xl:text-5xl'>Urban</h1>
+                    <Link href={'/'}>
+                        <h1 className='m-0 p-0 font-bold text-3xl max-sm:text-base xl:text-5xl'>Urban</h1>
+                    </Link>
                 </div>
 
                 <div className="flex gap-10 text-xs">
@@ -109,12 +111,14 @@ export function HeaderPage() {
                     </div>
 
                     <div className="flex-center ">
-                        <div className='flex md:hidden flex-col relative' >
+                        <div className='flex md:hidden flex-col relative mr-5' >
                             <TextAlignJustify className='cursor-pointer max-sm:size-3' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
-
+                            <div className='flex-center bg-red-500 size-4 absolute rounded-full md:left-2 md:top-2 sm:left-4 sm:top-3'>
+                                <p className='text-center text-white text-[10px]'>{totalItems}</p>
+                            </div>
                             {openlist && (
-                                <ul className='flex-center flex-col top-7 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
-                                    <li ><Search size={12} className={'xl:size-5 '} /></li>
+                                <ul className='flex-center flex-col top-9 lef-0 gap-1 bg-white p-1.5 z-10 absolute'>
+                                    <li ><Search size={12} className={'xl:size-5'} /></li>
                                     <li >
                                         <Link href={'/dev'}>
                                             <User size={12} className={'xl:size-5'} />
@@ -128,9 +132,9 @@ export function HeaderPage() {
                                 </ul>
                             )}
                         </div>
-                        <div className='md:flex-center gap-3 hidden'>
+                        <div className='md:flex-center gap-3 hidden md:mr-2'>
                             <div>
-                                <Search size={12} className={'xl:size-5 '} />
+                                <Search size={12} className={'xl:size-5'} />
                             </div>
                             <div>
                                 <Link href={'/dev'}>
@@ -140,7 +144,9 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12} className={'xl:size-5'} />
-                                    <div className='flex-center bg-red-400 w-5 h-5 absolute rounded-full left-[74%] top-[50%] '><p className='text-white'>{totalItems}</p></div>
+                                    <div className='flex-center bg-red-500 size-4 absolute rounded-full left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-2 md:size-3.5 lg:size-4 lg:top-2 lg:left-2 2xl:top-3 2xl:left-3'>
+                                        <p className='text-center text-white text-[10px] sm:text-2.5 lg:text-2  '>{totalItems}</p>
+                                    </div>
                                 </Link>
                             </div>
                         </div>
