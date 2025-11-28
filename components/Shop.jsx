@@ -26,6 +26,17 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
     { id: 5, name: 'Trendy Designs', link: '/shop/tags/Trendy%20Designs' }
   ]
 
+  const AllTypes = [
+    { id: 1, link: '/shop/categories/Classic' },
+    { id: 2, link: '/shop/categories/New' },
+    { id: 3, link: '/shop/categories/Modern' },
+    { id: 4, link: '/shop/tags/Casual%20Wear' },
+    { id: 5, link: '/shop/tags/Street%20Style' },
+    { id: 6, link: '/shop/tags/Oversized%20Fit' },
+    { id: 7, link: '/shop/tags/Cotton%20Fabric' },
+    { id: 8, link: '/shop/tags/Trendy%20Designs' }
+  ]
+
   const Values = [
     { id: 1, value: 'Less than $90' },
     { id: 2, value: '$90-$109' },
@@ -33,6 +44,14 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
     { id: 4, value: '$150-$179' },
     { id: 5, value: '$180-$200' }
   ]
+
+  const RenderList = CategoryRoute ? Categories : TagRoute ? Tags : AllTypes;
+
+  const listPosition = RenderList.findIndex((item) => item.link === pathname);
+
+  const prevItem = RenderList[listPosition - 1] || RenderList[RenderList.length - 1];
+
+  const nextItem = RenderList[listPosition + 1] || RenderList[0];
 
   return (
     <div className="flex-center">
@@ -46,41 +65,41 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
 
           <div className='shop-layout'>
             <div className='xl:flex md:flex md:items-start max-md:flex max-md:items-start max-sm:ml-2'>
-              <form className='flex-center '>
-                <input type="text" placeholder='Search' className='border-1 border-black p-1 h-10' />
+              <form className='flex-center'>
+                <input type="text" placeholder='Search' className='border-1 border-black p-1 h-10 max-sm:w-full' />
                 <button type='button' className='bg-[#704204] p-1 flex-center h-10 w-10 cursor-pointer'>
                   <Search size={14} color='white' />
                 </button>
               </form>
             </div>
 
-            <div>
-              <h3 className='font-semibold underline text-xl'>Categories</h3>
+            <div className='max-sm:ml-2'>
+              <h3 className='font-semibold underline text-3xl md:text-xl'>Categories</h3>
               {Categories.map((n) => (
                 <Fragment key={n.id}>
                   <Link href={n.link}>
-                    <p className='cursor-pointer font-light'>{n.name}</p>
+                    <p className='cursor-pointer font-light text-2xl md:text-base'>{n.name}</p>
                   </Link>
                 </Fragment>
               ))}
             </div>
 
             <div className='max-sm:ml-2'>
-              <h3 className='font-semibold underline text-xl'>Tags</h3>
+              <h3 className='font-semibold underline text-3xl md:text-xl'>Tags</h3>
               {Tags.map((n) => (
                 <Fragment key={n.id}>
                   <Link href={n.link}>
-                    <p className='cursor-pointer font-light'>{n.name}</p>
+                    <p className='cursor-pointer font-light text-2xl md:text-base'>{n.name}</p>
                   </Link>
                 </Fragment>
               ))}
             </div>
 
-            <div>
-              <h3 className='font-semibold underline text-xl'>Filter By Price</h3>
+            <div className='max-sm:ml-2'>
+              <h3 className='font-semibold underline text-3xl md:text-xl'>Filter By Price</h3>
               {Values.map((v) => (
                 <Fragment key={v.id}>
-                  <p className='cursor-pointer font-light'>{v.value}</p>
+                  <p className='cursor-pointer font-light text-2xl md:text-base'>{v.value}</p>
                 </Fragment>
               ))}
             </div>
@@ -119,18 +138,14 @@ export default function Shop({ title, subtitle, cat, tag, allproducts }) {
               })
             }
             <div className='flex justify-center sm:col-span-3 mt-4'>
-              <div className='grid grid-cols-5 h-8 w-40'>
-                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100' href={pathname === '/shop/categories/Modern' ? '/shop/categories/New' : '/shop/categories/Classic'}><ArrowBigLeft strokeWidth={2} size={18} /></Link>
-                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100 w-full h-full' href={'/shop/categories/Classic'}>
-                  1
-                </Link>
-                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100 w-full h-full' href={'/shop/categories/New'}>
-                  2
-                </Link>
-                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100 w-full h-full' href={'/shop/categories/Modern'}>
-                  3
-                </Link>
-                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100' href={pathname === '/shop/categories/Classic' ? '/shop/categories/New' : '/shop/categories/Modern'}>
+              <div className='grid grid-flow-col h-8 w-70'>
+                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100' href={prevItem?.link || '#'}><ArrowBigLeft strokeWidth={2} size={18} /></Link>
+                {RenderList.map((l) => (
+                  <Link key={l.id} className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100 w-full h-full' href={l.link}>
+                    {l.id}
+                  </Link>
+                ))}
+                <Link className='flex-center border border-neutral-200 cursor-pointer hover:bg-[#9F1D1D] hover:text-stone-100' href={nextItem?.link || '#'}>
                   <ArrowBigRight strokeWidth={2} size={18} />
                 </Link>
               </div>
