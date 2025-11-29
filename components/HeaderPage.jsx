@@ -62,7 +62,7 @@ export function HeaderPage() {
                         <div className='grid grid-flow-col gap-3 max-sm:gap-2'>
                             <div className="flex-center cursor-pointer relative group">
                                 <Link href={'/'}
-                                    className="relative text-sm 
+                                    className="relative 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -71,12 +71,11 @@ export function HeaderPage() {
                                 >
                                     Home
                                 </Link>
-                                </Link>
+
                             </div>
                             <div className="flex-center cursor-pointer text-nowrap relative group">
-                            <div className="flex-center cursor-pointer text-nowrap relative group">
                                 <Link href={'/aboutus'}
-                                    className="relative text-base 
+                                    className="relative
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -85,27 +84,38 @@ export function HeaderPage() {
                                 >
                                     About Us
                                 </Link>
-                                </Link>
+
                             </div>
                             <div className="flex-center gap-1 cursor-pointer relative group">
                                 <Link href={'/shop'}
-                                    className="relative text-base
+                                    className="relative
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
                                     group-hover:after:w-full
                                     dark:after:bg-white"
                                 >
-                                >
+
                                     Shop
                                 </Link>
                                 <ChevronDown size={12} className={'xl:size-4'} onClick={() => openblog ? (setOpenblog(!openblog), setOpenshop(!openshop)) : openpage ? (setOpenpage(!openpage), setOpenshop(!openshop)) : openlist ? (setOpenlist(!openlist), setOpenshop(!openshop)) : setOpenshop(!openshop)} />
 
                                 {openshop && (
-                                    <ul className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
-                                        {itenshop.map((e, i) => (
-                                            <li key={i}>
-                                                <Link href={e.link}>
+                                    <ul
+                                        className="flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+                                        bg-white dark:bg-gray-800 
+                                        text-gray-900 dark:text-gray-100 
+                                        border border-gray-200 dark:border-gray-700 rounded-md shadow-md"
+                                    >
+                                        {itenspage.map((e, i) => (
+                                            <li
+                                                key={i}
+                                                className="transition duration-200 ease-in-out 
+                                                hover:bg-gray-100 dark:hover:bg-gray-700 
+                                                hover:scale-105 active:scale-95 
+                                                rounded-md px-2 py-1 cursor-pointer"
+                                            >
+                                                <Link href={e.link} className="block w-full h-full">
                                                     {e.nome}
                                                 </Link>
                                             </li>
@@ -118,7 +128,7 @@ export function HeaderPage() {
                             <div className="flex-center border-0 gap-1 cursor-pointer relative group">
                                 <Link href={'https://github.com/Zoidevzx/Projeto-Final-React'}
                                     target='_blank'
-                                    className="relative text-sm 
+                                    className="relative 
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -131,14 +141,20 @@ export function HeaderPage() {
 
                                 {openblog && (
                                     <ul
-                                        className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
-                                    bg-white dark:bg-gray-800 
-                                    text-gray-900 dark:text-gray-100 
-                                    border border-gray-200 dark:border-gray-700 rounded-md shadow-md'
+                                        className="flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+                                        bg-white dark:bg-gray-800 
+                                        text-gray-900 dark:text-gray-100 
+                                        border border-gray-200 dark:border-gray-700 rounded-md shadow-md"
                                     >
-                                        {itensblog.map((e, i) => (
-                                            <li key={i}>
-                                                <Link href={e.link} target='_blank'>
+                                        {itenspage.map((e, i) => (
+                                            <li
+                                                key={i}
+                                                className="transition duration-200 ease-in-out 
+                                                hover:bg-gray-100 dark:hover:bg-gray-700 
+                                                hover:scale-105 active:scale-95 
+                                                rounded-md px-2 py-1 cursor-pointer"
+                                            >
+                                                <Link href={e.link} className="block w-full h-full">
                                                     {e.nome}
                                                 </Link>
                                             </li>
@@ -149,7 +165,7 @@ export function HeaderPage() {
                             </div>
                             <div className="flex-center gap-1 cursor-pointer relative  group" onClick={() => openshop ? (setOpenshop(!openshop), setOpenpage(!openpage)) : openblog ? (setOpenblog(!openblog), setOpenpage(!openpage)) : openlist ? (setOpenlist(!openlist), setOpenpage(!openpage)) : setOpenpage(!openpage)}>
                                 <Link href={'/'}
-                                    className="relative text-sm
+                                    className="relative
                                     after:content-[''] after:absolute after:left-0 after:bottom-0
                                     after:h-[2px] after:w-0 after:bg-black
                                     after:transition-all after:duration-200 after:ease-in-out
@@ -162,13 +178,20 @@ export function HeaderPage() {
 
                                 {openpage && (
                                     <ul
-                                        className='flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
-                                    bg-white dark:bg-gray-800 
-                                    text-gray-900 dark:text-gray-100 
-                                    border border-gray-200 dark:border-gray-700 rounded-md shadow-md'>
+                                        className="flex flex-col absolute top-8 md:top-10 left-0 gap-1 z-10 p-1 
+                                        bg-white dark:bg-gray-800 
+                                        text-gray-900 dark:text-gray-100 
+                                        border border-gray-200 dark:border-gray-700 rounded-md shadow-md"
+                                    >
                                         {itenspage.map((e, i) => (
-                                            <li key={i}>
-                                                <Link href={e.link}>
+                                            <li
+                                                key={i}
+                                                className="transition duration-200 ease-in-out 
+                                                hover:bg-gray-100 dark:hover:bg-gray-700 
+                                                hover:scale-105 active:scale-95 
+                                                rounded-md px-2 py-1 cursor-pointer"
+                                            >
+                                                <Link href={e.link} className="block w-full h-full">
                                                     {e.nome}
                                                 </Link>
                                             </li>
@@ -182,15 +205,16 @@ export function HeaderPage() {
                     <div className="flex-center ">
                         <div className='flex-center md:hidden flex-col relative ' >
                             <TextAlignJustify className='cursor-pointer max-sm:size-4' onClick={() => openshop ? (setOpenshop(!openshop), setOpenlist(!openlist)) : openblog ? (setOpenblog(!openblog), setOpenlist(!openlist)) : openpage ? (setOpenpage(!openpage), setOpenlist(!openlist)) : setOpenlist(!openlist)} />
-                            <div className='flex-center bg-red-500 z-50 size-4 absolute max-sm:top-3 max-sm:left-2 rounded-full md:left-2 md:top-2 sm:left-4 sm:top-3'>
+                            <div className='flex-center bg-red-500 z-50 size-3.5 absolute max-sm:top-3 max-sm:left-2 rounded-full md:left-2 md:top-2 sm:left-4 sm:top-3'>
                                 <p className='text-center text-white text-[10px]'>{totalItems}</p>
                             </div>
                             {openlist && (
                                 <ul
                                     className='flex-center flex-col absolute top-8 md:top-10 gap-1 z-10 p-1
-                                bg-white dark:bg-gray-800 
-                                text-gray-900 dark:text-gray-100 
-                                border border-gray-200 dark:border-gray-700 rounded-md shadow-md '>
+                                    bg-white dark:bg-gray-800 
+                                    text-gray-900 dark:text-gray-100 
+                                    border border-gray-200 dark:border-gray-700 rounded-md shadow-md '
+                                >
                                     <li ><Darkmode /></li>
                                     <li >
                                         <Link href={'/dev'}>
@@ -212,12 +236,10 @@ export function HeaderPage() {
                             <div>
                                 <Link href={'/dev'}>
                                     <User size={12}
-                                    <User size={12}
                                         className="xl:size-5 
                                         transition duration-300 ease-in-out 
                                         hover:scale-110 hover:rotate-6 
                                         active:scale-95 
-                                        dark:text-white"
                                         dark:text-white"
                                     />
                                 </Link>
@@ -226,12 +248,10 @@ export function HeaderPage() {
                             <div >
                                 <Link href={'/cart'} className='relative'>
                                     <ShoppingCart size={12}
-                                    <ShoppingCart size={12}
                                         className="xl:size-5 
                                         transition duration-300 ease-in-out 
                                         hover:scale-110 hover:rotate-6 
                                         active:scale-95 
-                                        dark:text-white"
                                         dark:text-white"
                                     />
                                     <div className='flex-center bg-red-500 size-4 absolute rounded-full z-29 left-3.5 top-3 sm:left-2 sm:top-1.5 sm:size-2 md:size-3.5 lg:size-4 lg:top-2 lg:left-2 2xl:top-3 2xl:left-3'>

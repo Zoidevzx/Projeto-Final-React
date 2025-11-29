@@ -15,11 +15,11 @@ export default function NotFoundPage() {
                     </h1>
 
                     <div className="space-y-4 text-center lg:text-left">
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight dark:text-[#00eaff] dark:[text-shadow:0_0_12px_rgba(0,234,255,0.7)]">
                             Houston, we have a problem.
                         </h2>
 
-                        <p className="text-lg md:text-xl text-slate-600 max-w-md mx-auto lg:mx-0 text-pretty leading-relaxed">
+                        <p className="text-lg md:text-xl text-slate-600 max-w-md mx-auto lg:mx-0 text-pretty leading-relaxed dark:text-[#00eaff] dark:[text-shadow:0_0_12px_rgba(0,234,255,0.7)]">
                             The page you are looking for has drifted into deep space. Let's get you back to earth safely.
                         </p>
                     </div>
