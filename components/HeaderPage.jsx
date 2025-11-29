@@ -107,7 +107,7 @@ export function HeaderPage() {
                                         text-gray-900 dark:text-gray-100 
                                         border border-gray-200 dark:border-gray-700 rounded-md shadow-md"
                                     >
-                                        {itenspage.map((e, i) => (
+                                        {itenshop.map((e, i) => (
                                             <li
                                                 key={i}
                                                 className="transition duration-200 ease-in-out 
@@ -146,7 +146,7 @@ export function HeaderPage() {
                                         text-gray-900 dark:text-gray-100 
                                         border border-gray-200 dark:border-gray-700 rounded-md shadow-md"
                                     >
-                                        {itenspage.map((e, i) => (
+                                        {itensblog.map((e, i) => (
                                             <li
                                                 key={i}
                                                 className="transition duration-200 ease-in-out 
@@ -154,7 +154,7 @@ export function HeaderPage() {
                                                 hover:scale-105 active:scale-95 
                                                 rounded-md px-2 py-1 cursor-pointer"
                                             >
-                                                <Link href={e.link} className="block w-full h-full">
+                                                <Link href={e.link} target='_blank' className="block w-full h-full">
                                                     {e.nome}
                                                 </Link>
                                             </li>
