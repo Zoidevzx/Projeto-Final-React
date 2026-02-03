@@ -1,9 +1,16 @@
+
 import Shop from '@/components/Shop';
+import { supabase } from '@/BackendSupTest/lib/supabaseClient';
 
 export default async function PageShop({ params }) {
-  const x = await params
-  const categoryparams = x.cat
-  const res = await fetch(`http://localhost:8000/products/categories/${categoryparams}`)
-  const data = await res.json()
-  return <Shop title={'Shop-Sidebar'} subtitle={'Home / Shop-Sidebar'} cat={data} />;
+  const rawCategory = params.cat;
+  const category = decodeURIComponent(rawCategory);
+
+  const { data: produtos } = await supabase
+    .from('product')              
+    .select('*')
+    .eq('category', category)     
+    .order('id', { ascending: true });
+
+  return <Shop title="Shop-Sidebar" subtitle="Home / Shop-Sidebar" cat={produtos} />;
 }

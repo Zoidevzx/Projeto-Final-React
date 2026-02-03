@@ -3,6 +3,7 @@ import ItemsQuantity from "./ItemsQuantity";
 import Subscribe from "./Subscribe";
 import { CircleX } from "lucide-react"
 import Link from 'next/link';
+import { supabase } from '@/BackendSupTest/lib/supabaseClient';
 import { Fragment, useState } from "react";
 import { useCart } from "../context/ContextCart";
 import { FinalizarCompra } from "../actions/checkCart";

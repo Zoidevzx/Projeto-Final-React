@@ -16,24 +16,18 @@ export default function Desenvolvedor({ produtos }) {
     const router = useRouter();
 
     const SubmissaoAdicionar = (e) => {
-        e.preventDefault();
-
         const formData = new FormData(e.target);
-        const image_url = formData.get("image_url");
-        const name = formData.get("name");
-        const description = formData.get("description");
-        const price = formData.get("price");
-        const category = formData.get("category");
-        const tags = formData.get("tags");
-
-        if (!image_url || !name || !description || !price || !category || !tags) {
+        if (!formData.get("name") || !formData.get("price")) {
+            e.preventDefault(); // cancela só se tiver erro
             setError("Todos os campos devem ser preenchidos!");
-            return;
+        } else {
+            setError("");
+            // não chama submit() nem fetch → navegador envia e segue o redirect
         }
-
-        setError("");
-        e.target.submit();
     };
+
+
+
     function TestedeSenha() {
         if (senha === senhacorreta)
             setLiberado(true)
@@ -71,7 +65,7 @@ export default function Desenvolvedor({ produtos }) {
 
     const deletarProduto = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8000/delete/${id}`, {
+            const response = await fetch(`/api/dell/${id}`, {
                 method: "DELETE",
             });
 
@@ -82,15 +76,17 @@ export default function Desenvolvedor({ produtos }) {
                 setTimeout(() => {
                     setProdutosDelete(prev => prev.filter(p => p.id !== id));
                 }, 500);
-
             } else {
-                const msg = await response.text();
+                const data = await response.json().catch(() => null);
+                const msg = data?.message || await response.text();
                 alert(msg);
             }
         } catch (error) {
             console.error("Erro ao deletar:", error);
+            alert('Erro ao conectar com o servidor.');
         }
     };
+
 
     return (
         <div className="flex justify-center size-full">
@@ -140,21 +136,21 @@ export default function Desenvolvedor({ produtos }) {
                         {paginaatual === "adicionar" &&
                             <div >
                                 <h2 className="flex-center text-3xl font-bold mb-4">Formulário De Insert</h2>
-                                <form method="POST" action="http://localhost:8000/add" onSubmit={SubmissaoAdicionar} className="flex flex-col gap-10" >
+                                <form method="POST" action="/api/add/product" onSubmit={SubmissaoAdicionar} className="flex flex-col gap-10" >
 
                                     <div className="flex justify-center flex-row max-sm:flex-col gap-5">
                                         <div className="flex flex-col gap-4 max-sm:items-center">
 
                                             <div className="flex gap-2 max-sm:flex-col max-sm:flex-center">
                                                 <label className="text-lg">URL link image:</label>
-                                                <input 
-                                                    type="text" 
+                                                <input
+                                                    type="text"
                                                     className="w-55 h-9 border border-gray-600 dark:border-gray-500 
                                                     rounded-md bg-white dark:bg-gray-700 
                                                     text-gray-900 dark:text-gray-100 p-2 "
                                                     value={url}
                                                     onChange={(e) => setUrl(e.target.value)}
-                                                    name="image_url" 
+                                                    name="image_url"
                                                 />
                                             </div>
 
@@ -366,7 +362,7 @@ export default function Desenvolvedor({ produtos }) {
 
                                                         <form
                                                             method="POST"
-                                                            action={`http://localhost:8000/edit/${produto.id}`}
+                                                            action={`/api/edit/${produto.id}`}
                                                             className="shadow-md p-6 rounded-md bg-white dark:bg-gray-800"
                                                             onSubmit={SubmissaoAdicionar}
                                                         >

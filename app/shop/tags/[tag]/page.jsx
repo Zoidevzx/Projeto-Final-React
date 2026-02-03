@@ -1,9 +1,15 @@
 import Shop from '@/components/Shop';
+import { supabase } from '@/BackendSupTest/lib/supabaseClient';
 
 export default async function PageShop({ params }) {
-  const x = await params
-  const tagparams = x.tag
-  const res = await fetch(`http://localhost:8000/products/tags/${tagparams}`)
-  const data = await res.json()
-  return <Shop title={'Shop-Sidebar'} subtitle={'Home / Shop-Sidebar'} tag={data} />;
+  const rawTag = params.tag;                   
+  const tag = decodeURIComponent(rawTag);      
+
+  const { data: produtos } = await supabase
+    .from('product')
+    .select('*')
+    .eq('tags', tag)                            
+    .order('id', { ascending: true });
+
+  return <Shop title="Shop-Sidebar" subtitle="Home / Shop-Sidebar" tag={produtos} />;
 }
